@@ -1,10 +1,10 @@
-import { Great_Vibes, Playfair_Display } from "next/font/google";
+import localFont from "next/font/local";
 import clsx from "clsx";
 import type { CertView } from "@/lib/certificate-data";
 import { qrModules } from "@/lib/qr";
 
-const serif = Playfair_Display({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-cert-serif" });
-const script = Great_Vibes({ subsets: ["latin"], weight: "400", variable: "--font-cert-script" });
+const serif = localFont({ src: "../../fonts/PlayfairDisplay-latin.woff2", weight: "400 700", variable: "--font-cert-serif" });
+const script = localFont({ src: "../../fonts/GreatVibes-latin.woff2", weight: "400", variable: "--font-cert-script" });
 
 export const certFonts = clsx(serif.variable, script.variable);
 

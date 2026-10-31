@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import { ToastProvider } from "@/components/ui/Toast";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-inter" });
+// Self-hosted (variable, latin) so builds never depend on fetching Google Fonts.
+const inter = localFont({ src: "../fonts/Inter-latin.woff2", weight: "400 700", variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: { default: "Lawdemy", template: "%s · Lawdemy" },
