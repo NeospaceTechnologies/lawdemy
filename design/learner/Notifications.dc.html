@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lawdemy – Notifications</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#101828;background:#fff}
+*{box-sizing:border-box}
+a{color:#0B0B7E}a:hover{color:#06065A}
+</style>
+</helmet>
+<div style="width: 400px; height: 380px; box-sizing: border-box; background: #ffffff; border: 1px solid #EAECF0; border-radius: 12px; box-shadow: 0 12px 24px -6px rgba(16,24,40,0.14); display: flex; flex-direction: column; overflow: hidden; font-family: Inter, system-ui, sans-serif; color: #101828">
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 16px 12px; border-bottom: 1px solid #EAECF0">
+    <h2 style="margin: 0; font-size: 16px; font-weight: 700">Notifications <span style="font-weight: 500; color: #667085">(4)</span></h2>
+    <div style="display: flex; align-items: center; gap: 4px">
+      <a href="#" style="font-size: 12px; font-weight: 600">Mark all as read</a>
+      <button type="button" aria-label="Notification settings" style="width: 36px; height: 36px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#475467" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"></path></svg></button>
+    </div>
+  </div>
+  <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">
+    <li style="display: flex; gap: 12px; padding: 14px 16px; border-bottom: 1px solid #F2F4F7; background: #F9FAFB">
+      <span style="width: 32px; height: 32px; flex: none; border-radius: 8px; border: 1px solid #0B0B7E; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B0B7E" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h10a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"></path></svg></span>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <p style="margin: 0; font-size: 13px; line-height: 1.45"><strong>Segun Bello</strong> has added a new module to <strong>Foundations of Criminal Law</strong></p>
+        <span style="display: flex; align-items: center; gap: 6px; font-size: 11px; color: #667085"><span style="width: 7px; height: 7px; border-radius: 50%; background: #D92D20" aria-label="Unread"></span>2 hours ago</span>
+      </div>
+    </li>
+    <li style="display: flex; gap: 12px; padding: 14px 16px; border-bottom: 1px solid #F2F4F7">
+      <span style="width: 32px; height: 32px; flex: none; border-radius: 8px; border: 1px solid #0B0B7E; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B0B7E" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"></rect><path d="M9 8h6M9 12h6M9 16h3"></path></svg></span>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <p style="margin: 0; font-size: 13px; line-height: 1.45"><strong>You</strong> have a pending quiz to complete in <strong>Module 3</strong>.</p>
+        <span style="display: flex; align-items: center; gap: 6px; font-size: 11px; color: #667085"><span style="width: 7px; height: 7px; border-radius: 50%; background: #D92D20" aria-label="Unread"></span>1 day ago</span>
+      </div>
+    </li>
+    <li style="display: flex; gap: 12px; padding: 14px 16px">
+      <span style="width: 32px; height: 32px; flex: none; border-radius: 8px; border: 1px solid #0B0B7E; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B0B7E" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path></svg></span>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <p style="margin: 0; font-size: 13px; line-height: 1.45"><strong>Someone</strong> replied to your question in Module 2: <strong>Legal Drafting Basics.</strong></p>
+        <span style="display: flex; align-items: center; gap: 6px; font-size: 11px; color: #667085"><span style="width: 7px; height: 7px; border-radius: 50%; background: #D92D20" aria-label="Unread"></span>2 hours ago</span>
+      </div>
+    </li>
+  </ul>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":400,"height":380}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

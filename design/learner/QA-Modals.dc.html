@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lawdemy – Q&amp;A pop-up states</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#101828;background:#fff}
+*{box-sizing:border-box}
+a{color:#0B0B7E}a:hover{color:#06065A}
+</style>
+</helmet>
+<div style="width: 1600px; height: 1240px; box-sizing: border-box; padding: 24px; background: #F2F4F7; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 372px; gap: 20px; font-family: Inter, system-ui, sans-serif; color: #101828">
+  <sc-for list="{{cells}}" as="c" hint-placeholder-count="12">
+    <div style="display: flex; flex-direction: column; gap: 6px; min-height: 0">
+      <span style="font-size: 12px; font-weight: 600; color: #475467">{{c.label}}</span>
+      <div style="flex: 1; min-height: 0; overflow: hidden; background: #ffffff; border-radius: 12px; box-shadow: 0 12px 24px -6px rgba(16,24,40,0.14); display: flex; flex-direction: column">
+
+        <sc-if value="{{c.isReply}}" hint-placeholder-val="{{true}}">
+          <div style="flex: 1; display: flex; flex-direction: column">
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid #EAECF0"><strong style="font-size: 15px">{{c.title}}</strong><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></div>
+            <div style="padding: 12px 16px; display: flex; gap: 8px; border-bottom: 1px solid #EAECF0">
+              <span style="width: 24px; height: 24px; flex: none; border-radius: 50%; background: #D0D5DD" aria-hidden="true"></span>
+              <div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 13px; font-weight: 600">How relevant is Natural Law in today’s legal system?</strong><span style="font-size: 11px; color: #475467; line-height: 1.45">I’ve been reflecting on the Natural Law theorists we discussed in Module 1…</span><span style="font-size: 10px; color: #667085">Abdullah Mariam · 2 months ago</span></div>
+            </div>
+            <div style="flex: 1; padding: 12px 16px; display: flex; flex-direction: column; gap: 6px">
+              <span style="font-size: 11px; font-weight: 600">Add your reply</span>
+              <div style="{{c.boxStyle}}">{{c.value}}</div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 0 16px 16px">
+              <span style="height: 36px; display: flex; align-items: center; justify-content: center; border: 1px solid #0B0B7E; border-radius: 8px; font-size: 12px; font-weight: 600; color: #0B0B7E">Cancel</span>
+              <span style="{{c.btnStyle}}">{{c.btn}}</span>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{c.isReport}}" hint-placeholder-val="{{false}}">
+          <div style="flex: 1; display: flex; flex-direction: column; position: relative">
+            <div style="padding: 12px 16px; border-bottom: 1px solid #EAECF0; display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 15px">Report this post</strong><span style="font-size: 11px; color: #475467">Help us keep Lawdemy’s community clean. Why are you reporting this post?</span></div>
+            <div style="flex: 1; padding: 12px 16px; display: flex; flex-direction: column; gap: 10px">
+              <span style="font-size: 11px; font-weight: 600">Reason for reporting</span>
+              <div style="{{c.selectStyle}}"><span>{{c.reason}}</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#667085" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></div>
+              <sc-if value="{{c.open}}" hint-placeholder-val="{{false}}">
+                <div style="border: 1px solid #EAECF0; border-radius: 8px; box-shadow: 0 8px 16px -6px rgba(16,24,40,0.16); padding: 4px; display: flex; flex-direction: column; font-size: 12px">
+                  <span style="padding: 7px 8px; border-radius: 6px; background: #F2F4F7; display: flex; justify-content: space-between">It’s spam or misleading<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0B0B7E" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg></span>
+                  <span style="padding: 7px 8px">Offensive or abusive content</span>
+                  <span style="padding: 7px 8px">Off-topic or irrelevant</span>
+                  <span style="padding: 7px 8px">Duplicate content</span>
+                  <span style="padding: 7px 8px">Other</span>
+                </div>
+              </sc-if>
+              <sc-if value="{{c.notOpen}}" hint-placeholder-val="{{true}}">
+                <span style="font-size: 11px; font-weight: 600">Tell us more about your issue</span>
+                <div style="height: 64px; border: 1px solid #EAECF0; border-radius: 8px; background: #F9FAFB; padding: 8px 10px; font-size: 12px; color: {{c.moreColor}}">{{c.more}}</div>
+              </sc-if>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 0 16px 16px">
+              <span style="height: 36px; display: flex; align-items: center; justify-content: center; border: 1px solid #0B0B7E; border-radius: 8px; font-size: 12px; font-weight: 600; color: #0B0B7E">Cancel</span>
+              <span style="{{c.btnStyle}}">{{c.btn}}</span>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{c.isEditQ}}" hint-placeholder-val="{{false}}">
+          <div style="flex: 1; display: flex; flex-direction: column">
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid #EAECF0"><strong style="font-size: 15px">Edit Question</strong><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></div>
+            <div style="flex: 1; padding: 12px 16px; display: flex; flex-direction: column; gap: 6px">
+              <span style="font-size: 11px; font-weight: 600">Title</span>
+              <div style="height: 34px; border: 1.5px solid #0B0B7E; border-radius: 8px; padding: 0 10px; display: flex; align-items: center; font-size: 12px">How relevant is Natural Law today?</div>
+              <span style="font-size: 11px; font-weight: 600; margin-top: 6px">Details (Optional)</span>
+              <div style="height: 80px; border: 1px solid #EAECF0; border-radius: 8px; background: #F9FAFB; padding: 8px 10px; font-size: 11px; line-height: 1.45; color: #344054">e.g. At 05:40 I didn’t understand this part.</div>
+              <span style="font-size: 11px; color: #344054; margin-top: 4px">Tips: keep it clear and concise.</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 0 16px 16px">
+              <span style="height: 36px; display: flex; align-items: center; justify-content: center; border: 1px solid #0B0B7E; border-radius: 8px; font-size: 12px; font-weight: 600; color: #0B0B7E">Cancel</span>
+              <span style="height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: #06065A; color: #ffffff; font-size: 12px; font-weight: 600">Saving…</span>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{c.isConfirm}}" hint-placeholder-val="{{false}}">
+          <div style="flex: 1; padding: 24px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; text-align: center">
+            <span style="width: 40px; height: 40px; border-radius: 10px; border: 1px solid #EAECF0; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l10 18H2z" fill="#FDB022"></path><path d="M12 10v5M12 18h.01" stroke="#7A2E0E" stroke-width="2" stroke-linecap="round"></path></svg></span>
+            <strong style="font-size: 16px">{{c.title}}</strong>
+            <span style="font-size: 12px; color: #475467; line-height: 1.5">{{c.body}}</span>
+            <div style="align-self: stretch; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 6px">
+              <span style="height: 36px; display: flex; align-items: center; justify-content: center; border: 1px solid #0B0B7E; border-radius: 8px; font-size: 12px; font-weight: 600; color: #0B0B7E">Cancel</span>
+              <span style="height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: #D92D20; color: #ffffff; font-size: 12px; font-weight: 600">Delete</span>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{c.isThanks}}" hint-placeholder-val="{{false}}">
+          <div style="flex: 1; padding: 24px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; text-align: center">
+            <span style="width: 40px; height: 40px; border-radius: 10px; border: 1.5px solid #0B0B7E; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B0B7E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg></span>
+            <strong style="font-size: 16px">Thanks for reporting!</strong>
+            <span style="font-size: 12px; color: #475467; line-height: 1.5">We’ll review this post shortly. You won’t see updates, but action will be taken if necessary.</span>
+            <span style="align-self: stretch; height: 38px; margin-top: 6px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: #0B0B7E; color: #ffffff; font-size: 13px; font-weight: 600">Done</span>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{c.isMenu}}" hint-placeholder-val="{{false}}">
+          <div style="flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 20px; background: #F9FAFB">
+            <div style="width: 170px; background: #ffffff; border: 1px solid #EAECF0; border-radius: 8px; box-shadow: 0 12px 24px -6px rgba(16,24,40,0.14); padding: 4px; font-size: 13px">
+              <span style="height: 34px; display: flex; align-items: center; gap: 8px; padding: 0 10px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"></path></svg>Edit</span>
+              <span style="height: 34px; display: flex; align-items: center; gap: 8px; padding: 0 10px; color: #B42318"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"></path></svg>Delete</span>
+            </div>
+            <div style="width: 170px; background: #ffffff; border: 1px solid #EAECF0; border-radius: 8px; box-shadow: 0 12px 24px -6px rgba(16,24,40,0.14); padding: 4px; font-size: 13px">
+              <span style="height: 34px; display: flex; align-items: center; gap: 8px; padding: 0 10px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4h11l-2 4 2 4H5"></path></svg>Report Spam</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; background: #067647; color: #ffffff">
+              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#ffffff"></circle><path d="M7.5 12l3 3 6-6" fill="none" stroke="#067647" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span style="display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 12px">Reply Deleted Successfully</strong><span style="font-size: 11px">Your reply has been removed.</span></span>
+            </div>
+          </div>
+        </sc-if>
+
+      </div>
+    </div>
+  </sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1600,"height":1240}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const off = 'height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: #ffffff; font-size: 12px; font-weight: 600; background: #9D9DD0';
+    const on = off.replace('#9D9DD0', '#0B0B7E');
+    const busy = off.replace('#9D9DD0', '#06065A');
+    const box = (focused, filled) => 'flex: 1; min-height: 60px; border-radius: 8px; padding: 8px 10px; font-size: 12px; background: ' + (focused ? '#ffffff' : '#F9FAFB') + '; border: ' + (focused ? '1.5px solid #0B0B7E' : '1px solid #EAECF0') + '; color: ' + (filled ? '#101828' : '#667085');
+    const sel = (focused, filled) => 'height: 34px; border-radius: 8px; padding: 0 10px; display: flex; align-items: center; justify-content: space-between; font-size: 12px; background: ' + (focused ? '#ffffff' : '#F9FAFB') + '; border: ' + (focused ? '1.5px solid #0B0B7E' : '1px solid #D0D5DD') + '; color: ' + (filled ? '#101828' : '#667085');
+    const blank = { isReply: false, isReport: false, isEditQ: false, isConfirm: false, isThanks: false, isMenu: false, open: false, notOpen: true };
+    const reply = (label, title, value, focused, ready) => ({ ...blank, isReply: true, label, title, value, boxStyle: box(focused, ready), btn: 'Send', btnStyle: ready ? on : off });
+    const report = (label, reason, open, more, btn, style) => ({ ...blank, isReport: true, label, reason, open, notOpen: !open, more, moreColor: more === 'Enter a description…' ? '#667085' : '#101828', selectStyle: sel(open, reason !== 'Select option'), btn, btnStyle: style });
+    return {
+      cells: [
+        reply('Write your response / Default', 'Write your response', 'Enter a description…', false, false),
+        reply('Write your response / Filled', 'Write your response', 'Natural Law still shapes how courts read rights.', false, true),
+        reply('Edit comment / Focused', 'Edit Comment', 'Oh yes, it does hold weight!', true, false),
+        reply('Edit comment / Filled', 'Edit Comment', 'Oh yes, it does hold weight!', false, true),
+        report('Report as spam / Default', 'Select option', false, 'Enter a description…', 'Submit', off),
+        report('Report as spam / Focused', 'Select option', true, '', 'Submit', off),
+        report('Report as spam / Filled', 'It’s spam or misleading', false, 'This links to an unrelated site.', 'Submit', on),
+        report('Report as spam / Submitting', 'It’s spam or misleading', false, 'This links to an unrelated site.', 'Submitting…', busy),
+        { ...blank, isThanks: true, label: 'Thanks for reporting' },
+        { ...blank, isEditQ: true, label: 'Edit question / Saving' },
+        { ...blank, isConfirm: true, label: 'Delete question / Confirm', title: 'Delete this question?', body: 'Deleting this question will remove it and all related replies from the discussion. Are you sure you want to proceed?' },
+        { ...blank, isMenu: true, label: 'Dropdown menus & toast' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

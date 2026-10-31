@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lawdemy – Upload file states</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#101828;background:#fff}
+*{box-sizing:border-box}
+a{color:#0B0B7E}a:hover{color:#06065A}
+</style>
+</helmet>
+<div style="width: 1040px; height: 440px; box-sizing: border-box; padding: 24px; background: #F2F4F7; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: start; font-family: Inter, system-ui, sans-serif; color: #101828">
+  <sc-for list="{{states}}" as="s" hint-placeholder-count="3">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 12px; font-weight: 600; color: #475467">{{s.label}}</span>
+      <div role="dialog" aria-label="Upload file" style="background: #ffffff; border-radius: 12px; box-shadow: 0 12px 24px -6px rgba(16,24,40,0.14); display: flex; flex-direction: column">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; padding: 16px 16px 12px; border-bottom: 1px solid #EAECF0">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 style="margin: 0; font-size: 16px; font-weight: 600">Upload File</h2>
+            <p style="margin: 0; font-size: 12px; color: #475467; line-height: 1.45">Add supporting materials like PDFs, slides, case studies, or handouts for your learners.</p>
+          </div>
+          <button type="button" aria-label="Close" style="width: 32px; height: 32px; flex: none; border: 0; background: transparent; display: flex; align-items: center; justify-content: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+        </div>
+        <div style="padding: 16px; display: flex; flex-direction: column; gap: 10px">
+          <button type="button" style="padding: 18px 12px; border: 1px solid #EAECF0; border-radius: 10px; background: #F9FAFB; font: inherit; display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; box-shadow: 0 1px 3px rgba(16,24,40,0.08)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#475467" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"></path></svg>
+            <span style="font-size: 12px; font-weight: 600; color: #0B0B7E; text-decoration: underline">Click to upload</span>
+            <span style="font-size: 11px; color: #667085">JPEG, PNG, PDF (Max file 500MB)</span>
+          </button>
+          <sc-if value="{{s.hasFile}}" hint-placeholder-val="{{false}}">
+            <div style="padding: 10px 12px; border: 1px solid #EAECF0; border-radius: 10px; display: flex; flex-direction: column; gap: 8px">
+              <div style="display: flex; align-items: center; gap: 10px">
+                <span style="width: 28px; height: 28px; flex: none; border-radius: 6px; background: #FDEAD7" aria-hidden="true"></span>
+                <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; font-weight: 500">Myscreenshot.png</span><span style="font-size: 11px; color: #667085">{{s.meta}}</span></span>
+                <button type="button" aria-label="Cancel upload" style="width: 28px; height: 28px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#475467" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+              </div>
+              <div role="progressbar" aria-valuenow="{{s.pct}}" aria-valuemin="0" aria-valuemax="100" style="height: 6px; border-radius: 3px; background: #EAECF0; overflow: hidden"><div style="height: 6px; border-radius: 3px; background: #0B0B7E; width: {{s.width}}"></div></div>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1040,"height":440}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      states: [
+        { label: 'Default', hasFile: false, meta: '', pct: 0, width: '0%' },
+        { label: 'In progress', hasFile: true, meta: '3 KB of 3.00 MB • Uploading…', pct: 55, width: '55%' },
+        { label: 'Completed', hasFile: true, meta: '5.72 MB of 5.72 MB • Completed', pct: 100, width: '100%' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

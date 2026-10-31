@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lawdemy Instructor – Create course</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#101828;background:#fff}
+*{box-sizing:border-box}
+a{color:#0B0B7E}a:hover{color:#06065A}
+[contenteditable]:empty:before{content:attr(data-placeholder);color:#98A2B3}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 100vh; background: #ffffff">
+  <aside style="flex: 1 1 240px; background: #F9FAFB; border-right: 1px solid #EAECF0; padding: 20px 14px; display: flex; flex-direction: column; gap: 24px">
+    <div style="display: flex; align-items: center; gap: 8px; padding: 0 8px">
+      <svg width="22" height="26" viewBox="0 0 22 26" aria-hidden="true"><path d="M2 2h6v16h12v6H5a3 3 0 0 1-3-3z" fill="#0B0B7E"></path><circle cx="16" cy="12" r="4.5" fill="#F26B1D"></circle></svg>
+      <span style="font-weight: 700; font-size: 16px; color: #0B0B7E">Lawdemy</span>
+      <span style="margin-left: 4px; font-size: 10px; font-weight: 600; color: #5B21B6; background: #F1EBFF; border-radius: 4px; padding: 2px 6px">Instructor</span>
+    </div>
+    <nav aria-label="Main" style="display: flex; flex-direction: column; gap: 2px">
+      <a href="Inst-Dashboard.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 600; color: #101828; background: #EAECF0; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>Dashboard</a>
+      <a href="Inst-MyCourses.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; color: #344054; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h10a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"></path><path d="M8 9h6"></path></svg>My Courses</a>
+      <a href="Inst-Earnings.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; color: #344054; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18M7 15h3"></path></svg>Earnings</a>
+      <a href="Inst-Community.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; color: #344054; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"></path><path d="M3 13l9 5 9-5"></path></svg>Community</a>
+    </nav>
+    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 2px">
+      <a href="Inst-Support.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; color: #344054; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg>Support</a>
+      <a href="Inst-Settings.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; color: #344054; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"></path></svg>Settings</a>
+      <button type="button" style="margin-top: 12px; display: flex; align-items: center; gap: 10px; padding: 10px; border: 1px solid #EAECF0; border-radius: 10px; background: #ffffff; font: inherit; text-align: left; cursor: pointer">
+        <span style="width: 34px; height: 34px; flex: none; border-radius: 50%; background: #7A4E3A; color: #F5E6D3; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">JA</span>
+        <span style="flex: 1; min-width: 0; display: flex; flex-direction: column"><span style="font-size: 13px; font-weight: 600">James Adeniola</span><span style="font-size: 11px; color: #667085">Instructor</span></span>
+      </button>
+    </div>
+  </aside>
+
+  <main style="flex: 999 1 560px; min-width: 0; padding: 20px 32px 56px; display: flex; flex-direction: column; gap: 22px; max-width: 1100px">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+      <a href="Inst-Dashboard.dc.html" aria-label="Back to dashboard" style="width: 36px; height: 36px; border: 1px solid #EAECF0; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #344054"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></a>
+      <sc-if value="{{isBuilder}}" hint-placeholder-val="{{false}}">
+        <div style="display: flex; gap: 8px">
+          <a href="Inst-Dashboard.dc.html" style="height: 38px; display: flex; align-items: center; padding: 0 14px; border: 1px solid #0B0B7E; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none">Cancel</a>
+          <button type="button" onClick="{{askDraft}}" style="height: 38px; display: flex; align-items: center; gap: 6px; padding: 0 14px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v15H5z"></path><path d="M8 3v5h7V3M8 21v-7h8v7"></path></svg>Save Draft</button>
+          <button type="button" onClick="{{publish}}" disabled="{{publishDisabled}}" style="{{publishStyle}}">Publish Course</button>
+        </div>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{hasToast}}" hint-placeholder-val="{{false}}">
+      <div role="status" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 10px; background: #067647; color: #ffffff">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#ffffff"></circle><path d="M7.5 12l3 3 6-6" fill="none" stroke="#067647" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 14px">{{toastTitle}}</strong><span style="font-size: 12px">{{toastBody}}</span></div>
+        <button type="button" aria-label="Dismiss" onClick="{{dismiss}}" style="width: 32px; height: 32px; border: 0; background: transparent; color: #ffffff; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+    </sc-if>
+
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.01em">Create Course</h1>
+      <p style="margin: 0; font-size: 14px; color: #475467">Craft your course by sharing what you know best. Start with a strong foundation, then build engaging modules your learners will love.</p>
+    </div>
+
+    <ol aria-label="Steps" style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+      <sc-for list="{{steps}}" as="st" hint-placeholder-count="3">
+        <li>
+          <button type="button" onClick="{{st.go}}" aria-current="{{st.current}}" style="width: 100%; padding: 0; border: 0; background: transparent; font: inherit; text-align: left; display: flex; flex-direction: column; gap: 6px; cursor: pointer">
+            <span style="{{st.boxStyle}}">{{st.n}}</span>
+            <span style="font-size: 11px; color: #667085">Step {{st.n}}</span>
+            <span style="{{st.labelStyle}}">{{st.label}}</span>
+          </button>
+        </li>
+      </sc-for>
+    </ol>
+
+    <sc-if value="{{isInfo}}" hint-placeholder-val="{{true}}">
+      <form style="display: flex; flex-direction: column; gap: 18px">
+        <h2 style="margin: 0; font-size: 18px; font-weight: 600">Course Information</h2>
+        <div style="display: flex; flex-direction: column; gap: 6px"><label for="ct" style="font-size: 13px; font-weight: 600">Course Title</label><input id="ct" type="text" value="{{title}}" onChange="{{setTitle}}" placeholder="e.g. Introduction to Legal Reasoning" style="height: 44px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 14px; background: #F9FAFB"></div>
+        <div style="display: flex; flex-direction: column; gap: 6px"><label for="cs" style="font-size: 13px; font-weight: 600">Course Subtitle</label><input id="cs" type="text" placeholder="A one-line summary learners see under the title" style="height: 44px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 14px; background: #F9FAFB"></div>
+        <div style="display: flex; flex-direction: column; gap: 6px"><label for="cd" style="font-size: 13px; font-weight: 600">Course Description</label><textarea id="cd" rows="4" placeholder="What is this course about, and who is it for?" style="border: 1px solid #D0D5DD; border-radius: 8px; padding: 10px 12px; font: inherit; font-size: 14px; background: #F9FAFB; resize: vertical"></textarea></div>
+        <div style="display: flex; flex-direction: column; gap: 6px"><label for="co" style="font-size: 13px; font-weight: 600">What will learners gain?</label><textarea id="co" rows="3" placeholder="List the key outcomes, one per line" style="border: 1px solid #D0D5DD; border-radius: 8px; padding: 10px 12px; font: inherit; font-size: 14px; background: #F9FAFB; resize: vertical"></textarea></div>
+        <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 10px">
+          <legend style="font-size: 16px; font-weight: 600; margin-bottom: 4px">Set Estimated Duration</legend>
+          <span style="font-size: 12px; color: #475467">Choose a format and enter the estimated length of this course.</span>
+          <div style="display: flex; gap: 20px; font-size: 13px">
+            <label style="display: flex; align-items: center; gap: 6px; cursor: pointer"><input type="radio" name="dur" checked="{{durMin}}" onChange="{{setDurMin}}" style="accent-color: #0B0B7E">Minutes and Seconds</label>
+            <label style="display: flex; align-items: center; gap: 6px; cursor: pointer"><input type="radio" name="dur" checked="{{durHr}}" onChange="{{setDurHr}}" style="accent-color: #0B0B7E">Hours and Minutes</label>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 160px)); gap: 12px">
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">{{durA}}<input type="number" min="0" placeholder="0" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 14px; background: #F9FAFB"></label>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">{{durB}}<input type="number" min="0" max="59" placeholder="0" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 14px; background: #F9FAFB"></label>
+          </div>
+        </fieldset>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 6px"><label for="cat" style="font-size: 13px; font-weight: 600">Course Category</label>
+            <select id="cat" value="{{cat}}" onChange="{{setCat}}" style="height: 44px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 14px; background: #F9FAFB"><option value="">Select category</option><option>Law Practice Areas</option><option>Legal Skills &amp; Development</option><option>Business, Tech &amp; Compliance</option><option>Cross-Sector &amp; General Interest</option><option>International &amp; Emerging Fields</option></select></div>
+          <div style="display: flex; flex-direction: column; gap: 6px"><label for="lvl" style="font-size: 13px; font-weight: 600">Skill Level</label>
+            <select id="lvl" style="height: 44px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 14px; background: #F9FAFB"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; font-weight: 600">Course Thumbnail</span>
+          <button type="button" onClick="{{toggleThumb}}" style="padding: 20px 12px; border: 1px solid #EAECF0; border-radius: 10px; background: #F9FAFB; font: inherit; display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#475467" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"></path></svg>
+            <span style="font-size: 13px; font-weight: 600; color: #0B0B7E; text-decoration: underline">{{thumbLabel}}</span>
+            <span style="font-size: 11px; color: #667085">JPEG, PNG (Recommended 1280×720)</span>
+          </button>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 10px; padding-top: 8px; border-top: 1px solid #EAECF0">
+          <a href="Inst-Dashboard.dc.html" style="height: 44px; display: flex; align-items: center; padding: 0 18px; border: 1px solid #0B0B7E; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none">Cancel</a>
+          <button type="button" onClick="{{toPrice}}" disabled="{{infoBlocked}}" style="{{infoStyle}}">Proceed to Price Information</button>
+        </div>
+      </form>
+    </sc-if>
+
+    <sc-if value="{{isPrice}}" hint-placeholder-val="{{false}}">
+      <form style="display: flex; flex-direction: column; gap: 18px; max-width: 640px">
+        <h2 style="margin: 0; font-size: 18px; font-weight: 600">Price Information</h2>
+        <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 10px">
+          <legend style="font-size: 14px; font-weight: 600; margin-bottom: 4px">Access Type</legend>
+          <span style="font-size: 12px; color: #475467">Choose whether learners pay to access this course.</span>
+          <div style="display: flex; gap: 20px; font-size: 13px">
+            <label style="display: flex; align-items: center; gap: 6px; cursor: pointer"><input type="radio" name="acc" checked="{{isFree}}" onChange="{{setFree}}" style="accent-color: #0B0B7E">Free</label>
+            <label style="display: flex; align-items: center; gap: 6px; cursor: pointer"><input type="radio" name="acc" checked="{{isPaid}}" onChange="{{setPaid}}" style="accent-color: #0B0B7E">Paid</label>
+          </div>
+        </fieldset>
+        <sc-if value="{{isPaid}}" hint-placeholder-val="{{true}}">
+          <div style="display: flex; flex-direction: column; gap: 6px"><label for="price" style="font-size: 13px; font-weight: 600">Price (₦)</label><input id="price" type="number" min="0" value="{{price}}" onChange="{{setPrice}}" placeholder="e.g. 22900" style="height: 44px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 14px; background: #F9FAFB"></div>
+          <label style="display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 500; cursor: pointer">
+            <button type="button" role="switch" aria-checked="{{discountAttr}}" onClick="{{toggleDiscount}}" style="{{switchStyle}}"><span style="{{knobStyle}}"></span></button>
+            Offer a discount
+          </label>
+          <sc-if value="{{discount}}" hint-placeholder-val="{{false}}">
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+              <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Discount (%)<input type="number" min="1" max="90" value="25" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 14px; background: #F9FAFB"></label>
+              <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Discount ends<input type="date" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 14px; background: #F9FAFB"></label>
+            </div>
+            <span style="font-size: 12px; color: #475467">Learners will pay <strong style="color: #101828">{{discounted}}</strong></span>
+          </sc-if>
+        </sc-if>
+        <label style="display: flex; align-items: flex-start; gap: 10px; padding: 12px; border: 1px solid #EAECF0; border-radius: 10px; font-size: 13px; cursor: pointer"><input type="checkbox" checked style="accent-color: #0B0B7E; margin: 2px 0 0"><span style="display: flex; flex-direction: column; gap: 2px"><strong style="font-weight: 600">Offer a certificate of completion</strong><span style="color: #475467">Learners get a certificate after passing the final assessment.</span></span></label>
+        <div style="display: flex; justify-content: flex-end; gap: 10px; padding-top: 8px; border-top: 1px solid #EAECF0">
+          <button type="button" onClick="{{toInfo}}" style="height: 44px; padding: 0 18px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Back</button>
+          <button type="button" onClick="{{toBuilder}}" disabled="{{priceBlocked}}" style="{{priceStyle}}">Proceed to Course Builder</button>
+        </div>
+      </form>
+    </sc-if>
+
+    <sc-if value="{{isBuilder}}" hint-placeholder-val="{{false}}">
+      <section style="display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+          <h2 style="margin: 0; font-size: 18px; font-weight: 600">Course Builder</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <sc-if value="{{hasQuiz}}" hint-placeholder-val="{{false}}">
+              <button type="button" onClick="{{askDeleteQuiz}}" style="height: 38px; padding: 0 14px; border: 0; border-radius: 8px; background: #D92D20; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Delete Quiz</button>
+              <button type="button" onClick="{{editQuiz}}" style="height: 38px; padding: 0 14px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Edit Quiz</button>
+            </sc-if>
+            <sc-if value="{{noQuiz}}" hint-placeholder-val="{{true}}">
+              <button type="button" onClick="{{addQuiz}}" style="height: 38px; display: flex; align-items: center; gap: 6px; padding: 0 14px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Add Quiz</button>
+            </sc-if>
+            <button type="button" onClick="{{addModule}}" style="height: 38px; display: flex; align-items: center; gap: 6px; padding: 0 14px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Add Module</button>
+          </div>
+        </div>
+        <sc-if value="{{hasQuiz}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border: 1px solid #DDD6FE; border-radius: 12px; background: #F5F3FF">
+            <span aria-hidden="true" style="width: 32px; height: 32px; flex: none; border-radius: 8px; background: #5B21B6; color: #ffffff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center">Q</span>
+            <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 14px">Final Quiz: {{quizTitle}}</strong><span style="font-size: 12px; color: #475467">{{quizMeta}}</span></div>
+          </div>
+        </sc-if>
+        <sc-if value="{{noModules}}" hint-placeholder-val="{{false}}">
+          <p style="margin: 0; padding: 32px; border: 1px dashed #D0D5DD; border-radius: 12px; text-align: center; font-size: 13px; color: #475467">No modules yet. Use “Add Module” to start structuring your course.</p>
+        </sc-if>
+        <sc-for list="{{modules}}" as="m" hint-placeholder-count="1">
+          <article style="border: 1px solid #EAECF0; border-radius: 12px; box-shadow: 0 1px 3px rgba(16,24,40,0.06)">
+            <div style="display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid #EAECF0">
+              <div style="display: flex; flex-direction: column" aria-label="Reorder">
+                <button type="button" aria-label="Move module up" onClick="{{m.up}}" disabled="{{m.first}}" style="width: 24px; height: 18px; border: 0; background: transparent; cursor: pointer; color: #475467"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"></path></svg></button>
+                <button type="button" aria-label="Move module down" onClick="{{m.down}}" disabled="{{m.last}}" style="width: 24px; height: 18px; border: 0; background: transparent; cursor: pointer; color: #475467"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+              </div>
+              <div style="flex: 1; display: flex; flex-direction: column; gap: 4px; min-width: 0">
+                <label style="display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600">Module {{m.n}}:<input type="text" value="{{m.title}}" onChange="{{m.rename}}" aria-label="Module title" placeholder="(Untitled Module)" style="flex: 1; min-width: 0; height: 30px; border: 1px solid transparent; border-radius: 6px; padding: 0 6px; font: inherit; font-weight: 600; background: transparent"></label>
+                <span style="font-size: 12px; color: #475467">{{m.meta}}</span>
+              </div>
+              <button type="button" aria-label="{{m.toggleLabel}}" aria-expanded="{{m.expanded}}" onClick="{{m.toggle}}" style="width: 36px; height: 36px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#344054" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="{{m.chev}}"><path d="M6 15l6-6 6 6"></path></svg></button>
+            </div>
+            <sc-if value="{{m.open}}" hint-placeholder-val="{{true}}">
+              <div style="padding: 12px 16px; display: flex; flex-direction: column; gap: 10px">
+                <sc-if value="{{m.empty}}" hint-placeholder-val="{{true}}">
+                  <div style="padding: 20px; text-align: center; display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 14px">No Lessons or quizzes added yet</strong><span style="font-size: 12px; color: #475467">Start by adding at least one lesson to this module.</span></div>
+                </sc-if>
+                <sc-for list="{{m.lessons}}" as="l" hint-placeholder-count="1">
+                  <div style="display: flex; gap: 12px; padding: 10px 12px; border: 1px solid #EAECF0; border-radius: 10px; font-size: 12px; color: #475467">
+                    <div style="flex: 1; display: flex; flex-direction: column; gap: 4px">
+                      <strong style="font-size: 13px; color: #101828">Lesson {{l.n}}: {{l.title}}</strong>
+                      <span>Lesson Duration: <strong style="color: #101828; font-weight: 500">{{l.duration}}</strong></span>
+                      <span>Video Uploaded: <strong style="color: #101828; font-weight: 500">{{l.video}}</strong></span>
+                      <span>Text Content Added: <strong style="color: #101828; font-weight: 500">{{l.text}}</strong></span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px">
+                      <sc-if value="{{l.preview}}" hint-placeholder-val="{{false}}"><span style="height: 22px; display: inline-flex; align-items: center; padding: 0 8px; border-radius: 11px; background: #101828; color: #ffffff; font-size: 11px; font-weight: 600">Preview</span></sc-if>
+                      <div style="display: flex; gap: 6px">
+                        <button type="button" aria-label="Delete lesson {{l.n}}" onClick="{{l.askRemove}}" style="width: 32px; height: 32px; border: 0; border-radius: 8px; background: #FEE4E2; color: #B42318; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"></path></svg></button>
+                        <button type="button" aria-label="Edit lesson {{l.n}}" onClick="{{l.edit}}" style="width: 32px; height: 32px; border: 1px solid #D0D5DD; border-radius: 8px; background: #ffffff; color: #344054; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"></path></svg></button>
+                      </div>
+                    </div>
+                  </div>
+                </sc-for>
+                <div style="display: flex; justify-content: flex-end; gap: 8px">
+                  <button type="button" onClick="{{m.askDelete}}" style="height: 36px; display: flex; align-items: center; gap: 6px; padding: 0 12px; border: 0; border-radius: 8px; background: #D92D20; color: #ffffff; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer">Delete Module</button>
+                  <button type="button" onClick="{{m.addLesson}}" style="height: 36px; display: flex; align-items: center; gap: 6px; padding: 0 12px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer">Add Lesson</button>
+                </div>
+              </div>
+            </sc-if>
+          </article>
+        </sc-for>
+      </section>
+    </sc-if>
+  </main>
+</div>
+
+<sc-if value="{{modalLesson}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; justify-content: flex-end; padding: 16px">
+    <form role="dialog" aria-modal="true" aria-labelledby="al-t" style="width: 480px; max-width: 100%; background: #ffffff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden">
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 16px 20px; border-bottom: 1px solid #EAECF0">
+        <div style="display: flex; flex-direction: column; gap: 4px"><h2 id="al-t" style="margin: 0; font-size: 18px; font-weight: 600">{{lessonHeading}}</h2><p style="margin: 0; font-size: 12px; color: #475467">{{lessonSub}}</p></div>
+        <button type="button" aria-label="Close" onClick="{{cancelLesson}}" style="width: 36px; height: 36px; flex: none; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+      <div style="flex: 1; overflow-y: auto; padding: 16px 20px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 6px"><label for="lt" style="font-size: 12px; font-weight: 600">Lesson Title</label><input id="lt" type="text" value="{{lTitle}}" onChange="{{setLTitle}}" placeholder="Enter lesson title" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; background: #F9FAFB"></div>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <span style="display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600">Upload Lesson Content <span title="Keep videos clear and under 30 minutes. MP4, max 500MB. Avoid background noise." style="display: inline-flex; width: 14px; height: 14px; border-radius: 50%; border: 1px solid #667085; color: #667085; font-size: 9px; align-items: center; justify-content: center; cursor: help">i</span></span>
+          <button type="button" onClick="{{startUpload}}" disabled="{{uploadBusy}}" style="padding: 18px 12px; border: 1px solid #EAECF0; border-radius: 10px; background: #F9FAFB; font: inherit; display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#475467" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"></path></svg>
+            <span style="font-size: 12px; font-weight: 600; color: #0B0B7E; text-decoration: underline">Click to upload</span>
+            <span style="font-size: 11px; color: #667085">MP4 (Max file 500MB)</span>
+          </button>
+          <sc-if value="{{hasFile}}" hint-placeholder-val="{{false}}">
+            <div style="padding: 10px 12px; border: 1px solid #EAECF0; border-radius: 10px; display: flex; flex-direction: column; gap: 8px">
+              <div style="display: flex; align-items: center; gap: 10px">
+                <span aria-hidden="true" style="width: 28px; height: 28px; flex: none; border-radius: 6px; background: #FDEAD7"></span>
+                <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; font-weight: 500">Legal_Foundations.mp4</span><span style="font-size: 11px; color: #667085">{{fileMeta}}</span></span>
+                <button type="button" aria-label="Remove file" onClick="{{removeFile}}" style="width: 28px; height: 28px; border: 0; background: transparent; color: #D92D20; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"></path></svg></button>
+              </div>
+              <div role="progressbar" aria-valuenow="{{upPct}}" aria-valuemin="0" aria-valuemax="100" style="height: 6px; border-radius: 3px; background: #EAECF0; overflow: hidden"><div style="height: 6px; border-radius: 3px; background: #0B0B7E; width: {{upWidth}}"></div></div>
+            </div>
+          </sc-if>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <span id="wu-l" style="display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600">Add Lesson Write-up <span title="Use this to add written lesson content: summaries, key points, readings. It can go alongside or instead of a video." style="display: inline-flex; width: 14px; height: 14px; border-radius: 50%; border: 1px solid #667085; color: #667085; font-size: 9px; align-items: center; justify-content: center; cursor: help">i</span></span>
+          <div style="border: 1px solid #D0D5DD; border-radius: 8px; background: #F9FAFB; overflow: hidden">
+            <div role="toolbar" aria-label="Formatting" style="display: flex; flex-wrap: wrap; gap: 2px; padding: 6px; border-bottom: 1px solid #EAECF0; background: #ffffff">
+              <sc-for list="{{tools}}" as="t" hint-placeholder-count="9">
+                <button type="button" title="{{t.title}}" aria-label="{{t.title}}" onMouseDown="{{t.run}}" style="min-width: 30px; height: 30px; padding: 0 6px; border: 0; border-radius: 6px; background: transparent; font: inherit; font-size: 12px; font-weight: 700; color: #344054; cursor: pointer">{{t.label}}</button>
+              </sc-for>
+            </div>
+            <div contenteditable="true" role="textbox" aria-multiline="true" aria-labelledby="wu-l" data-placeholder="Enter a description…" onInput="{{onWrite}}" style="min-height: 110px; padding: 10px 12px; font-size: 13px; line-height: 1.55; outline: none">{{lInit}}</div>
+          </div>
+        </div>
+        <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 8px">
+          <legend style="font-size: 15px; font-weight: 600; margin-bottom: 4px">Set Lesson Duration</legend>
+          <span style="font-size: 12px; color: #475467">Choose a format and enter the estimated duration of this lesson.</span>
+          <div style="display: flex; gap: 20px; font-size: 13px">
+            <label style="display: flex; align-items: center; gap: 6px; cursor: pointer"><input type="radio" name="ldur" checked="{{lMin}}" onChange="{{setLMin}}" style="accent-color: #0B0B7E">Minutes and Seconds</label>
+            <label style="display: flex; align-items: center; gap: 6px; cursor: pointer"><input type="radio" name="ldur" checked="{{lHr}}" onChange="{{setLHr}}" style="accent-color: #0B0B7E">Hours and Minutes</label>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">{{lA}}<input type="number" min="0" value="{{lDurA}}" onChange="{{setLDurA}}" placeholder="0" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; background: #F9FAFB"></label>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">{{lB}}<input type="number" min="0" max="59" value="{{lDurB}}" onChange="{{setLDurB}}" placeholder="0" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; background: #F9FAFB"></label>
+          </div>
+        </fieldset>
+        <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer"><input type="checkbox" checked="{{lPreview}}" onChange="{{togglePreview}}" style="accent-color: #0B0B7E; margin: 0">Mark this lesson as a Preview</label>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 16px 20px 20px; border-top: 1px solid #EAECF0">
+        <button type="button" onClick="{{cancelLesson}}" style="height: 44px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Cancel</button>
+        <button type="button" onClick="{{saveLesson}}" disabled="{{lessonBlocked}}" style="{{lessonStyle}}">{{lessonLabel}}</button>
+      </div>
+    </form>
+  </div>
+</sc-if>
+
+<sc-if value="{{quizOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; justify-content: flex-end; padding: 16px">
+    <form role="dialog" aria-modal="true" aria-labelledby="qz-t" style="width: 520px; max-width: 100%; background: #ffffff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden">
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 16px 20px; border-bottom: 1px solid #EAECF0">
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 4px"><h2 id="qz-t" style="margin: 0; font-size: 18px; font-weight: 600">{{quizHeading}}</h2><p style="margin: 0; font-size: 12px; color: #475467">Create a quiz to assess learners’ understanding of the course.</p></div>
+        <button type="button" onClick="{{addQuestion}}" style="height: 34px; flex: none; display: flex; align-items: center; gap: 6px; padding: 0 12px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Add Question</button>
+        <button type="button" aria-label="Close" onClick="{{closeQuiz}}" style="width: 34px; height: 34px; flex: none; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+      <div style="flex: 1; overflow-y: auto; padding: 16px 20px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 6px"><label for="qzt" style="font-size: 12px; font-weight: 600">Quiz Title</label><input id="qzt" type="text" value="{{qzTitle}}" onChange="{{setQzTitle}}" placeholder="e.g. Understanding Legal Foundations" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; background: #F9FAFB"></div>
+        <div style="display: flex; flex-direction: column; gap: 6px"><label for="qzi" style="font-size: 12px; font-weight: 600">Instruction (Optional)</label><textarea id="qzi" rows="2" value="{{qzInstr}}" onChange="{{setQzInstr}}" placeholder="Enter a description e.g. “Complete this quiz to receive your CLE certificate”" style="border: 1px solid #D0D5DD; border-radius: 8px; padding: 10px 12px; font: inherit; font-size: 13px; background: #F9FAFB; resize: vertical"></textarea></div>
+        <sc-for list="{{qs}}" as="q" hint-placeholder-count="1">
+          <section aria-label="Question {{q.n}}" style="padding: 14px; border: 1px solid #EAECF0; border-radius: 10px; display: flex; flex-direction: column; gap: 12px">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+              <strong style="font-size: 13px">Question {{q.n}}</strong>
+              <sc-if value="{{q.canDelete}}" hint-placeholder-val="{{false}}"><button type="button" aria-label="Delete question {{q.n}}" onClick="{{q.askDelete}}" style="width: 30px; height: 30px; border: 0; border-radius: 6px; background: #FEE4E2; color: #B42318; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"></path></svg></button></sc-if>
+            </div>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Quiz Type
+              <select value="{{q.type}}" onChange="{{q.setType}}" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"><option value="mc">Multiple choice</option><option value="tf">True or False</option><option value="short">Short Answer</option><option value="upload">Upload (Essay/Attachment)</option></select>
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Question
+              <textarea rows="2" value="{{q.text}}" onChange="{{q.setText}}" placeholder="Type your question" style="border: 1px solid #D0D5DD; border-radius: 8px; padding: 10px 12px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB; resize: vertical"></textarea>
+            </label>
+            <sc-if value="{{q.isChoice}}" hint-placeholder-val="{{true}}">
+              <div role="radiogroup" aria-label="Options for question {{q.n}}" style="display: flex; flex-direction: column; gap: 8px">
+                <span style="font-size: 12px; color: #475467">Options — select the correct answer</span>
+                <sc-for list="{{q.opts}}" as="o" hint-placeholder-count="2">
+                  <div style="display: flex; align-items: center; gap: 8px; padding: 0 8px; min-height: 40px; border: 1px solid #EAECF0; border-radius: 8px; background: {{o.bg}}">
+                    <input type="radio" name="{{o.name}}" checked="{{o.c}}" onChange="{{o.mark}}" aria-label="Mark {{o.label}} as correct" style="accent-color: #067647; margin: 0">
+                    <sc-if value="{{o.fixed}}" hint-placeholder-val="{{false}}"><span style="flex: 1; font-size: 13px">{{o.t}}</span></sc-if>
+                    <sc-if value="{{o.editable}}" hint-placeholder-val="{{true}}"><input type="text" value="{{o.t}}" onChange="{{o.setT}}" placeholder="{{o.label}}" aria-label="{{o.label}}" style="flex: 1; min-width: 0; height: 36px; border: 0; outline: none; background: transparent; font: inherit; font-size: 13px"></sc-if>
+                    <sc-if value="{{o.c}}" hint-placeholder-val="{{false}}"><span style="font-size: 11px; font-weight: 600; color: #067647">Correct</span></sc-if>
+                    <sc-if value="{{o.canRemove}}" hint-placeholder-val="{{false}}"><button type="button" aria-label="Remove {{o.label}}" onClick="{{o.remove}}" style="width: 28px; height: 28px; border: 0; background: transparent; color: #667085; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></sc-if>
+                  </div>
+                </sc-for>
+                <sc-if value="{{q.isMc}}" hint-placeholder-val="{{true}}"><button type="button" onClick="{{q.addOpt}}" style="align-self: flex-start; height: 30px; padding: 0; border: 0; background: transparent; color: #0B0B7E; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer">+ Add option</button></sc-if>
+              </div>
+            </sc-if>
+            <sc-if value="{{q.isShort}}" hint-placeholder-val="{{false}}">
+              <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Expected answer (optional)
+                <input type="text" value="{{q.ans}}" onChange="{{q.setAns}}" placeholder="A model answer to guide your review" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB">
+              </label>
+            </sc-if>
+            <sc-if value="{{q.isUpload}}" hint-placeholder-val="{{false}}">
+              <p style="margin: 0; padding: 10px 12px; border-radius: 8px; background: #F2F4F7; font-size: 12px; color: #344054; line-height: 1.5">Learners will answer by uploading an essay or attachment (PDF, DOCX, max 10MB). You’ll review and grade it yourself.</p>
+            </sc-if>
+            <sc-if value="{{q.hasFb}}" hint-placeholder-val="{{false}}">
+              <div style="padding: 10px 12px; border: 1px solid #EAECF0; border-radius: 8px; background: #F9FAFB; display: flex; gap: 8px">
+                <div style="flex: 1; display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 12px">Feedback/Explanation</strong><span style="font-size: 12px; color: #475467; line-height: 1.5">{{q.fb}}</span></div>
+                <button type="button" aria-label="Edit feedback" onClick="{{q.editFb}}" style="width: 28px; height: 28px; border: 0; background: transparent; color: #344054; cursor: pointer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"></path></svg></button>
+                <button type="button" aria-label="Delete feedback" onClick="{{q.removeFb}}" style="width: 28px; height: 28px; border: 0; background: transparent; color: #D92D20; cursor: pointer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"></path></svg></button>
+              </div>
+            </sc-if>
+            <sc-if value="{{q.noFb}}" hint-placeholder-val="{{true}}"><button type="button" onClick="{{q.addFb}}" style="align-self: flex-start; height: 30px; padding: 0; border: 0; background: transparent; color: #0B0B7E; font: inherit; font-size: 12px; font-weight: 600; text-decoration: underline; cursor: pointer">Add Feedback</button></sc-if>
+          </section>
+        </sc-for>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 16px 20px 20px; border-top: 1px solid #EAECF0">
+        <button type="button" onClick="{{closeQuiz}}" style="height: 44px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Cancel</button>
+        <button type="button" onClick="{{saveQuiz}}" disabled="{{quizBlocked}}" style="{{quizStyle}}">{{quizLabel}}</button>
+      </div>
+    </form>
+  </div>
+</sc-if>
+
+<sc-if value="{{fbOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; align-items: center; justify-content: center; padding: 16px">
+    <form role="dialog" aria-modal="true" aria-labelledby="fb-t" style="width: 440px; max-width: 100%; background: #ffffff; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+      <div style="display: flex; align-items: flex-start; gap: 12px">
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 4px"><h2 id="fb-t" style="margin: 0; font-size: 17px; font-weight: 600">{{fbHeading}}</h2><p style="margin: 0; font-size: 12px; color: #475467; line-height: 1.5">Feedback for each question helps learners understand their mistakes. It’s shown after they submit the quiz.</p></div>
+        <button type="button" aria-label="Close" onClick="{{closeFb}}" style="width: 32px; height: 32px; border: 0; background: transparent; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+      <p style="margin: 0; font-size: 13px; font-weight: 600">{{fbQuestion}}</p>
+      <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px">
+        <sc-for list="{{fbOpts}}" as="o" hint-placeholder-count="2">
+          <li style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 10px; border: 1px solid #EAECF0; border-radius: 8px; font-size: 12px">{{o.t}}<span style="font-size: 11px; font-weight: 600; color: #067647">{{o.mark}}</span></li>
+        </sc-for>
+      </ul>
+      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Enter Feedback
+        <textarea rows="4" value="{{fbText}}" onChange="{{setFb}}" placeholder="Explain why the correct answer is right" style="border: 1px solid #D0D5DD; border-radius: 8px; padding: 10px 12px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB; resize: vertical"></textarea>
+      </label>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+        <button type="button" onClick="{{closeFb}}" style="height: 42px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Cancel</button>
+        <button type="button" onClick="{{saveFb}}" disabled="{{fbBlocked}}" style="{{fbStyle}}">{{fbLabel}}</button>
+      </div>
+    </form>
+  </div>
+</sc-if>
+
+<sc-if value="{{confirmOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; align-items: center; justify-content: center; padding: 16px">
+    <div role="alertdialog" aria-modal="true" aria-labelledby="cf-t" style="width: 380px; max-width: 100%; background: #ffffff; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center">
+      <span style="width: 44px; height: 44px; border-radius: 10px; border: 1px solid #EAECF0; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l10 18H2z" fill="#FDB022"></path><path d="M12 10v5M12 18h.01" stroke="#7A2E0E" stroke-width="2" stroke-linecap="round"></path></svg></span>
+      <h2 id="cf-t" style="margin: 0; font-size: 17px; font-weight: 600">{{cfTitle}}</h2>
+      <p style="margin: 0; font-size: 13px; color: #475467; line-height: 1.5">{{cfBody}}</p>
+      <sc-if value="{{cfHasNote}}" hint-placeholder-val="{{false}}"><span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #344054"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>{{cfNote}}</span></sc-if>
+      <div style="align-self: stretch; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 6px">
+        <button type="button" onClick="{{cfCancel}}" style="{{cfCancelStyle}}">{{cfCancelLabel}}</button>
+        <button type="button" onClick="{{cfOk}}" style="{{cfOkStyle}}">{{cfOkLabel}}</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1700}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      step: 1, title: '', cat: '', durHr: true, thumb: false,
+      access: 'paid', price: '', discount: false,
+      modules: [{ id: 1, title: 'Introduction to Legal Reasoning', open: true, lessons: [] }],
+      nextId: 2,
+      lesson: null, confirm: null, busy: false, toast: null,
+      quiz: null, qz: null, fb: null, fbBusy: false
+    };
+  }
+  blankQ(id) { return { id, type: 'mc', text: '', opts: [{ t: '', c: false }, { t: '', c: false }], ans: '', fb: '' }; }
+  openQuiz(edit) {
+    const src = edit ? this.state.quiz : { title: '', instr: '', qs: [this.blankQ(1)] };
+    const copy = JSON.parse(JSON.stringify(src));
+    const next = copy.qs.reduce((mx, q) => Math.max(mx, q.id), 0) + 1;
+    this.setState({ qz: { ...copy, edit, nextQ: next, snap: JSON.stringify(copy) } });
+  }
+  componentWillUnmount() { clearTimeout(this.t); clearInterval(this.u); }
+  later(fn, ms) { clearTimeout(this.t); this.t = setTimeout(fn, ms); }
+  blankLesson(mid) { return { mid, title: '', up: 0, uploading: false, text: '', min: true, a: '', b: '', preview: false }; }
+  renderVals() {
+    const s = this.state;
+    const L = s.lesson;
+    const btn = (ok, busy) => 'height: 44px; padding: 0 18px; border: 0; border-radius: 8px; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; background: ' + (ok ? (busy ? '#06065A' : '#0B0B7E') : '#9D9DD0');
+    const naira = (n) => '₦' + Number(n || 0).toLocaleString('en-NG', { minimumFractionDigits: 2 });
+    const stepNames = ['Course Information', 'Price Information', 'Course Builder'];
+    const infoOk = s.title.trim() !== '' && s.cat !== '';
+    const priceOk = s.access === 'free' || Number(s.price) > 0;
+    const anyLesson = s.modules.some((m) => m.lessons.length > 0);
+    const setMods = (fn) => this.setState({ modules: fn(this.state.modules.map((m) => ({ ...m, lessons: m.lessons.slice() }))) });
+    const move = (i, d) => setMods((ms) => { const j = i + d; if (j < 0 || j >= ms.length) return ms; const t = ms[i]; ms[i] = ms[j]; ms[j] = t; return ms; });
+    const toasts = {
+      price: ['Price information saved', 'Next, build your course structure.'],
+      lesson: ['Lesson Saved!', 'You can continue adding or editing lessons.'],
+      file: ['File Deleted', 'The video has been removed from this lesson.'],
+      module: ['Module Deleted Successfully', 'The module and all its lessons have been removed.'],
+      draft: ['Changes saved to draft', 'You can come back and finish your course anytime.'],
+      published: ['Course submitted for review', 'We’ll notify you once your course is live.'],
+      lessonUpdated: ['Lesson Updated!', 'Your changes have been saved successfully.'],
+      lessonDeleted: ['Lesson Deleted', 'The lesson has been removed from this module.'],
+      quizAdded: ['Quiz added successfully', 'Learners will take this quiz at the end of the course.'],
+      quizUpdated: ['Quiz updated successfully', 'Your changes to the quiz have been saved.'],
+      quizDeleted: ['Quiz Deleted', 'The quiz has been removed from this course.']
+    };
+    const Q = s.qz;
+    const typeNames = { mc: 'Multiple choice', tf: 'True or False', short: 'Short Answer', upload: 'Upload (Essay/Attachment)' };
+    const setQz = (patch) => this.setState({ qz: { ...this.state.qz, ...patch } });
+    const updQ = (qi, fn) => { const cur = this.state.qz; setQz({ qs: cur.qs.map((q, i) => (i === qi ? fn({ ...q, opts: q.opts.map((o) => ({ ...o })) }) : q)) }); };
+    const qValid = (q) => q.text.trim() !== '' && (q.type === 'mc' ? q.opts.length >= 2 && q.opts.every((o) => o.t.trim() !== '') && q.opts.some((o) => o.c) : q.type === 'tf' ? q.opts.some((o) => o.c) : true);
+    const quizOk = !!(Q && Q.title.trim() !== '' && Q.qs.length > 0 && Q.qs.every(qValid));
+    const quizDirty = !!(Q && JSON.stringify({ title: Q.title, instr: Q.instr, qs: Q.qs }) !== Q.snap);
+    const F = s.fb;
+    const fq = F && Q ? Q.qs[F.qi] : null;
+    const fbOk = !!(F && F.text.trim() !== '');
+    const lessonDirty = L && (L.title || L.up > 0 || L.text);
+    const lessonOk = L && L.title.trim() !== '' && (L.up === 100 || L.text.trim() !== '') && !L.uploading;
+    const confirms = {
+      deleteModule: { title: 'Delete Module and its Content?', body: 'This will permanently remove the module and every lesson in it. This action cannot be undone.', ok: 'Delete', cancel: 'Stay on Page', danger: true },
+      discard: { title: 'This Lesson isn’t saved yet', body: 'You’ve started creating this lesson, but your changes haven’t been saved. Are you sure you want to close this?', ok: 'Stay on Page', cancel: 'Discard Changes', dangerCancel: true },
+      draft: { title: 'Save changes to Drafts?', body: 'Your course will be saved as a draft. You can pick up where you left off anytime.', ok: 'Save to Drafts', cancel: 'Cancel' },
+      deleteLesson: { title: 'Delete Lesson?', body: 'This lesson will be permanently removed from the module. All content added to it will be lost. Are you sure you want to proceed?', ok: 'Delete', cancel: 'Cancel', danger: true },
+      deleteQuiz: { title: 'Delete this Quiz?', body: 'The quiz and all its questions will be permanently removed. Learners won’t be able to take it.', ok: 'Delete', cancel: 'Cancel', danger: true },
+      deleteQuestion: { title: 'Delete Question?', body: 'This question and its options will be permanently removed from the quiz.', ok: 'Delete', cancel: 'Cancel', danger: true },
+      discardQuiz: { title: 'Discard Quiz?', body: 'You have unsaved changes. If you leave now, this quiz won’t be saved.', ok: 'Stay on this page', cancel: 'Discard Quiz', dangerCancel: true },
+      publish: { title: 'Ready to Publish Your course?', body: 'Make sure everything is in place. Your course will be reviewed by the Lawdemy team before it goes live to learners.', note: 'Estimated review time: 24–48 hours', ok: 'Publish Course', cancel: 'Cancel' }
+    };
+    const cf = s.confirm ? confirms[s.confirm.kind] : null;
+    const outline = 'height: 40px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer';
+    const solid = (bg) => 'height: 40px; border: 0; border-radius: 8px; background: ' + bg + '; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer';
+    const exec = (cmd, arg) => (e) => { e.preventDefault(); try { document.execCommand(cmd, false, arg); } catch (err) {} };
+    return {
+      isInfo: s.step === 1, isPrice: s.step === 2, isBuilder: s.step === 3,
+      steps: stepNames.map((label, i) => {
+        const n = i + 1, done = n < s.step, cur = n === s.step;
+        return {
+          n, label, current: cur ? 'step' : 'false',
+          go: () => { if (n <= s.step) this.setState({ step: n }); },
+          boxStyle: 'width: 32px; height: 32px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #ffffff; background: ' + (done || cur ? '#F26B1D' : '#FBC8A6'),
+          labelStyle: 'font-size: 15px; font-weight: ' + (cur ? '600; color: #101828' : '500; color: #475467')
+        };
+      }),
+      title: s.title, setTitle: (e) => this.setState({ title: e.target.value }),
+      cat: s.cat, setCat: (e) => this.setState({ cat: e.target.value }),
+      durHr: s.durHr, durMin: !s.durHr,
+      setDurHr: () => this.setState({ durHr: true }), setDurMin: () => this.setState({ durHr: false }),
+      durA: s.durHr ? 'Hours' : 'Minutes', durB: s.durHr ? 'Minutes' : 'Seconds',
+      thumbLabel: s.thumb ? 'thumbnail.png — Replace' : 'Click to upload',
+      toggleThumb: () => this.setState({ thumb: !s.thumb }),
+      infoBlocked: !infoOk, infoStyle: btn(infoOk),
+      toPrice: () => { if (infoOk) this.setState({ step: 2 }); },
+      toInfo: () => this.setState({ step: 1 }),
+      isFree: s.access === 'free', isPaid: s.access === 'paid',
+      setFree: () => this.setState({ access: 'free' }), setPaid: () => this.setState({ access: 'paid' }),
+      price: s.price, setPrice: (e) => this.setState({ price: e.target.value }),
+      discount: s.discount, discountAttr: s.discount ? 'true' : 'false',
+      toggleDiscount: () => this.setState({ discount: !s.discount }),
+      switchStyle: 'position: relative; width: 40px; height: 22px; flex: none; border: 0; border-radius: 11px; cursor: pointer; background: ' + (s.discount ? '#0B0B7E' : '#D0D5DD'),
+      knobStyle: 'position: absolute; top: 3px; left: ' + (s.discount ? '21px' : '3px') + '; width: 16px; height: 16px; border-radius: 50%; background: #ffffff',
+      discounted: naira(Number(s.price || 0) * 0.75) + ' (25% off ' + naira(s.price) + ')',
+      priceBlocked: !priceOk, priceStyle: btn(priceOk),
+      toBuilder: () => { if (priceOk) this.setState({ step: 3, toast: 'price' }); },
+
+      noModules: s.modules.length === 0,
+      addModule: () => this.setState({ modules: s.modules.concat({ id: s.nextId, title: '', open: true, lessons: [] }), nextId: s.nextId + 1 }),
+      modules: s.modules.map((m, i) => ({
+        n: i + 1, title: m.title, open: m.open, empty: m.lessons.length === 0,
+        expanded: m.open ? 'true' : 'false', toggleLabel: m.open ? 'Collapse module' : 'Expand module',
+        chev: m.open ? '' : 'transform: rotate(180deg)',
+        meta: m.lessons.length + ' lesson' + (m.lessons.length === 1 ? '' : 's') + ' • ' + m.lessons.filter((x) => x.preview).length + ' marked as preview',
+        first: i === 0, last: i === s.modules.length - 1,
+        up: () => move(i, -1), down: () => move(i, 1),
+        rename: (e) => { const v = e.target.value; setMods((ms) => { ms[i].title = v; return ms; }); },
+        toggle: () => setMods((ms) => { ms[i].open = !ms[i].open; return ms; }),
+        askDelete: () => this.setState({ confirm: { kind: 'deleteModule', mid: m.id } }),
+        addLesson: () => this.setState({ lesson: this.blankLesson(m.id) }),
+        lessons: m.lessons.map((l, k) => ({
+          ...l, n: k + 1,
+          askRemove: () => this.setState({ confirm: { kind: 'deleteLesson', mid: m.id, idx: k } }),
+          edit: () => { const r = l.raw; this.setState({ lesson: { mid: m.id, idx: k, title: r.title, up: r.up, uploading: false, text: r.text, init: r.text, min: r.min, a: r.a, b: r.b, preview: r.preview } }); }
+        }))
+      })),
+      publishDisabled: !anyLesson,
+      publishStyle: 'height: 38px; padding: 0 14px; border: 0; border-radius: 8px; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; background: ' + (anyLesson ? '#0B0B7E' : '#9D9DD0'),
+      publish: () => { if (anyLesson) this.setState({ confirm: { kind: 'publish' } }); },
+
+      hasQuiz: !!s.quiz, noQuiz: !s.quiz,
+      quizTitle: s.quiz ? s.quiz.title : '',
+      quizMeta: s.quiz ? s.quiz.qs.length + ' question' + (s.quiz.qs.length === 1 ? '' : 's') + ' • ' + Array.from(new Set(s.quiz.qs.map((q) => typeNames[q.type]))).join(', ') : '',
+      addQuiz: () => this.openQuiz(false),
+      editQuiz: () => this.openQuiz(true),
+      askDeleteQuiz: () => this.setState({ confirm: { kind: 'deleteQuiz' } }),
+      quizOpen: !!Q,
+      quizHeading: Q && Q.edit ? 'Edit Quiz' : 'Add Quiz',
+      qzTitle: Q ? Q.title : '', setQzTitle: (e) => setQz({ title: e.target.value }),
+      qzInstr: Q ? Q.instr : '', setQzInstr: (e) => setQz({ instr: e.target.value }),
+      addQuestion: () => { const cur = this.state.qz; setQz({ qs: cur.qs.concat(this.blankQ(cur.nextQ)), nextQ: cur.nextQ + 1 }); },
+      qs: Q ? Q.qs.map((q, qi) => ({
+        n: qi + 1, type: q.type, text: q.text, ans: q.ans, fb: q.fb,
+        canDelete: Q.qs.length > 1,
+        isChoice: q.type === 'mc' || q.type === 'tf', isMc: q.type === 'mc', isShort: q.type === 'short', isUpload: q.type === 'upload',
+        hasFb: q.fb !== '', noFb: q.fb === '',
+        setType: (e) => { const v = e.target.value; updQ(qi, (x) => ({ ...x, type: v, opts: v === 'tf' ? [{ t: 'True', c: false }, { t: 'False', c: false }] : v === 'mc' ? [{ t: '', c: false }, { t: '', c: false }] : [] })); },
+        setText: (e) => { const v = e.target.value; updQ(qi, (x) => ({ ...x, text: v })); },
+        setAns: (e) => { const v = e.target.value; updQ(qi, (x) => ({ ...x, ans: v })); },
+        addOpt: () => updQ(qi, (x) => ({ ...x, opts: x.opts.concat({ t: '', c: false }) })),
+        askDelete: () => this.setState({ confirm: { kind: 'deleteQuestion', qi } }),
+        addFb: () => this.setState({ fb: { qi, text: '', edit: false } }),
+        editFb: () => this.setState({ fb: { qi, text: q.fb, edit: true } }),
+        removeFb: () => updQ(qi, (x) => ({ ...x, fb: '' })),
+        opts: q.opts.map((o, oi) => ({
+          t: o.t, c: o.c, name: 'q' + q.id, label: 'Option ' + (oi + 1),
+          fixed: q.type === 'tf', editable: q.type !== 'tf',
+          bg: o.c ? '#ECFDF3' : '#ffffff',
+          canRemove: q.type === 'mc' && q.opts.length > 2,
+          setT: (e) => { const v = e.target.value; updQ(qi, (x) => { x.opts[oi].t = v; return x; }); },
+          mark: () => updQ(qi, (x) => { x.opts.forEach((y, j) => { y.c = j === oi; }); return x; }),
+          remove: () => updQ(qi, (x) => { x.opts.splice(oi, 1); return x; })
+        }))
+      })) : [],
+      quizBlocked: !quizOk || s.busy,
+      quizStyle: btn(quizOk, s.busy),
+      quizLabel: s.busy ? 'Saving…' : (Q && Q.edit ? 'Save Quiz' : 'Save Quiz'),
+      closeQuiz: () => { if (quizDirty) this.setState({ confirm: { kind: 'discardQuiz' } }); else this.setState({ qz: null }); },
+      saveQuiz: () => {
+        if (!quizOk) return;
+        this.setState({ busy: true });
+        this.later(() => { const cur = this.state.qz; this.setState({ busy: false, qz: null, quiz: { title: cur.title.trim(), instr: cur.instr, qs: cur.qs }, toast: cur.edit ? 'quizUpdated' : 'quizAdded' }); }, 800);
+      },
+      fbOpen: !!fq,
+      fbHeading: F && F.edit ? 'Edit Feedback' : 'Add Feedback',
+      fbQuestion: fq ? (fq.text.trim() || 'Untitled question') : '',
+      fbOpts: fq ? fq.opts.map((o) => ({ t: o.t || '(empty option)', mark: o.c ? 'Correct answer' : '' })) : [],
+      fbText: F ? F.text : '', setFb: (e) => this.setState({ fb: { ...this.state.fb, text: e.target.value } }),
+      fbBlocked: !fbOk || s.fbBusy, fbStyle: btn(fbOk, s.fbBusy), fbLabel: s.fbBusy ? 'Saving…' : 'Save',
+      closeFb: () => this.setState({ fb: null }),
+      saveFb: () => {
+        if (!fbOk) return;
+        this.setState({ fbBusy: true });
+        this.later(() => { const cur = this.state.fb; updQ(cur.qi, (x) => ({ ...x, fb: cur.text.trim() })); this.setState({ fbBusy: false, fb: null }); }, 700);
+      },
+      askDraft: () => this.setState({ confirm: { kind: 'draft' } }),
+
+      modalLesson: !!L,
+      lessonHeading: L && L.idx != null ? 'Edit Lesson' : 'Add Lesson',
+      lessonSub: L && L.idx != null ? 'Make changes to your lesson’s title, video, description, duration, or supporting materials. Remember to save your edits before leaving this screen.' : 'You can add both video and written content. This helps reinforce your lesson and support learners better.',
+      lInit: L && L.init ? L.init : '',
+      lTitle: L ? L.title : '',
+      setLTitle: (e) => this.setState({ lesson: { ...this.state.lesson, title: e.target.value } }),
+      uploadBusy: !!(L && L.uploading),
+      startUpload: () => {
+        if (!L || L.uploading) return;
+        this.setState({ lesson: { ...L, up: 3, uploading: true } });
+        clearInterval(this.u);
+        this.u = setInterval(() => {
+          const cur = this.state.lesson;
+          if (!cur) { clearInterval(this.u); return; }
+          const up = Math.min(100, cur.up + 12);
+          this.setState({ lesson: { ...cur, up, uploading: up < 100 } });
+          if (up >= 100) clearInterval(this.u);
+        }, 250);
+      },
+      hasFile: !!(L && L.up > 0),
+      upPct: L ? L.up : 0, upWidth: (L ? L.up : 0) + '%',
+      fileMeta: L ? (L.up < 100 ? Math.round(L.up * 1.28) + 'MB of 128MB • Uploading…' : '128MB of 128MB • Completed') : '',
+      removeFile: () => { clearInterval(this.u); this.setState({ lesson: { ...this.state.lesson, up: 0, uploading: false }, toast: 'file' }); },
+      tools: [
+        { label: 'B', title: 'Bold', run: exec('bold') },
+        { label: 'I', title: 'Italic', run: exec('italic') },
+        { label: 'H1', title: 'Heading 1', run: exec('formatBlock', 'h3') },
+        { label: 'H2', title: 'Heading 2', run: exec('formatBlock', 'h4') },
+        { label: '❝', title: 'Quote', run: exec('formatBlock', 'blockquote') },
+        { label: 'Link', title: 'Link', run: exec('createLink', 'https://') },
+        { label: '•', title: 'Bullet list', run: exec('insertUnorderedList') },
+        { label: '1.', title: 'Numbered list', run: exec('insertOrderedList') }
+      ],
+      onWrite: (e) => this.setState({ lesson: { ...this.state.lesson, text: e.currentTarget.innerText } }),
+      lMin: L ? L.min : true, lHr: L ? !L.min : false,
+      setLMin: () => this.setState({ lesson: { ...this.state.lesson, min: true } }),
+      setLHr: () => this.setState({ lesson: { ...this.state.lesson, min: false } }),
+      lA: L && !L.min ? 'Hours' : 'Minutes', lB: L && !L.min ? 'Minutes' : 'Seconds',
+      lDurA: L ? L.a : '', lDurB: L ? L.b : '',
+      setLDurA: (e) => this.setState({ lesson: { ...this.state.lesson, a: e.target.value } }),
+      setLDurB: (e) => this.setState({ lesson: { ...this.state.lesson, b: e.target.value } }),
+      lPreview: L ? L.preview : false,
+      togglePreview: () => this.setState({ lesson: { ...this.state.lesson, preview: !this.state.lesson.preview } }),
+      lessonBlocked: !lessonOk || s.busy,
+      lessonLabel: s.busy ? 'Saving…' : 'Save',
+      lessonStyle: btn(lessonOk, s.busy),
+      cancelLesson: () => { if (lessonDirty) this.setState({ confirm: { kind: 'discard' } }); else { clearInterval(this.u); this.setState({ lesson: null }); } },
+      saveLesson: () => {
+        if (!lessonOk) return;
+        this.setState({ busy: true });
+        this.later(() => {
+          const cur = this.state.lesson;
+          const a = cur.a || '0', b = cur.b || '0';
+          const entry = { title: cur.title.trim(), duration: cur.min ? a + 'min ' + b + 's' : a + 'h ' + b + 'min', video: cur.up === 100 ? 'Legal_Foundations.mp4' : 'N/A', text: cur.text.trim() ? 'Yes' : 'N/A', preview: cur.preview,
+            raw: { title: cur.title, up: cur.up === 100 ? 100 : 0, text: cur.text, min: cur.min, a: cur.a, b: cur.b, preview: cur.preview } };
+          const editing = cur.idx != null;
+          this.setState({ busy: false, lesson: null, toast: editing ? 'lessonUpdated' : 'lesson', modules: this.state.modules.map((m) => {
+            if (m.id !== cur.mid) return m;
+            const ls = m.lessons.slice();
+            if (editing) ls[cur.idx] = entry; else ls.push(entry);
+            return { ...m, open: true, lessons: ls };
+          }) });
+        }, 800);
+      },
+
+      confirmOpen: !!cf,
+      cfTitle: cf ? cf.title : '', cfBody: cf ? cf.body : '',
+      cfOkLabel: cf ? (s.busy && s.confirm.kind === 'draft' ? 'Saving…' : s.busy && s.confirm.kind === 'publish' ? 'Publishing…' : cf.ok) : '',
+      cfHasNote: !!(cf && cf.note), cfNote: cf && cf.note ? cf.note : '',
+      cfCancelLabel: cf ? cf.cancel : '',
+      cfOkStyle: cf ? solid(cf.danger ? '#D92D20' : '#0B0B7E') : '',
+      cfCancelStyle: cf && cf.dangerCancel ? solid('#D92D20') : outline,
+      cfOk: () => {
+        const k = s.confirm.kind;
+        if (k === 'deleteModule') this.setState({ confirm: null, toast: 'module', modules: s.modules.filter((m) => m.id !== s.confirm.mid) });
+        else if (k === 'discard') this.setState({ confirm: null });
+        else if (k === 'draft') { this.setState({ busy: true }); this.later(() => this.setState({ busy: false, confirm: null, toast: 'draft' }), 800); }
+        else if (k === 'publish') { this.setState({ busy: true }); this.later(() => this.setState({ busy: false, confirm: null, toast: 'published' }), 900); }
+        else if (k === 'deleteLesson') { const c = s.confirm; this.setState({ confirm: null, toast: 'lessonDeleted', modules: s.modules.map((m) => (m.id === c.mid ? { ...m, lessons: m.lessons.filter((x, j) => j !== c.idx) } : m)) }); }
+        else if (k === 'deleteQuiz') this.setState({ confirm: null, quiz: null, toast: 'quizDeleted' });
+        else if (k === 'deleteQuestion') { const qi = s.confirm.qi; this.setState({ confirm: null, qz: { ...s.qz, qs: s.qz.qs.filter((x, j) => j !== qi) } }); }
+        else if (k === 'discardQuiz') this.setState({ confirm: null });
+      },
+      cfCancel: () => {
+        if (s.confirm.kind === 'discard') { clearInterval(this.u); this.setState({ confirm: null, lesson: null }); }
+        else if (s.confirm.kind === 'discardQuiz') this.setState({ confirm: null, qz: null });
+        else this.setState({ confirm: null });
+      },
+
+      hasToast: !!s.toast,
+      toastTitle: s.toast ? toasts[s.toast][0] : '',
+      toastBody: s.toast ? toasts[s.toast][1] : '',
+      dismiss: () => this.setState({ toast: null })
+    };
+  }
+}
+</script>
+</body>
+</html>

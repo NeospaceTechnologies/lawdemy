@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lawdemy – Checkout dialogs</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#101828;background:#fff}
+*{box-sizing:border-box}
+a{color:#0B0B7E}a:hover{color:#06065A}
+</style>
+</helmet>
+<div style="width: 760px; height: 320px; box-sizing: border-box; padding: 24px; background: #F2F4F7; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; font-family: Inter, system-ui, sans-serif; color: #101828">
+  <div role="dialog" aria-labelledby="d1" style="background: #ffffff; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; box-shadow: 0 12px 24px -6px rgba(16,24,40,0.14)">
+    <span style="width: 44px; height: 44px; border-radius: 10px; border: 1px solid #EAECF0; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l10 18H2z" fill="#FDB022"></path><path d="M12 10v5M12 18h.01" stroke="#7A2E0E" stroke-width="2" stroke-linecap="round"></path></svg></span>
+    <h2 id="d1" style="margin: 0; font-size: 18px; font-weight: 600">Review Before Checkout</h2>
+    <p style="margin: 0; font-size: 13px; color: #475467; line-height: 1.5">You’ll be redirected to your cart to confirm your selected course(s) before proceeding to payment.</p>
+    <div style="align-self: stretch; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: auto">
+      <button type="button" style="height: 40px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600">Cancel</button>
+      <button type="button" style="height: 40px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600">Go to Cart</button>
+    </div>
+  </div>
+  <div role="alertdialog" aria-labelledby="d2" style="background: #ffffff; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; box-shadow: 0 12px 24px -6px rgba(16,24,40,0.14)">
+    <span style="width: 44px; height: 44px; border-radius: 10px; border: 1px solid #EAECF0; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l10 18H2z" fill="#FDB022"></path><path d="M12 10v5M12 18h.01" stroke="#7A2E0E" stroke-width="2" stroke-linecap="round"></path></svg></span>
+    <h2 id="d2" style="margin: 0; font-size: 18px; font-weight: 600">Remove Course?</h2>
+    <p style="margin: 0; font-size: 13px; color: #475467; line-height: 1.5">Are you sure you want to remove this course? This action cannot be undone.</p>
+    <div style="align-self: stretch; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: auto">
+      <button type="button" style="height: 40px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600">Cancel</button>
+      <button type="button" style="height: 40px; border: 0; border-radius: 8px; background: #D92D20; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600">Remove Course</button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":760,"height":320}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

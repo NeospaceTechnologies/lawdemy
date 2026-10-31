@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lawdemy – Preview image and manage file</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#101828;background:#fff}
+*{box-sizing:border-box}
+a{color:#0B0B7E}a:hover{color:#06065A}
+</style>
+</helmet>
+<div style="width: 780px; height: 560px; box-sizing: border-box; padding: 24px; background: #F2F4F7; display: flex; gap: 24px; align-items: flex-start; font-family: Inter, system-ui, sans-serif; color: #101828">
+  <div role="dialog" aria-labelledby="pv-t" style="width: 420px; background: #ffffff; border-radius: 12px; box-shadow: 0 12px 24px -6px rgba(16,24,40,0.14); display: flex; flex-direction: column">
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid #EAECF0">
+      <h2 id="pv-t" style="margin: 0; font-size: 18px; font-weight: 600">Preview Image</h2>
+      <button type="button" aria-label="Close" style="width: 36px; height: 36px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+    </div>
+    <div style="padding: 16px 20px; display: flex; flex-direction: column; gap: 8px">
+      <div style="height: 280px; border-radius: 10px; background: #D8CBB6; display: flex; align-items: flex-end; padding: 10px"><span style="font-size: 11px; color: #4D3D2A">[Uploaded image: Lady Justice statue]</span></div>
+      <span style="font-size: 12px; color: #344054">Myscreenshot.png</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 12px 20px 20px">
+      <button type="button" style="height: 42px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600">Cancel</button>
+      <button type="button" style="height: 42px; border: 0; border-radius: 8px; background: #D92D20; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600">Delete Image</button>
+    </div>
+  </div>
+  <div role="alertdialog" aria-labelledby="mf-t" style="width: 290px; background: #ffffff; border-radius: 12px; box-shadow: 0 12px 24px -6px rgba(16,24,40,0.14); padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center">
+    <span style="width: 40px; height: 40px; border-radius: 10px; border: 1px solid #EAECF0; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l10 18H2z" fill="#FDB022"></path><path d="M12 10v5M12 18h.01" stroke="#7A2E0E" stroke-width="2" stroke-linecap="round"></path></svg></span>
+    <h2 id="mf-t" style="margin: 0; font-size: 16px; font-weight: 600">Manage File</h2>
+    <p style="margin: 0; font-size: 12px; color: #475467; line-height: 1.5">You’re about to remove this file. What would you like to do?</p>
+    <div style="align-self: stretch; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 4px">
+      <button type="button" style="height: 38px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 12px; font-weight: 600">Cancel</button>
+      <button type="button" style="height: 38px; border: 0; border-radius: 8px; background: #D92D20; color: #ffffff; font: inherit; font-size: 12px; font-weight: 600">Delete</button>
+      <button type="button" style="height: 38px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 12px; font-weight: 600">Replace</button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":780,"height":560}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

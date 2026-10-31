@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lawdemy – Ask a question, with attachment</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#101828;background:#fff}
+*{box-sizing:border-box}
+a{color:#0B0B7E}a:hover{color:#06065A}
+</style>
+</helmet>
+<form role="dialog" aria-labelledby="ask-t" style="width: 480px; height: 640px; box-sizing: border-box; background: #ffffff; border: 1px solid #EAECF0; border-radius: 12px; display: flex; flex-direction: column; font-family: Inter, system-ui, sans-serif; color: #101828">
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; border-bottom: 1px solid #EAECF0">
+    <h2 id="ask-t" style="margin: 0; font-size: 20px; font-weight: 600">Ask A Question</h2>
+    <button type="button" aria-label="Close" style="width: 36px; height: 36px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+  </div>
+  <div style="flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <label for="q-title" style="font-size: 12px; font-weight: 600">Title</label>
+      <input id="q-title" type="text" value="Does Natural Law still hold weight today?" style="height: 40px; border: 1px solid #EAECF0; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; background: #F9FAFB">
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <label for="q-body" style="font-size: 12px; font-weight: 600">Details</label>
+      <textarea id="q-body" rows="4" style="border: 1px solid #EAECF0; border-radius: 8px; padding: 10px 12px; font: inherit; font-size: 13px; line-height: 1.5; background: #F9FAFB; resize: none">I’ve been reflecting on the Natural Law theorists we discussed in Module 1. Do you think Natural Law still holds weight in modern constitutional frameworks, or has it become more of a historical foundation than a living theory?</textarea>
+    </div>
+    <button type="button" aria-label="Attach an image" style="width: 36px; height: 36px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; color: #475467; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-9 9"></path></svg></button>
+    <div style="display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid #EAECF0; border-radius: 10px; box-shadow: 0 1px 3px rgba(16,24,40,0.08)">
+      <span style="width: 36px; height: 36px; flex: none; border-radius: 6px; background: #C9B79C" aria-hidden="true"></span>
+      <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><a href="QA-FileDialogs.dc.html" style="font-size: 13px; font-weight: 500">Myscreenshot.png</a><span style="font-size: 11px; color: #667085">5.72 MB</span></span>
+      <a href="QA-FileDialogs.dc.html" aria-label="Remove attachment" style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; color: #D92D20"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"></path></svg></a>
+    </div>
+    <div style="font-size: 12px; color: #344054; display: flex; flex-direction: column; gap: 6px">
+      <strong style="display: flex; align-items: center; gap: 6px"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#17B26A"></rect><path d="M6 12l4 4 8-8" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>Tips:</strong>
+      <ul style="margin: 0; padding-left: 18px"><li>Keep your question clear and concise.</li><li>Be as detailed as possible.</li></ul>
+    </div>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 16px 20px 20px">
+    <button type="button" style="height: 44px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600">Cancel</button>
+    <button type="button" style="height: 44px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600">Post</button>
+  </div>
+</form>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":480,"height":640}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

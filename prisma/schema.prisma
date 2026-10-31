@@ -1,0 +1,758 @@
+// Lawdemy data model (PRD section 8). Money is stored in kobo, times in UTC.
+// Extra tables the designs need beyond section 8: CartItem, WishlistItem,
+// RecentSearch, CourseRating, EmailVerificationToken.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum Role {
+  LEARNER
+  INSTRUCTOR
+  ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  LOCKED
+  DELETED
+}
+
+model User {
+  id              String     @id @default(cuid())
+  role            Role
+  email           String
+  passwordHash    String
+  emailVerifiedAt DateTime?
+  firstName       String
+  lastName        String
+  photoUrl        String?
+  photoAssetId    String?
+  marketingOptIn  Boolean    @default(false)
+  // { courseUpdates, qaReplies, communityReplies, enrolments, payouts } booleans; missing = on
+  notificationPrefs Json?
+  status          UserStatus @default(ACTIVE)
+  // Staff 2FA (PRD 9): TOTP secret, AES-GCM encrypted; enabled once the first code is confirmed.
+  totpSecretEnc   String?
+  totpEnabledAt   DateTime?
+  // ADM-05: a frozen instructor wallet can't start withdrawals.
+  walletFrozenAt  DateTime?
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  deletedAt       DateTime?
+
+  instructorProfile InstructorProfile?
+  learnerProfile    LearnerProfile?
+  sessions          Session[]
+  resetTokens       PasswordResetToken[]
+  verifyTokens      EmailVerificationToken[]
+  courses           Course[]
+  mediaAssets       MediaAsset[]
+  enrollments       Enrollment[]
+  cartItems         CartItem[]
+  wishlistItems     WishlistItem[]
+  orders            Order[]
+  notifications     Notification[]
+  questions         Question[]
+  questionReplies   QuestionReply[]
+  posts             Post[]
+  postReplies       PostReply[]
+  wallet            WalletTransaction[]
+  bankAccounts      BankAccount[]
+  withdrawals       Withdrawal[]
+  transactionPin    TransactionPin?
+  supportTickets    SupportTicket[]
+  quizAttempts      QuizAttempt[]
+  ratings           CourseRating[]
+  recentSearches    RecentSearch[]
+  supportReplies    SupportReply[]
+
+  // One account holds one role (PRD 3, Assumptions): the same email may sign up once per role.
+  @@unique([email, role])
+}
+
+model InstructorProfile {
+  userId            String   @id
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  professionalTitle String?
+  yearsExperience   Int?
+  jurisdictions     String[]
+  practiceAreas     String[]
+  bio               String?  @db.VarChar(500)
+  links             Json?
+  onboardedAt       DateTime?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model LearnerProfile {
+  userId        String    @id
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  isLawyer      Boolean?
+  callYear      Int?
+  // The design allows several jurisdictions; the PRD lists one. Stored as a list.
+  jurisdictions String[]
+  practiceAreas String[]
+  interests     String[]
+  onboardedAt   DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+// Email verification links expire after 24 h (PRD 4.1).
+model EmailVerificationToken {
+  id        String    @id // sha256 of the emailed token
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([userId])
+}
+
+model Session {
+  id         String   @id // sha256 of the cookie token
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt  DateTime
+  lastSeenAt DateTime @default(now())
+  ip         String?
+  userAgent  String?
+  mfaAt      DateTime?
+  createdAt  DateTime @default(now())
+
+  @@index([userId])
+}
+
+// Sign-in attempts per email+role, used for the 5-in-15-min lockout (PRD 7.1).
+model LoginAttempt {
+  id        String   @id @default(cuid())
+  email     String
+  role      Role
+  success   Boolean
+  ip        String?
+  createdAt DateTime @default(now())
+
+  @@index([email, role, createdAt])
+}
+
+model PasswordResetToken {
+  id        String    @id // sha256 of the emailed token
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([userId])
+}
+
+enum CourseStatus {
+  DRAFT
+  UNDER_REVIEW
+  LIVE
+  REJECTED
+  ARCHIVED
+}
+
+enum CourseAccess {
+  FREE
+  PAID
+}
+
+enum DurationFormat {
+  HOURS_MINUTES
+  MINUTES_SECONDS
+}
+
+model Course {
+  id               String          @id @default(cuid())
+  instructorId     String
+  instructor       User            @relation(fields: [instructorId], references: [id])
+  title            String          @db.VarChar(120)
+  subtitle         String?         @db.VarChar(160)
+  description      String?
+  outcomes         String?
+  category         String?
+  level            String?
+  durationSeconds  Int?
+  durationFormat   DurationFormat  @default(HOURS_MINUTES)
+  thumbnailAssetId String?
+  thumbnail        MediaAsset?     @relation("CourseThumbnail", fields: [thumbnailAssetId], references: [id])
+  access           CourseAccess    @default(PAID)
+  priceKobo        Int?
+  discountPct      Int?
+  discountEndsAt   DateTime?
+  hasCertificate   Boolean         @default(true)
+  status           CourseStatus    @default(DRAFT)
+  // Furthest wizard step reached (1–3), so a resumed draft unlocks the same steps.
+  wizardStep       Int             @default(1)
+  submittedAt      DateTime?
+  publishedAt      DateTime?
+  archivedAt       DateTime?
+  duplicatedFromId String?
+  // ADM-03 takedown: staff unpublished a Live course. Learners lose access only for legal/safety reasons.
+  takenDownAt      DateTime?
+  takedownReason   String?
+  takedownRevokes  Boolean         @default(false)
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+  deletedAt        DateTime?
+
+  modules     Module[]
+  quiz        Quiz?
+  decisions   ReviewDecision[]
+  enrollments Enrollment[]
+  cartItems   CartItem[]
+  wishlist    WishlistItem[]
+  orderItems  OrderItem[]
+  posts       Post[]
+  ratings     CourseRating[]
+
+  @@index([instructorId, status])
+  @@index([status, submittedAt])
+}
+
+model Module {
+  id        String   @id
+  courseId  String
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  title     String   @default("")
+  position  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  lessons Lesson[]
+
+  @@index([courseId, position])
+}
+
+model Lesson {
+  id              String         @id
+  moduleId        String
+  module          Module         @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  title           String
+  position        Int
+  videoAssetId    String?
+  video           MediaAsset?    @relation("LessonVideo", fields: [videoAssetId], references: [id])
+  writeUp         String? // sanitised HTML
+  // WebVTT captions for the video (PRD 9 accessibility).
+  captionsAssetId String?
+  captions        MediaAsset?    @relation("LessonCaptions", fields: [captionsAssetId], references: [id])
+  durationSeconds Int            @default(0)
+  durationFormat  DurationFormat @default(MINUTES_SECONDS)
+  isPreview       Boolean        @default(false)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  questions Question[]
+
+  @@index([moduleId, position])
+}
+
+enum MediaKind {
+  VIDEO
+  IMAGE
+  FILE
+}
+
+enum MediaStatus {
+  UPLOADING
+  PROCESSING
+  READY
+  FAILED
+}
+
+model MediaAsset {
+  id              String      @id @default(cuid())
+  ownerId         String
+  owner           User        @relation(fields: [ownerId], references: [id])
+  kind            MediaKind
+  storageKey      String
+  fileName        String
+  mime            String
+  sizeBytes       Int
+  receivedBytes   Int         @default(0)
+  status          MediaStatus @default(UPLOADING)
+  durationSeconds Int?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  lessons          Lesson[] @relation("LessonVideo")
+  captionLessons   Lesson[] @relation("LessonCaptions")
+  courseThumbnails Course[] @relation("CourseThumbnail")
+}
+
+model Quiz {
+  id           String   @id @default(cuid())
+  courseId     String   @unique
+  course       Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  title        String
+  instructions String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  questions QuizQuestion[]
+  attempts  QuizAttempt[]
+}
+
+enum QuestionType {
+  MC
+  TF
+  SHORT
+  UPLOAD
+}
+
+model QuizQuestion {
+  id          String       @id
+  quizId      String
+  quiz        Quiz         @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  type        QuestionType
+  prompt      String
+  options     Json // [{ text, correct }]
+  modelAnswer String?
+  feedback    String?
+  position    Int
+
+  @@index([quizId, position])
+}
+
+model ReviewDecision {
+  id         String   @id @default(cuid())
+  courseId   String
+  course     Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  reviewerId String?
+  decision   String // approved | rejected
+  reason     String?
+  decidedAt  DateTime @default(now())
+
+  @@index([courseId, decidedAt])
+}
+
+// ---- Learning ----------------------------------------------------------------
+
+model Enrollment {
+  id              String    @id @default(cuid())
+  courseId        String
+  course          Course    @relation(fields: [courseId], references: [id])
+  learnerId       String
+  learner         User      @relation(fields: [learnerId], references: [id])
+  orderId         String?
+  progressPct     Int       @default(0)
+  currentLessonId String?
+  completedAt     DateTime?
+  lastActiveAt    DateTime  @default(now())
+  createdAt       DateTime  @default(now())
+
+  progress    LessonProgress[]
+  certificate Certificate?
+
+  @@unique([courseId, learnerId])
+  @@index([learnerId, lastActiveAt])
+}
+
+model LessonProgress {
+  enrollmentId    String
+  enrollment      Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+  lessonId        String
+  positionSeconds Int        @default(0)
+  completedAt     DateTime?
+  updatedAt       DateTime   @updatedAt
+
+  @@id([enrollmentId, lessonId])
+}
+
+model QuizAttempt {
+  id          String   @id @default(cuid())
+  quizId      String
+  quiz        Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  learnerId   String
+  learner     User     @relation(fields: [learnerId], references: [id])
+  scorePct    Int
+  passed      Boolean
+  answers     Json
+  // Short-answer and upload questions are marked by the instructor: until then the
+  // attempt is "awaiting_review" and scorePct counts only auto-marked questions.
+  status      String   @default("graded") // graded | awaiting_review
+  // { [questionId]: { correct: boolean, comment?: string } } from the instructor.
+  marks       Json?
+  reviewedAt  DateTime?
+  reviewedById String?
+  submittedAt DateTime @default(now())
+
+  @@index([quizId, learnerId])
+}
+
+model Certificate {
+  id               String     @id @default(cuid())
+  enrollmentId     String     @unique
+  enrollment       Enrollment @relation(fields: [enrollmentId], references: [id])
+  verificationCode String     @unique
+  variant          String // lawyer | non_lawyer
+  issuedAt         DateTime   @default(now())
+}
+
+model CourseRating {
+  courseId  String
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  learnerId String
+  learner   User     @relation(fields: [learnerId], references: [id])
+  stars     Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  @@id([courseId, learnerId])
+}
+
+// ---- Shopping ----------------------------------------------------------------
+
+model CartItem {
+  learnerId String
+  learner   User     @relation(fields: [learnerId], references: [id], onDelete: Cascade)
+  courseId  String
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@id([learnerId, courseId])
+}
+
+model WishlistItem {
+  learnerId String
+  learner   User     @relation(fields: [learnerId], references: [id], onDelete: Cascade)
+  courseId  String
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@id([learnerId, courseId])
+}
+
+model RecentSearch {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  query     String
+  createdAt DateTime @default(now())
+
+  @@index([userId, createdAt])
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}
+
+model Order {
+  id          String      @id @default(cuid())
+  learnerId   String
+  learner     User        @relation(fields: [learnerId], references: [id])
+  reference   String      @unique
+  totalKobo   Int
+  status      OrderStatus @default(PENDING)
+  provider    String
+  providerRef String?
+  paidAt      DateTime?
+  refundedKobo Int        @default(0)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  items OrderItem[]
+}
+
+model OrderItem {
+  id                  String  @id @default(cuid())
+  orderId             String
+  order               Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  courseId            String
+  course              Course  @relation(fields: [courseId], references: [id])
+  priceKobo           Int
+  instructorShareKobo Int
+  platformFeeKobo     Int
+  refundedKobo        Int       @default(0)
+  refundedAt          DateTime?
+
+  walletTransaction WalletTransaction?
+}
+
+// ---- Instructor money ----------------------------------------------------------
+// Append-only ledger; balances are derived, never edited (PRD 9).
+
+enum WalletType {
+  ENROLLMENT
+  BONUS
+  WITHDRAWAL
+  REFUND
+}
+
+enum WalletStatus {
+  PENDING
+  AVAILABLE
+  SUCCESSFUL
+  FAILED
+}
+
+model WalletTransaction {
+  id           String       @id @default(cuid())
+  instructorId String
+  instructor   User         @relation(fields: [instructorId], references: [id])
+  type         WalletType
+  amountKobo   Int // positive credit, negative debit
+  status       WalletStatus
+  reference    String       @unique
+  availableAt  DateTime?
+  notes        String?
+  orderItemId  String?      @unique
+  orderItem    OrderItem?   @relation(fields: [orderItemId], references: [id])
+  withdrawalId String?      @unique
+  withdrawal   Withdrawal?  @relation(fields: [withdrawalId], references: [id])
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  @@index([instructorId, createdAt])
+}
+
+model BankAccount {
+  id                     String    @id @default(cuid())
+  instructorId           String
+  instructor             User      @relation(fields: [instructorId], references: [id])
+  bankCode               String
+  bankName               String
+  accountNumberLast4     String
+  accountNumberEncrypted String
+  accountName            String
+  isDefault              Boolean   @default(false)
+  verifiedAt             DateTime
+  createdAt              DateTime  @default(now())
+  updatedAt              DateTime  @updatedAt
+  deletedAt              DateTime?
+
+  withdrawals Withdrawal[]
+
+  @@index([instructorId])
+}
+
+enum WithdrawalStatus {
+  AWAITING_APPROVAL
+  PENDING
+  SUCCESSFUL
+  FAILED
+}
+
+model Withdrawal {
+  id            String           @id @default(cuid())
+  instructorId  String
+  instructor    User             @relation(fields: [instructorId], references: [id])
+  bankAccountId String
+  bankAccount   BankAccount      @relation(fields: [bankAccountId], references: [id])
+  reference     String           @unique
+  amountKobo    Int
+  feeKobo       Int
+  status        WithdrawalStatus @default(PENDING)
+  providerRef   String?
+  failureReason String?
+  attempts      Int              @default(1)
+  approvedById  String?
+  approvedAt    DateTime?
+  requestedAt   DateTime         @default(now())
+  completedAt   DateTime?
+
+  walletTransaction WalletTransaction?
+
+  @@index([instructorId, requestedAt])
+}
+
+model TransactionPin {
+  instructorId   String    @id
+  instructor     User      @relation(fields: [instructorId], references: [id], onDelete: Cascade)
+  pinHash        String
+  failedAttempts Int       @default(0)
+  lockedUntil    DateTime?
+  updatedAt      DateTime  @updatedAt
+}
+
+// ---- Q&A and community ----------------------------------------------------------
+
+model Question {
+  id           String    @id @default(cuid())
+  lessonId     String
+  lesson       Lesson    @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  authorId     String
+  author       User      @relation(fields: [authorId], references: [id])
+  title        String
+  body         String
+  attachmentId String?
+  editedAt     DateTime?
+  createdAt    DateTime  @default(now())
+  deletedAt    DateTime?
+
+  replies QuestionReply[]
+
+  @@index([lessonId, createdAt])
+}
+
+model QuestionReply {
+  id           String    @id @default(cuid())
+  questionId   String
+  question     Question  @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  authorId     String
+  author       User      @relation(fields: [authorId], references: [id])
+  body         String
+  attachmentId String?
+  editedAt     DateTime?
+  createdAt    DateTime  @default(now())
+  deletedAt    DateTime?
+
+  @@index([questionId, createdAt])
+}
+
+model Post {
+  id           String    @id @default(cuid())
+  authorId     String
+  author       User      @relation(fields: [authorId], references: [id])
+  kind         String // discussion | announcement
+  title        String
+  body         String
+  courseId     String?
+  course       Course?   @relation(fields: [courseId], references: [id])
+  attachmentId String?
+  status       String    @default("published") // published | expired | hidden
+  expiresAt    DateTime?
+  editedAt     DateTime?
+  createdAt    DateTime  @default(now())
+  deletedAt    DateTime?
+
+  replies PostReply[]
+
+  @@index([kind, createdAt])
+}
+
+model PostReply {
+  id           String    @id @default(cuid())
+  postId       String
+  post         Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+  parentId     String?
+  authorId     String
+  author       User      @relation(fields: [authorId], references: [id])
+  body         String
+  attachmentId String?
+  editedAt     DateTime?
+  createdAt    DateTime  @default(now())
+  deletedAt    DateTime?
+
+  @@index([postId, createdAt])
+}
+
+// targetType: question | question_reply | post | post_reply
+model Upvote {
+  userId     String
+  targetType String
+  targetId   String
+  createdAt  DateTime @default(now())
+
+  @@id([userId, targetType, targetId])
+  @@index([targetType, targetId])
+}
+
+model Report {
+  id          String   @id @default(cuid())
+  reporterId  String
+  targetType  String
+  targetId    String
+  reason      String
+  details     String?
+  status      String   @default("open") // open | actioned | dismissed
+  handledById String?
+  handledAt   DateTime?
+  action      String? // dismiss | hide | warn | suspend
+  createdAt   DateTime @default(now())
+
+  @@unique([reporterId, targetType, targetId])
+  @@index([status, createdAt])
+}
+
+model Notification {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type      String
+  title     String
+  body      String
+  link      String?
+  readAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([userId, createdAt])
+}
+
+model SupportTicket {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id])
+  category     String
+  message      String
+  attachmentId String?
+  status       String   @default("open") // open | pending | closed
+  assigneeId   String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @default(now()) @updatedAt
+
+  replies SupportReply[]
+
+  @@index([status, createdAt])
+}
+
+model SupportReply {
+  id        String        @id @default(cuid())
+  ticketId  String
+  ticket    SupportTicket @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  authorId  String
+  author    User          @relation(fields: [authorId], references: [id])
+  body      String
+  createdAt DateTime      @default(now())
+}
+
+// ADM-11: lists staff manage without a code release. Empty kind = built-in defaults.
+model TaxonomyItem {
+  id        String   @id @default(cuid())
+  kind      String // category | practice_area | jurisdiction | professional_title | report_reason | interest
+  value     String
+  position  Int      @default(0)
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  @@unique([kind, value])
+  @@index([kind, position])
+}
+
+// ADM-06: one row per reconciliation run (nightly job or "Run now").
+model ReconciliationRun {
+  id          String   @id @default(cuid())
+  periodStart DateTime
+  periodEnd   DateTime
+  checked     Int
+  mismatches  Json
+  runById     String?
+  createdAt   DateTime @default(now())
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  actorId    String?
+  action     String
+  targetType String
+  targetId   String?
+  before     Json?
+  after      Json?
+  ip         String?
+  at         DateTime @default(now())
+
+  @@index([targetType, targetId])
+}

@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lawdemy Instructor – Withdraw earnings</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#101828;background:#fff}
+*{box-sizing:border-box}
+a{color:#0B0B7E}a:hover{color:#06065A}
+button:disabled{cursor:not-allowed}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 100vh; background: #ffffff">
+  <aside style="flex: 1 1 240px; background: #F9FAFB; border-right: 1px solid #EAECF0; padding: 20px 14px; display: flex; flex-direction: column; gap: 24px">
+    <div style="display: flex; align-items: center; gap: 8px; padding: 0 8px">
+      <svg width="22" height="26" viewBox="0 0 22 26" aria-hidden="true"><path d="M2 2h6v16h12v6H5a3 3 0 0 1-3-3z" fill="#0B0B7E"></path><circle cx="16" cy="12" r="4.5" fill="#F26B1D"></circle></svg>
+      <span style="font-weight: 700; font-size: 16px; color: #0B0B7E">Lawdemy</span>
+      <span style="margin-left: 4px; font-size: 10px; font-weight: 600; color: #5B21B6; background: #F1EBFF; border-radius: 4px; padding: 2px 6px">Instructor</span>
+    </div>
+    <nav aria-label="Main" style="display: flex; flex-direction: column; gap: 2px">
+      <a href="Inst-Dashboard.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>Dashboard</a>
+      <a href="Inst-MyCourses.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h10a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"></path><path d="M8 9h6"></path></svg>My Courses</a>
+      <a href="Inst-Earnings.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; font-weight: 600; color: #101828; background: #EAECF0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18M7 15h3"></path></svg>Earnings</a>
+      <a href="Inst-Community.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"></path><path d="M3 13l9 5 9-5"></path></svg>Community</a>
+    </nav>
+    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 2px">
+      <a href="Inst-Support.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg>Support</a>
+      <a href="Inst-Settings.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"></path></svg>Settings</a>
+      <div style="margin-top: 12px; display: flex; align-items: center; gap: 10px; padding: 10px; border: 1px solid #EAECF0; border-radius: 10px; background: #ffffff">
+        <span style="width: 34px; height: 34px; flex: none; border-radius: 50%; background: #7A4E3A; color: #F5E6D3; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">JA</span>
+        <span style="flex: 1; min-width: 0; display: flex; flex-direction: column"><span style="font-size: 13px; font-weight: 600">James Adeniola</span><span style="font-size: 11px; color: #667085">Instructor</span></span>
+      </div>
+    </div>
+  </aside>
+  <main style="flex: 999 1 560px; min-width: 0; padding: 20px 32px 56px; display: flex; flex-direction: column; gap: 22px">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 4px"><h1 style="margin: 0; font-size: 30px; font-weight: 700">Earnings</h1><p style="margin: 0; font-size: 14px; color: #475467">Track your earnings, request payouts, and manage your withdrawal settings.</p></div>
+      <button type="button" onClick="{{reopen}}" style="height: 44px; padding: 0 18px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Withdraw Earnings</button>
+    </div>
+    <section aria-label="Earnings summary" style="padding: 16px 18px; border: 1px solid #EAECF0; border-radius: 12px; display: flex; flex-direction: column; gap: 14px">
+      <div style="display: flex; justify-content: space-between"><span style="font-size: 14px; font-weight: 600">Total Earnings</span><strong style="font-size: 22px">₦580.4K</strong></div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px">
+        <div style="display: flex; flex-direction: column; gap: 6px"><span style="display: flex; justify-content: space-between; font-size: 12px; color: #475467">Available to Withdraw<strong style="color: #101828">{{availLabel}}</strong></span><span style="height: 8px; border-radius: 4px; background: #17B26A"></span></div>
+        <div style="display: flex; flex-direction: column; gap: 6px"><span style="display: flex; justify-content: space-between; font-size: 12px; color: #475467">Pending Earnings<strong style="color: #101828">₦24,500</strong></span><span style="height: 8px; border-radius: 4px; background: #F79009"></span></div>
+        <div style="display: flex; flex-direction: column; gap: 6px"><span style="display: flex; justify-content: space-between; font-size: 12px; color: #475467">Last Withdrawal<strong style="color: #101828">{{lastLabel}}</strong></span><span style="height: 8px; border-radius: 4px; background: #98A2B3"></span></div>
+      </div>
+    </section>
+    <a href="Inst-Earnings.dc.html" style="font-size: 13px; font-weight: 600">View transaction history</a>
+  </main>
+</div>
+
+<sc-if value="{{panelOpen}}" hint-placeholder-val="{{true}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; justify-content: flex-end; padding: 16px">
+    <form role="dialog" aria-modal="true" aria-labelledby="wd-t" style="width: 460px; max-width: 100%; background: #ffffff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden">
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 16px 20px; border-bottom: 1px solid #EAECF0">
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 4px"><h2 id="wd-t" style="margin: 0; font-size: 18px; font-weight: 600">{{heading}}</h2><p style="margin: 0; font-size: 12px; color: #475467; line-height: 1.5">{{sub}}</p></div>
+        <button type="button" aria-label="Close" onClick="{{cancel}}" style="width: 34px; height: 34px; border: 0; background: transparent; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+      <sc-if value="{{hasToast}}" hint-placeholder-val="{{false}}">
+        <div role="status" style="margin: 12px 20px 0; display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 8px; background: #067647; color: #ffffff; font-size: 13px"><strong style="flex: 1">{{toast}}</strong><button type="button" aria-label="Dismiss" onClick="{{dismiss}}" style="width: 26px; height: 26px; border: 0; background: transparent; color: #ffffff; cursor: pointer">×</button></div>
+      </sc-if>
+      <div style="flex: 1; overflow-y: auto; padding: 18px 20px; display: flex; flex-direction: column; gap: 16px">
+
+        <sc-if value="{{stForm}}" hint-placeholder-val="{{true}}">
+          <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px; border-radius: 15px; background: #F1EBFF; color: #5B21B6; font-size: 12px; font-weight: 600">Available to Withdraw: {{availLabel}}</span>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <label for="wd-bank" style="font-size: 12px; font-weight: 600">Bank</label>
+            <select id="wd-bank" value="{{bankSel}}" onChange="{{setBankSel}}" style="height: 42px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 13px; background: #F9FAFB">
+              <option value="saved">{{savedLabel}}</option>
+              <option>Access Bank</option><option>GTBank Plc</option><option>Kuda Microfinance Bank</option><option>Moniepoint Microfinance Bank</option><option>PalmPay</option>
+            </select>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <label for="wd-acct" style="font-size: 12px; font-weight: 600">Bank Account Number</label>
+            <sc-if value="{{usingSaved}}" hint-placeholder-val="{{true}}"><input id="wd-acct" type="text" value="{{savedMasked}}" readonly style="height: 42px; border: 1px solid #EAECF0; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; background: #F2F4F7; color: #475467"></sc-if>
+            <sc-if value="{{usingOther}}" hint-placeholder-val="{{false}}">
+              <input id="wd-acct" type="text" inputmode="numeric" maxlength="10" value="{{acct}}" onChange="{{setAcct}}" placeholder="Enter 10-digit account number" style="height: 42px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; background: #F9FAFB">
+              <sc-if value="{{verifying}}" hint-placeholder-val="{{false}}"><span role="status" style="font-size: 12px; color: #475467">Verifying name…</span></sc-if>
+              <sc-if value="{{hasName}}" hint-placeholder-val="{{false}}"><span style="align-self: flex-start; display: inline-flex; align-items: center; height: 30px; padding: 0 12px; border-radius: 15px; background: #F26B1D; color: #ffffff; font-size: 12px; font-weight: 700">JAMES ADENIOLA</span></sc-if>
+            </sc-if>
+          </div>
+          <button type="button" onClick="{{toChoose}}" style="height: 40px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Change Bank Account</button>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <label for="wd-amt" style="font-size: 12px; font-weight: 600">Amount to Withdraw</label>
+            <input id="wd-amt" type="text" inputmode="numeric" value="{{amountText}}" onChange="{{setAmount}}" placeholder="Enter amount" aria-describedby="wd-hint" style="height: 42px; border: 1px solid {{amtBorder}}; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; background: #F9FAFB">
+            <span id="wd-hint" style="align-self: flex-end; font-size: 11px; color: {{hintColor}}">{{amtHint}}</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px">
+              <sc-for list="{{quick}}" as="k" hint-placeholder-count="6"><button type="button" onClick="{{k.pick}}" aria-pressed="{{k.on}}" style="{{k.style}}">{{k.label}}</button></sc-for>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{stReview}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 6px 0 4px"><span style="font-size: 12px; color: #475467">Withdrawal Amount</span><strong style="font-size: 28px; color: #C4320A">{{amountLabel}}</strong></div>
+          <dl style="margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 12px 16px; font-size: 13px">
+            <dt style="color: #475467">Receiving Bank</dt><dd style="margin: 0; text-align: right; font-weight: 500">{{destBank}}</dd>
+            <dt style="color: #475467">Account Number</dt><dd style="margin: 0; text-align: right; font-weight: 500">{{destAcct}}</dd>
+            <dt style="color: #475467">Name</dt><dd style="margin: 0; text-align: right; font-weight: 500">James Adeniola</dd>
+            <dt style="color: #475467">Transaction Amount</dt><dd style="margin: 0; text-align: right; font-weight: 500">{{amountLabel}}</dd>
+            <dt style="color: #475467">Charge</dt><dd style="margin: 0; text-align: right; font-weight: 500">₦20</dd>
+            <dt style="padding-top: 12px; border-top: 1px solid #EAECF0; font-weight: 600">Total Debit</dt><dd style="margin: 0; padding-top: 12px; border-top: 1px solid #EAECF0; text-align: right; font-weight: 700">{{totalLabel}}</dd>
+          </dl>
+        </sc-if>
+
+        <sc-if value="{{stPin}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding-top: 12px">
+            <label for="wd-pin" style="font-size: 13px; font-weight: 600">Transaction PIN</label>
+            <div style="display: flex; align-items: center; gap: 8px">
+              <input id="wd-pin" type="{{pinType}}" inputmode="numeric" maxlength="4" autocomplete="off" value="{{pin}}" onChange="{{setPin}}" aria-invalid="{{pinInvalid}}" aria-describedby="wd-pin-msg" style="width: 180px; height: 52px; border: 1px solid {{pinBorder}}; border-radius: 10px; text-align: center; font: inherit; font-size: 24px; letter-spacing: 0.6em; background: #F9FAFB">
+              <button type="button" onClick="{{togglePin}}" aria-label="{{pinToggleLabel}}" style="height: 36px; padding: 0 8px; border: 0; background: transparent; color: #475467; font: inherit; font-size: 12px; cursor: pointer">{{pinToggleText}}</button>
+            </div>
+            <span id="wd-pin-msg" role="status" style="font-size: 12px; color: {{pinMsgColor}}">{{pinMsg}}</span>
+            <button type="button" onClick="{{forgotPin}}" style="height: 30px; border: 0; background: transparent; color: #0B0B7E; font: inherit; font-size: 12px; font-weight: 600; text-decoration: underline; cursor: pointer">Forgot Pin?</button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{stResetAuth}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <label for="rs-pw" style="font-size: 12px; font-weight: 600">Enter your account password</label>
+            <div style="display: flex; align-items: center; height: 42px; border: 1px solid #D0D5DD; border-radius: 8px; background: #F9FAFB; padding: 0 4px 0 12px"><input id="rs-pw" type="{{rsPwType}}" value="{{rsPw}}" onChange="{{setRsPw}}" placeholder="Enter your password" style="flex: 1; min-width: 0; border: 0; outline: none; background: transparent; font: inherit; font-size: 13px"><button type="button" onClick="{{toggleRsPw}}" aria-label="{{rsPwToggleLabel}}" style="height: 34px; padding: 0 8px; border: 0; background: transparent; color: #475467; font: inherit; font-size: 12px; cursor: pointer">{{rsPwToggleText}}</button></div>
+            <a href="Inst-Earnings.dc.html" style="align-self: flex-end; font-size: 12px; font-weight: 600">Forgot Password?</a>
+          </div>
+        </sc-if>
+        <sc-if value="{{stResetPin}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <label for="np1" style="font-size: 12px; font-weight: 600">New 4-digit PIN</label>
+            <input id="np1" type="{{npType}}" inputmode="numeric" maxlength="4" autocomplete="off" value="{{np1}}" onChange="{{setNp1}}" style="width: 180px; height: 48px; border: 1px solid #D0D5DD; border-radius: 10px; text-align: center; font: inherit; font-size: 22px; letter-spacing: 0.6em; background: #F9FAFB">
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <label for="np2" style="font-size: 12px; font-weight: 600">Confirm New PIN</label>
+            <input id="np2" type="{{npType}}" inputmode="numeric" maxlength="4" autocomplete="off" value="{{np2}}" onChange="{{setNp2}}" aria-invalid="{{npMismatchAttr}}" aria-describedby="np-msg" style="width: 180px; height: 48px; border: 1px solid {{np2Border}}; border-radius: 10px; text-align: center; font: inherit; font-size: 22px; letter-spacing: 0.6em; background: #F9FAFB">
+            <span id="np-msg" role="status" style="font-size: 12px; color: #D92D20">{{npMsg}}</span>
+          </div>
+          <button type="button" onClick="{{toggleNp}}" style="align-self: flex-start; height: 30px; padding: 0; border: 0; background: transparent; color: #475467; font: inherit; font-size: 12px; cursor: pointer">{{npToggleText}}</button>
+        </sc-if>
+
+        <sc-if value="{{stReceipt}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center">
+            <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#17B26A"></circle><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <span style="font-size: 12px; color: #475467">Withdrawal Completed</span><strong style="font-size: 26px">{{amountLabel}}</strong>
+          </div>
+          <dl style="margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 12px 16px; font-size: 13px">
+            <dt style="color: #475467">Transaction Type</dt><dd style="margin: 0; text-align: right; font-weight: 500">Withdrawal</dd>
+            <dt style="color: #475467">Date</dt><dd style="margin: 0; text-align: right; font-weight: 500">{{today}}</dd>
+            <dt style="color: #475467">Reference ID</dt><dd style="margin: 0; text-align: right; font-weight: 500">FLW-TXD-23092016</dd>
+            <dt style="color: #475467">Status</dt><dd style="margin: 0; text-align: right"><span style="display: inline-flex; height: 22px; align-items: center; padding: 0 8px; border-radius: 11px; font-size: 11px; font-weight: 600; background: #DCFAE6; color: #067647">Successful</span></dd>
+            <dt style="color: #475467">Receiving Bank</dt><dd style="margin: 0; text-align: right; font-weight: 500">{{destBank}} ({{destAcct}})</dd>
+          </dl>
+          <div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 13px">Notes</strong><span style="font-size: 13px; color: #475467">Payment processed to bank account.</span></div>
+        </sc-if>
+
+        <sc-if value="{{stChoose}}" hint-placeholder-val="{{false}}">
+          <div role="radiogroup" aria-label="Bank accounts" style="display: flex; flex-direction: column; gap: 8px">
+            <sc-for list="{{accounts}}" as="a" hint-placeholder-count="2">
+              <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid {{a.border}}; border-radius: 10px">
+                <input type="radio" name="acc" checked="{{a.sel}}" onChange="{{a.pick}}" aria-label="{{a.label}}" style="accent-color: #0B0B7E; margin: 0">
+                <span style="flex: 1; font-size: 13px; font-weight: 500">{{a.label}}</span>
+                <sc-if value="{{a.isDefault}}" hint-placeholder-val="{{false}}"><span style="height: 20px; display: inline-flex; align-items: center; padding: 0 8px; border-radius: 10px; background: #101828; color: #ffffff; font-size: 10px; font-weight: 600">Default</span></sc-if>
+                <button type="button" aria-label="Remove {{a.label}}" onClick="{{a.askRemove}}" style="width: 28px; height: 28px; border: 0; background: transparent; color: #667085; cursor: pointer"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+              </div>
+            </sc-for>
+            <sc-if value="{{noAccounts}}" hint-placeholder-val="{{false}}"><p style="margin: 0; padding: 14px; border: 1px dashed #D0D5DD; border-radius: 10px; text-align: center; font-size: 13px; color: #475467">No saved accounts. Add one to withdraw.</p></sc-if>
+          </div>
+          <button type="button" onClick="{{toAdd}}" style="height: 40px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Add a New Bank Account</button>
+        </sc-if>
+
+        <sc-if value="{{stAdd}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <label for="ad-acct" style="font-size: 12px; font-weight: 600">Bank Account Number</label>
+            <input id="ad-acct" type="text" inputmode="numeric" maxlength="10" value="{{addAcct}}" onChange="{{setAddAcct}}" placeholder="Enter 10-digit account number" style="height: 42px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; background: #F9FAFB">
+            <sc-if value="{{matching}}" hint-placeholder-val="{{false}}"><span role="status" style="font-size: 12px; color: #475467">Matching banks…</span></sc-if>
+            <sc-if value="{{hasSuggest}}" hint-placeholder-val="{{false}}"><div style="align-self: flex-start; display: flex; align-items: center; gap: 8px; padding: 6px 6px 6px 12px; border-radius: 20px; background: #F26B1D; color: #ffffff; font-size: 12px; font-weight: 600">Moniepoint Microfinance Bank<button type="button" onClick="{{takeSuggest}}" style="height: 26px; padding: 0 10px; border: 0; border-radius: 13px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 11px; font-weight: 600; cursor: pointer">Select</button></div></sc-if>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <label for="ad-bank" style="font-size: 12px; font-weight: 600">Bank</label>
+            <select id="ad-bank" value="{{addBank}}" onChange="{{setAddBank}}" style="height: 42px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 13px; background: #F9FAFB"><option value="">Select bank</option><option>Access Bank</option><option>GTBank Plc</option><option>Kuda Microfinance Bank</option><option>Moniepoint Microfinance Bank</option><option>PalmPay</option></select>
+            <sc-if value="{{addVerifying}}" hint-placeholder-val="{{false}}"><span role="status" style="font-size: 12px; color: #475467">Verifying name…</span></sc-if>
+            <sc-if value="{{addName}}" hint-placeholder-val="{{false}}"><span style="align-self: flex-start; display: inline-flex; align-items: center; height: 30px; padding: 0 12px; border-radius: 15px; background: #F26B1D; color: #ffffff; font-size: 12px; font-weight: 700">JAMES ADENIOLA</span></sc-if>
+          </div>
+        </sc-if>
+      </div>
+      <div style="padding: 16px 20px 20px; border-top: 1px solid #EAECF0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+        <button type="button" onClick="{{secondary}}" style="height: 44px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">{{secondaryLabel}}</button>
+        <button type="button" onClick="{{primary}}" disabled="{{primaryBlocked}}" style="{{primaryStyle}}">{{primaryLabel}}</button>
+      </div>
+    </form>
+  </div>
+</sc-if>
+
+<sc-if value="{{successOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; align-items: center; justify-content: center; padding: 16px">
+    <div role="alertdialog" aria-modal="true" aria-labelledby="ok-t" style="width: 380px; max-width: 100%; background: #ffffff; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center">
+      <span aria-hidden="true" style="width: 48px; height: 48px; border-radius: 12px; background: #F1EBFF; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5B21B6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+      <h2 id="ok-t" style="margin: 0; font-size: 17px; font-weight: 600">{{okTitle}}</h2>
+      <p style="margin: 0; font-size: 13px; color: #475467; line-height: 1.5">{{okBody}}</p>
+      <div style="align-self: stretch; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-top: 6px">
+        <sc-if value="{{okIsWithdraw}}" hint-placeholder-val="{{true}}">
+          <a href="Inst-Earnings.dc.html" style="height: 42px; display: flex; align-items: center; justify-content: center; border: 1px solid #0B0B7E; border-radius: 8px; color: #0B0B7E; font-size: 13px; font-weight: 600; text-decoration: none">Return to Earnings</a>
+          <button type="button" onClick="{{viewReceipt}}" style="height: 42px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">View Receipt</button>
+        </sc-if>
+        <sc-if value="{{okIsBank}}" hint-placeholder-val="{{false}}"><button type="button" onClick="{{okDone}}" style="height: 42px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Done</button></sc-if>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{confirmOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.4); display: flex; align-items: center; justify-content: center; padding: 16px">
+    <div role="alertdialog" aria-modal="true" aria-labelledby="cw-t" style="width: 360px; max-width: 100%; background: #ffffff; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center">
+      <span style="width: 44px; height: 44px; border-radius: 10px; border: 1px solid #EAECF0; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l10 18H2z" fill="#FDB022"></path><path d="M12 10v5M12 18h.01" stroke="#7A2E0E" stroke-width="2" stroke-linecap="round"></path></svg></span>
+      <h2 id="cw-t" style="margin: 0; font-size: 17px; font-weight: 600">{{cfTitle}}</h2>
+      <p style="margin: 0; font-size: 13px; color: #475467; line-height: 1.5">{{cfBody}}</p>
+      <div style="align-self: stretch; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 6px">
+        <button type="button" onClick="{{cfNo}}" style="height: 40px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">{{cfNoLabel}}</button>
+        <button type="button" onClick="{{cfYes}}" style="height: 40px; border: 0; border-radius: 8px; background: #F04438; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">{{cfYesLabel}}</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1024}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: true, step: 'form', avail: 40000, last: 35000,
+      accounts: [{ id: 1, bank: 'Access Bank', acct: '0123459050' }, { id: 2, bank: 'Moniepoint Microfinance Bank', acct: '8165376890' }],
+      def: 1, chooseSel: 1, nextId: 3,
+      bankSel: 'saved', acct: '', verifying: false, name: false, rsPw: '', rsShow: false, np1: '', np2: '', npShow: false,
+      amount: '', pin: '', showPin: false, tries: 3, pinError: false, busy: false,
+      add: null, success: null, confirm: null, toast: null
+    };
+  }
+  componentWillUnmount() { clearTimeout(this.t); clearTimeout(this.v); }
+  renderVals() {
+    const s = this.state;
+    const naira = (n) => '₦' + Number(n).toLocaleString('en-NG');
+    const mask = (a) => '******' + a.slice(-4);
+    const defAcc = s.accounts.find((a) => a.id === s.def) || null;
+    const usingSaved = s.bankSel === 'saved' && !!defAcc;
+    const amt = Number(String(s.amount).replace(/\D/g, '')) || 0;
+    const amtErr = amt > 0 && (amt < 1000 ? 'Minimum withdrawal is ₦1,000' : amt > s.avail ? 'Amount exceeds your available balance' : '');
+    const destOk = usingSaved || (s.bankSel !== 'saved' && /^\d{10}$/.test(s.acct) && s.name);
+    const formOk = destOk && amt >= 1000 && amt <= s.avail;
+    const destBank = usingSaved ? defAcc.bank : s.bankSel;
+    const destAcct = usingSaved ? mask(defAcc.acct) : mask(s.acct || '0000');
+    const A = s.add;
+    const addOk = !!(A && /^\d{10}$/.test(A.acct) && A.bank && A.name && !A.verifying);
+    const setA = (p) => this.setState({ add: { ...this.state.add, ...p } });
+    const outlineBtn = (on) => 'height: 32px; padding: 0 10px; border: 1px solid ' + (on ? '#0B0B7E' : '#D0D5DD') + '; border-radius: 16px; background: ' + (on ? '#EEF0FF' : '#ffffff') + '; color: #344054; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer';
+    const go = (step) => this.setState({ step, toast: null });
+    const later = (fn, ms) => { clearTimeout(this.t); this.t = setTimeout(fn, ms); };
+    const step = s.step;
+    const headings = {
+      form: ['Withdraw Earnings', 'Transfer your available balance securely to your registered bank account.'],
+      review: ['Confirm Withdrawal Details', 'Review your transaction before continuing.'],
+      pin: ['Enter Transaction PIN', 'Enter your 4-digit PIN to authorise this withdrawal.'],
+      receipt: ['Transaction Receipt', 'A copy has been sent to your email.'],
+      choose: ['Choose Bank Account', 'Select an existing account for this withdrawal or add a new one.'],
+      resetAuth: ['Reset Transaction Pin', 'To keep your earnings secure, we’ll need to verify your identity before allowing a PIN reset.'],
+      resetPin: ['Create New Transaction Pin', 'Now set your new secure 4-digit PIN.'],
+      add: ['Add Bank Account', 'Please add a verified bank account. Ensure your bank details match the information registered with your BVN.']
+    };
+    const pinOk = /^\d{4}$/.test(s.pin);
+    const chooseChanged = s.chooseSel !== s.def && s.accounts.some((a) => a.id === s.chooseSel);
+    const npDone = /^\d{4}$/.test(s.np1) && /^\d{4}$/.test(s.np2);
+    const npMismatch = npDone && s.np1 !== s.np2;
+    const primary = {
+      resetAuth: { label: s.busy ? 'Verifying…' : 'Verify Identity', ok: s.rsPw.length > 0, run: () => { this.setState({ busy: true }); later(() => this.setState({ busy: false, step: 'resetPin', np1: '', np2: '' }), 800); } },
+      resetPin: { label: s.busy ? 'Updating…' : 'Update Transaction PIN', ok: npDone && !npMismatch, run: () => { this.setState({ busy: true }); later(() => this.setState({ busy: false, step: 'pin', pin: '', tries: 3, pinError: false, toast: 'Transaction PIN Updated. Use your new PIN to continue.', newPin: this.state.np1 }), 900); } },
+      form: { label: 'Confirm', ok: formOk, run: () => go('review') },
+      review: { label: 'Proceed', ok: true, run: () => this.setState({ step: 'pin', pin: '', pinError: false }) },
+      pin: { label: s.busy ? 'Processing…' : 'Confirm Withdrawal', ok: pinOk && s.tries > 0, run: () => {
+        this.setState({ busy: true });
+        later(() => {
+          if (this.state.pin !== (this.state.newPin || '1234')) this.setState({ busy: false, pinError: true, tries: this.state.tries - 1, pin: '' });
+          else this.setState({ busy: false, success: 'withdraw', avail: this.state.avail - amt, last: amt });
+        }, 900);
+      } },
+      receipt: { label: 'Download Receipt', ok: true, run: () => this.setState({ toast: 'Receipt downloaded as PDF' }) },
+      choose: { label: 'Save Default', ok: chooseChanged, run: () => this.setState({ def: s.chooseSel, bankSel: 'saved', step: 'form', toast: 'Default account updated' }) },
+      add: { label: A && A.busy ? 'Saving…' : 'Continue', ok: addOk, run: () => {
+        setA({ busy: true });
+        later(() => { const c = this.state.add; const id = this.state.nextId; this.setState({ accounts: this.state.accounts.concat({ id, bank: c.bank, acct: c.acct }), chooseSel: id, nextId: id + 1, add: null, success: 'bank' }); }, 900);
+      } }
+    }[step];
+    const secondary = {
+      resetAuth: ['Cancel', () => go('pin')],
+      resetPin: ['Cancel', () => go('pin')],
+      form: ['Cancel', () => (amt > 0 ? this.setState({ confirm: { kind: 'cancel' } }) : this.setState({ open: false }))],
+      review: ['Cancel', () => go('form')],
+      pin: ['Cancel', () => go('review')],
+      receipt: ['Cancel', () => this.setState({ open: false })],
+      choose: ['Cancel', () => go('form')],
+      add: ['Cancel', () => this.setState({ step: 'choose', add: null })]
+    }[step];
+    const cf = s.confirm;
+    const cfCopy = !cf ? null : cf.kind === 'cancel'
+      ? { t: 'Cancel Withdraw?', b: 'You’re about to exit this transaction. Do you want to cancel the withdrawal?', no: 'No, Continue', yes: 'Yes, Cancel' }
+      : { t: 'Are you sure you want to remove this account?', b: cf.id === s.def ? 'This account is currently selected for withdrawal.' : 'You can add it again at any time.', no: 'Cancel', yes: s.busy ? 'Removing…' : 'Remove' };
+    const today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) + ', 11:28 AM';
+    return {
+      availLabel: naira(s.avail), lastLabel: naira(s.last),
+      reopen: () => this.setState({ open: true, step: 'form', amount: '', pin: '', tries: 3, pinError: false }),
+      panelOpen: s.open, heading: headings[step][0], sub: headings[step][1],
+      hasToast: !!s.toast, toast: s.toast || '', dismiss: () => this.setState({ toast: null }),
+      cancel: secondary[1],
+      stResetAuth: step === 'resetAuth', stResetPin: step === 'resetPin',
+      forgotPin: () => this.setState({ step: 'resetAuth', rsPw: '', toast: null }),
+      rsPw: s.rsPw, setRsPw: (e) => this.setState({ rsPw: e.target.value }),
+      rsPwType: s.rsShow ? 'text' : 'password', toggleRsPw: () => this.setState({ rsShow: !s.rsShow }),
+      rsPwToggleText: s.rsShow ? 'Hide' : 'Show', rsPwToggleLabel: s.rsShow ? 'Hide password' : 'Show password',
+      np1: s.np1, np2: s.np2,
+      setNp1: (e) => this.setState({ np1: e.target.value.replace(/\D/g, '').slice(0, 4) }),
+      setNp2: (e) => this.setState({ np2: e.target.value.replace(/\D/g, '').slice(0, 4) }),
+      npType: s.npShow ? 'text' : 'password', toggleNp: () => this.setState({ npShow: !s.npShow }), npToggleText: s.npShow ? 'Hide PINs' : 'Show PINs',
+      npMismatchAttr: npMismatch ? 'true' : 'false', np2Border: npMismatch ? '#F04438' : '#D0D5DD',
+      npMsg: npMismatch ? 'PINs do not match. Please try again.' : '',
+      stForm: step === 'form', stReview: step === 'review', stPin: step === 'pin', stReceipt: step === 'receipt', stChoose: step === 'choose', stAdd: step === 'add',
+      bankSel: s.bankSel, savedLabel: defAcc ? defAcc.bank + ' (' + mask(defAcc.acct) + ') · Default' : 'No saved account',
+      setBankSel: (e) => this.setState({ bankSel: e.target.value, acct: '', name: false, verifying: false }),
+      usingSaved, usingOther: !usingSaved, savedMasked: defAcc ? mask(defAcc.acct) : '',
+      acct: s.acct,
+      setAcct: (e) => {
+        const v = e.target.value.replace(/\D/g, '').slice(0, 10);
+        clearTimeout(this.v);
+        this.setState({ acct: v, name: false, verifying: v.length === 10 });
+        if (v.length === 10) this.v = setTimeout(() => this.setState({ verifying: false, name: true }), 900);
+      },
+      verifying: s.verifying, hasName: s.name,
+      toChoose: () => this.setState({ step: 'choose', chooseSel: s.def }),
+      amountText: amt ? amt.toLocaleString('en-NG') : '', setAmount: (e) => this.setState({ amount: e.target.value.replace(/\D/g, '') }),
+      amtBorder: amtErr ? '#F04438' : '#D0D5DD', hintColor: amtErr ? '#D92D20' : '#667085', amtHint: amtErr || 'Minimum withdrawal is ₦1,000',
+      quick: [1000, 2000, 5000, 10000, 20000, 40000].map((v) => ({ label: naira(v), on: amt === v ? 'true' : 'false', style: outlineBtn(amt === v), pick: () => this.setState({ amount: String(v) }) })),
+      amountLabel: naira(amt), totalLabel: naira(amt + 20), destBank, destAcct, today,
+      pin: s.pin, setPin: (e) => this.setState({ pin: e.target.value.replace(/\D/g, '').slice(0, 4), pinError: false }),
+      pinType: s.showPin ? 'text' : 'password', togglePin: () => this.setState({ showPin: !s.showPin }),
+      pinToggleText: s.showPin ? 'Hide' : 'Show', pinToggleLabel: s.showPin ? 'Hide PIN' : 'Show PIN',
+      pinInvalid: s.pinError ? 'true' : 'false', pinBorder: s.pinError ? '#F04438' : '#D0D5DD',
+      pinMsg: s.tries <= 0 ? 'Too many attempts. Reset your PIN to continue.' : s.pinError ? 'Incorrect PIN. ' + s.tries + (s.tries === 1 ? ' try' : ' tries') + ' left.' : 'Demo PIN: ' + (s.newPin || '1234'),
+      pinMsgColor: s.pinError || s.tries <= 0 ? '#D92D20' : '#667085',
+      accounts: s.accounts.map((a) => ({
+        label: a.bank + ' (' + mask(a.acct) + ')', sel: s.chooseSel === a.id, isDefault: a.id === s.def,
+        border: s.chooseSel === a.id ? '#0B0B7E' : '#EAECF0',
+        pick: () => this.setState({ chooseSel: a.id }),
+        askRemove: () => this.setState({ confirm: { kind: 'remove', id: a.id } })
+      })),
+      noAccounts: s.accounts.length === 0,
+      toAdd: () => this.setState({ step: 'add', add: { acct: '', matching: false, suggest: false, bank: '', verifying: false, name: false, busy: false } }),
+      addAcct: A ? A.acct : '',
+      setAddAcct: (e) => {
+        const v = e.target.value.replace(/\D/g, '').slice(0, 10);
+        clearTimeout(this.v);
+        setA({ acct: v, suggest: false, matching: v.length === 10, name: false });
+        if (v.length === 10) this.v = setTimeout(() => setA({ matching: false, suggest: true }), 800);
+      },
+      matching: !!(A && A.matching), hasSuggest: !!(A && A.suggest && !A.bank),
+      takeSuggest: () => { setA({ bank: 'Moniepoint Microfinance Bank', verifying: true }); clearTimeout(this.v); this.v = setTimeout(() => setA({ verifying: false, name: true }), 900); },
+      addBank: A ? A.bank : '',
+      setAddBank: (e) => { const v = e.target.value; setA({ bank: v, name: false, verifying: !!v && /^\d{10}$/.test(this.state.add.acct) }); clearTimeout(this.v); if (v) this.v = setTimeout(() => setA({ verifying: false, name: /^\d{10}$/.test(this.state.add.acct) }), 900); },
+      addVerifying: !!(A && A.verifying), addName: !!(A && A.name),
+      secondary: secondary[1], secondaryLabel: secondary[0],
+      primary: () => { if (primary.ok) primary.run(); },
+      primaryBlocked: !primary.ok || s.busy || !!(A && A.busy), primaryLabel: primary.label,
+      primaryStyle: 'height: 44px; border: 0; border-radius: 8px; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; background: ' + (s.busy || (A && A.busy) ? '#06065A' : primary.ok ? '#0B0B7E' : '#9D9DD0'),
+      successOpen: !!s.success, okIsWithdraw: s.success === 'withdraw', okIsBank: s.success === 'bank',
+      okTitle: s.success === 'bank' ? 'Bank information saved successfully' : 'Withdrawal Successful',
+      okBody: s.success === 'bank' ? 'Your new bank account has been added. You can now select it for withdrawals.' : 'You’ve successfully withdrawn ' + naira(amt) + ' to ' + destBank + ' (' + destAcct + '). Your funds are on the way, and you’ll receive a confirmation email shortly.',
+      viewReceipt: () => this.setState({ success: null, step: 'receipt' }),
+      okDone: () => this.setState({ success: null, step: 'choose' }),
+      confirmOpen: !!cf, cfTitle: cfCopy ? cfCopy.t : '', cfBody: cfCopy ? cfCopy.b : '', cfNoLabel: cfCopy ? cfCopy.no : '', cfYesLabel: cfCopy ? cfCopy.yes : '',
+      cfNo: () => this.setState({ confirm: null }),
+      cfYes: () => {
+        if (cf.kind === 'cancel') { this.setState({ confirm: null, open: false, amount: '' }); return; }
+        this.setState({ busy: true });
+        later(() => {
+          const rest = this.state.accounts.filter((a) => a.id !== cf.id);
+          const def = cf.id === this.state.def ? (rest[0] ? rest[0].id : null) : this.state.def;
+          this.setState({ busy: false, confirm: null, accounts: rest, def, chooseSel: def, toast: 'Bank Account Removed' });
+        }, 800);
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

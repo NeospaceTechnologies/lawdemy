@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lawdemy – Sort and filter dropdowns</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#101828;background:#fff}
+*{box-sizing:border-box}
+a{color:#0B0B7E}a:hover{color:#06065A}
+</style>
+</helmet>
+<div style="width: 900px; height: 600px; box-sizing: border-box; padding: 32px; background: #F2F4F7; display: flex; gap: 32px; align-items: flex-start; font-family: Inter, system-ui, sans-serif; color: #101828">
+  <div style="display: flex; flex-direction: column; gap: 10px">
+    <span style="font-size: 12px; font-weight: 600; color: #475467">Sort dropdown</span>
+    <div role="listbox" aria-label="Sort by" style="width: 240px; background: #ffffff; border: 1px solid #EAECF0; border-radius: 10px; box-shadow: 0 12px 24px -6px rgba(16,24,40,0.14); padding: 6px; display: flex; flex-direction: column">
+      <sc-for list="{{sorts}}" as="s" hint-placeholder-count="7">
+        <button type="button" role="option" aria-selected="{{s.selected}}" onClick="{{s.pick}}" style="{{s.style}}">{{s.name}}<sc-if value="{{s.on}}" hint-placeholder-val="{{false}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0B0B7E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg></sc-if></button>
+      </sc-for>
+    </div>
+  </div>
+  <div style="display: flex; flex-direction: column; gap: 10px">
+    <span style="font-size: 12px; font-weight: 600; color: #475467">Filter dropdown (filled)</span>
+    <form style="width: 380px; background: #ffffff; border: 1px solid #EAECF0; border-radius: 10px; box-shadow: 0 12px 24px -6px rgba(16,24,40,0.14); padding: 16px; display: flex; flex-direction: column; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span id="cat-l" style="font-size: 13px; font-weight: 600">Category</span>
+        <button type="button" aria-labelledby="cat-l" style="min-height: 40px; display: flex; align-items: center; justify-content: space-between; gap: 8px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 6px 10px; font: inherit; background: #F9FAFB; cursor: pointer">
+          <span style="display: flex; flex-wrap: wrap; gap: 6px">
+            <span style="display: inline-flex; align-items: center; gap: 4px; background: #ffffff; border: 1px solid #D0D5DD; border-radius: 6px; padding: 2px 8px; font-size: 12px">Law Practice Areas <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#475467" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
+            <span style="display: inline-flex; align-items: center; gap: 4px; background: #ffffff; border: 1px solid #D0D5DD; border-radius: 6px; padding: 2px 8px; font-size: 12px">Cross-Sector &amp; General Interest <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#475467" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
+          </span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#667085" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <label for="lvl" style="font-size: 13px; font-weight: 600">Skill Level</label>
+        <select id="lvl" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 13px; background: #F9FAFB">
+          <option>Beginner</option>
+          <option>Intermediate</option>
+          <option>Advanced</option>
+        </select>
+      </div>
+      <fieldset style="margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 8px">
+        <legend style="font-size: 13px; font-weight: 600; margin-bottom: 6px">Price</legend>
+        <label style="display: flex; align-items: center; gap: 10px; height: 38px; padding: 0 10px; border-radius: 8px; background: #F9FAFB; font-size: 13px; cursor: pointer"><input type="radio" name="price" style="accent-color: #0B0B7E; margin: 0">Discounted sale</label>
+        <label style="display: flex; align-items: center; gap: 10px; height: 38px; padding: 0 10px; border-radius: 8px; background: #F9FAFB; font-size: 13px; cursor: pointer"><input type="radio" name="price" style="accent-color: #0B0B7E; margin: 0">Free</label>
+        <label style="display: flex; align-items: center; gap: 10px; height: 38px; padding: 0 10px; border-radius: 8px; background: #F9FAFB; font-size: 13px; cursor: pointer"><input type="radio" name="price" checked style="accent-color: #0B0B7E; margin: 0">Paid</label>
+        <div style="padding: 6px 4px 0; display: flex; flex-direction: column; gap: 8px">
+          <div aria-hidden="true" style="position: relative; height: 16px">
+            <span style="position: absolute; left: 0; right: 0; top: 7px; height: 3px; border-radius: 2px; background: #EAECF0"></span>
+            <span style="position: absolute; left: 15%; right: 30%; top: 7px; height: 3px; border-radius: 2px; background: #0B0B7E"></span>
+            <span style="position: absolute; left: calc(15% - 8px); top: 0; width: 16px; height: 16px; border-radius: 50%; background: #ffffff; border: 2px solid #0B0B7E"></span>
+            <span style="position: absolute; left: calc(70% - 8px); top: 0; width: 16px; height: 16px; border-radius: 50%; background: #ffffff; border: 2px solid #0B0B7E"></span>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 12px; color: #475467"><span>₦5,000</span><span>₦35,000</span></div>
+        </div>
+      </fieldset>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+        <button type="button" style="height: 40px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Cancel</button>
+        <a href="Filter-Results.dc.html" style="height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: #0B0B7E; color: #ffffff; font-size: 13px; font-weight: 600; text-decoration: none">Apply</a>
+      </div>
+    </form>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":900,"height":600}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sort: 'Newest' };
+  }
+  renderVals() {
+    const names = ['Newest', 'Trending', 'Most Popular', 'A–Z', 'Z–A', 'Shortest Duration', 'Longest Duration'];
+    const base = 'height: 38px; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; border: 0; border-radius: 6px; font: inherit; font-size: 13px; text-align: left; cursor: pointer; ';
+    return {
+      sorts: names.map((n) => {
+        const on = n === this.state.sort;
+        return {
+          name: n,
+          on,
+          selected: on ? 'true' : 'false',
+          style: base + (on ? 'background: #F2F4F7; color: #101828; font-weight: 600' : 'background: transparent; color: #344054; font-weight: 400'),
+          pick: () => this.setState({ sort: n })
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

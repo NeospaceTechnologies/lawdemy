@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lawdemy – Payment successful</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#101828;background:#fff}
+*{box-sizing:border-box}
+a{color:#0B0B7E}a:hover{color:#06065A}
+</style>
+</helmet>
+<div style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 64px 16px; background: #ffffff">
+  <div role="progressbar" aria-label="Redirecting" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 100%; max-width: 880px; height: 4px; border-radius: 2px; background: #E4E4F5; overflow: hidden"><div style="width: 30%; height: 4px; background: #0B0B7E"></div></div>
+  <div role="status" style="margin-top: 56px; max-width: 420px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center">
+    <div style="width: 96px; height: 96px; border-radius: 50%; background: #DCFAE6; display: flex; align-items: center; justify-content: center">
+      <div style="width: 68px; height: 68px; border-radius: 50%; background: #17B26A; display: flex; align-items: center; justify-content: center"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg></div>
+    </div>
+    <h1 style="margin: 8px 0 0; font-size: 22px; font-weight: 600">Payment Successful</h1>
+    <p style="margin: 0; font-size: 14px; color: #475467">You’re now being redirected to your course dashboard.</p>
+    <p style="margin: 12px 0 0; font-size: 13px; color: #475467">If nothing happens, click <a href="MyCourses-NewlyBought.dc.html">here</a> to continue.</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

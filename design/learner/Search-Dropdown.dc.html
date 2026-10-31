@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lawdemy – Search dropdown</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#101828;background:#fff}
+*{box-sizing:border-box}
+a{color:#0B0B7E}a:hover{color:#06065A}
+</style>
+</helmet>
+<div style="width: 960px; height: 600px; box-sizing: border-box; padding: 20px; background: #ffffff; border: 1px solid #EAECF0; border-radius: 12px; box-shadow: 0 12px 24px -6px rgba(16,24,40,0.14); display: flex; flex-direction: column; gap: 18px; font-family: Inter, system-ui, sans-serif; color: #101828">
+  <label style="display: flex; align-items: center; gap: 8px; height: 42px; padding: 0 12px; border: 1.5px solid #0B0B7E; border-radius: 8px; background: #ffffff">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#667085" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+    <input type="search" aria-label="Search courses" placeholder="Search courses" style="flex: 1; min-width: 0; border: 0; outline: none; background: transparent; font: inherit; font-size: 14px">
+  </label>
+  <section style="display: flex; flex-direction: column; gap: 10px">
+    <div style="display: flex; align-items: center; justify-content: space-between">
+      <h2 style="margin: 0; font-size: 14px; font-weight: 600">Recent Searches</h2>
+      <button type="button" style="border: 0; background: transparent; font: inherit; font-size: 12px; font-weight: 600; color: #0B0B7E; cursor: pointer; padding: 4px">Clear all</button>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px">
+      <sc-for list="{{recent}}" as="r" hint-placeholder-count="5">
+        <span style="display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 6px 0 10px; border: 1px solid #EAECF0; border-radius: 8px; font-size: 12px; color: #344054">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#667085" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>{{r}}
+          <button type="button" aria-label="Remove {{r}}" style="width: 22px; height: 22px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#475467" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+        </span>
+      </sc-for>
+    </div>
+  </section>
+  <section style="display: flex; flex-direction: column; gap: 10px">
+    <h2 style="margin: 0; font-size: 14px; font-weight: 600">Popular Searches</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px">
+      <sc-for list="{{popular}}" as="p" hint-placeholder-count="6">
+        <a href="Search-Results.dc.html" style="display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 10px; border: 1px solid #EAECF0; border-radius: 8px; font-size: 12px; color: #344054; text-decoration: none"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#667085" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>{{p}}</a>
+      </sc-for>
+    </div>
+  </section>
+  <section style="display: flex; flex-direction: column; gap: 10px; min-height: 0">
+    <h2 style="margin: 0; font-size: 14px; font-weight: 600">Top Courses</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px">
+      <sc-for list="{{top}}" as="c" hint-placeholder-count="3">
+        <article style="border: 1px solid #EAECF0; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column">
+          <div style="height: 100px; background: #2B2F36; display: flex; align-items: flex-end; padding: 8px"><span style="font-size: 10px; color: #D0D5DD">[Course image]</span></div>
+          <div style="padding: 10px; display: flex; flex-direction: column; gap: 6px">
+            <h3 style="margin: 0; font-size: 13px; font-weight: 600; line-height: 1.35">{{c.title}}</h3>
+            <span style="font-size: 11px; color: #475467">{{c.instructor}}</span>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":960,"height":600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      recent: ['Corporate Law', 'Tech & IP', 'Criminal Law', 'Family Law', 'Human Rights'],
+      popular: ['Corporate Law', 'Tech & IP', 'Criminal Law', 'Family Law', 'Human Rights', 'Legal Writing'],
+      top: [
+        { title: 'Introduction to Law in Africa…', instructor: 'Linda Ekubo' },
+        { title: 'Introduction to Law in Africa (For most Non-Lawyers)', instructor: 'Segun Bello' },
+        { title: 'Introduction to Law in Africa (For most Non-Lawyers)', instructor: 'Linda Ekubo' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

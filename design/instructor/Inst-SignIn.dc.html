@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lawdemy Instructor – Sign in</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#101828;background:#fff}
+*{box-sizing:border-box}
+a{color:#0B0B7E}a:hover{color:#06065A}
+</style>
+</helmet>
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #ffffff">
+  <div style="flex: 1 1 420px; min-height: 320px; background: #3A2A12; display: flex; flex-direction: column; justify-content: space-between; padding: 32px">
+    <div style="align-self: flex-start; font-size: 12px; color: #F5E6D3; border: 1px dashed rgba(245,230,211,0.5); border-radius: 6px; padding: 6px 10px">[Hero photo: smiling instructor in beret]</div>
+    <div style="display: flex; flex-direction: column; gap: 8px; max-width: 360px">
+      <p style="margin: 0; color: #ffffff; font-size: 22px; font-weight: 600; line-height: 1.3">Become a Legal Instructor on Lawdemy</p>
+      <p style="margin: 0; color: #F5E6D3; font-size: 13px; line-height: 1.5">Share your expertise, build your courses and reach learners across Africa.</p>
+    </div>
+  </div>
+  <div style="flex: 1.25 1 480px; display: flex; flex-direction: column; padding: 28px 48px 48px; background: radial-gradient(circle at 0% 0%, #EEEBFF 0%, #ffffff 38%)">
+    <div style="display: flex; justify-content: flex-end; gap: 4px; font-size: 13px; color: #475467">Don’t have an account? <a href="Inst-Onboarding.dc.html" style="font-weight: 600">Sign up</a></div>
+    <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 0">
+      <form style="width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 20px">
+        <div style="display: flex; align-items: center; gap: 8px">
+          <svg width="22" height="26" viewBox="0 0 22 26" aria-hidden="true"><path d="M2 2h6v16h12v6H5a3 3 0 0 1-3-3z" fill="#0B0B7E"></path><circle cx="16" cy="12" r="4.5" fill="#F26B1D"></circle></svg>
+          <span style="font-weight: 700; font-size: 16px; color: #0B0B7E">Lawdemy</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px"><h1 style="margin: 0; font-size: 26px; font-weight: 700">Welcome Back!</h1><p style="margin: 0; font-size: 14px; color: #475467">Continue from where you left off.</p></div>
+        <div style="display: flex; flex-direction: column; gap: 6px"><label for="em" style="font-size: 13px; font-weight: 500">Email Address</label><input id="em" type="email" value="{{email}}" onChange="{{setEmail}}" placeholder="Enter your email address" style="height: 44px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 14px; font: inherit; font-size: 14px; background: #F9FAFB"></div>
+        <div style="display: flex; flex-direction: column; gap: 6px"><label for="pw" style="font-size: 13px; font-weight: 500">Password</label><input id="pw" type="password" value="{{pw}}" onChange="{{setPw}}" placeholder="Enter your password" style="height: 44px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 14px; font: inherit; font-size: 14px; background: #F9FAFB"><a href="Reset-Request.dc.html" style="align-self: flex-end; font-size: 13px; font-weight: 600">Forgot Password?</a></div>
+        <a href="Inst-Dashboard.dc.html" aria-disabled="{{disabled}}" style="{{btnStyle}}">Sign In</a>
+      </form>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1024}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { email: '', pw: '' };
+  }
+  renderVals() {
+    const s = this.state;
+    const ok = s.email.trim() !== '' && s.pw !== '';
+    return {
+      email: s.email, pw: s.pw,
+      setEmail: (e) => this.setState({ email: e.target.value }),
+      setPw: (e) => this.setState({ pw: e.target.value }),
+      disabled: ok ? 'false' : 'true',
+      btnStyle: 'height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none; ' + (ok ? 'background: #0B0B7E' : 'background: #9D9DD0; pointer-events: none')
+    };
+  }
+}
+</script>
+</body>
+</html>

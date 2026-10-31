@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+/* Design tokens from design/README.md */
+@theme {
+  --font-sans: var(--font-inter), Inter, system-ui, sans-serif;
+
+  --color-primary: #0b0b7e;
+  --color-primary-hover: #06065a;
+  --color-primary-disabled: #9d9dd0;
+  --color-accent: #f26b1d;
+  --color-accent-soft: #fbc8a6;
+  --color-price: #c4320a;
+
+  --color-success: #067647;
+  --color-success-light: #17b26a;
+  --color-success-bg: #dcfae6;
+  --color-success-tint: #ecfdf3;
+
+  --color-danger: #d92d20;
+  --color-danger-light: #f04438;
+  --color-danger-bg: #fee4e2;
+  --color-danger-text: #b42318;
+
+  --color-warning: #f79009;
+  --color-warning-bg: #fef0c7;
+  --color-warning-text: #93370d;
+
+  --color-info: #7f56d9;
+  --color-info-tint: #f1ebff;
+  --color-info-tint-2: #f5f3ff;
+  --color-info-text: #5b21b6;
+  --color-info-border: #ddd6fe;
+
+  --color-ink: #101828;
+  --color-ink-2: #344054;
+  --color-ink-3: #475467;
+  --color-muted: #667085;
+  --color-placeholder: #98a2b3;
+
+  --color-line: #eaecf0;
+  --color-line-input: #d0d5dd;
+  --color-surface: #f9fafb;
+  --color-surface-2: #f2f4f7;
+  --color-nav-active: #eaecf0;
+  --color-cream: #fcfaec;
+
+  --radius-control: 8px;
+  --radius-card: 12px;
+  --shadow-card: 0 1px 3px rgba(16, 24, 40, 0.06);
+}
+
+@layer base {
+  body {
+    @apply bg-white text-ink antialiased;
+  }
+  a {
+    @apply text-primary hover:text-primary-hover;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+}
+
+/* Rich text write-up content */
+.prose-lesson h3 { font-size: 1.125rem; font-weight: 600; margin: 0.5em 0; }
+.prose-lesson h4 { font-size: 1rem; font-weight: 600; margin: 0.5em 0; }
+.prose-lesson blockquote { border-left: 3px solid var(--color-line-input); padding-left: 10px; color: var(--color-ink-3); margin: 0.5em 0; }
+.prose-lesson ul { list-style: disc; padding-left: 1.25rem; }
+.prose-lesson ol { list-style: decimal; padding-left: 1.25rem; }
+.prose-lesson a { text-decoration: underline; }
+[contenteditable]:empty::before { content: attr(data-placeholder); color: var(--color-placeholder); }

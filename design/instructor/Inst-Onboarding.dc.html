@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lawdemy Instructor – Onboarding</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#101828;background:#fff}
+*{box-sizing:border-box}
+a{color:#0B0B7E}a:hover{color:#06065A}
+</style>
+</helmet>
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #ffffff">
+  <div style="flex: 1 1 420px; min-height: 320px; background: #3A2A12; display: flex; flex-direction: column; justify-content: space-between; padding: 32px">
+    <div style="align-self: flex-start; font-size: 12px; color: #F5E6D3; border: 1px dashed rgba(245,230,211,0.5); border-radius: 6px; padding: 6px 10px">[Hero photo: smiling instructor in beret]</div>
+    <div style="display: flex; flex-direction: column; gap: 8px; max-width: 360px">
+      <p style="margin: 0; color: #ffffff; font-size: 22px; font-weight: 600; line-height: 1.3">Become a Legal Instructor on Lawdemy</p>
+      <p style="margin: 0; color: #F5E6D3; font-size: 13px; line-height: 1.5">Share your expertise, build your courses and reach learners across Africa.</p>
+    </div>
+  </div>
+  <div style="flex: 1.25 1 480px; display: flex; flex-direction: column; padding: 28px 48px 48px; background: radial-gradient(circle at 0% 0%, #EEEBFF 0%, #ffffff 38%)">
+    <div style="display: flex; justify-content: flex-end; gap: 4px; font-size: 13px; color: #475467">Already have an account? <a href="Inst-SignIn.dc.html" style="font-weight: 600">Sign in</a></div>
+    <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 32px 0">
+      <div style="width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 20px">
+        <div style="display: flex; align-items: center; justify-content: space-between">
+          <div style="display: flex; align-items: center; gap: 8px">
+            <svg width="22" height="26" viewBox="0 0 22 26" aria-hidden="true"><path d="M2 2h6v16h12v6H5a3 3 0 0 1-3-3z" fill="#0B0B7E"></path><circle cx="16" cy="12" r="4.5" fill="#F26B1D"></circle></svg>
+            <span style="font-weight: 700; font-size: 16px; color: #0B0B7E">Lawdemy</span>
+          </div>
+          <div style="display: flex; gap: 4px" aria-label="{{stepLabel}}">
+            <sc-for list="{{dashes}}" as="d" hint-placeholder-count="4"><span style="width: 20px; height: 4px; border-radius: 2px; background: {{d}}"></span></sc-for>
+          </div>
+        </div>
+
+        <sc-if value="{{s0}}" hint-placeholder-val="{{true}}">
+          <form style="display: flex; flex-direction: column; gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 6px"><h1 style="margin: 0; font-size: 26px; font-weight: 700">Account Information</h1><p style="margin: 0; font-size: 14px; color: #475467">Let’s set up your instructor account.</p></div>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+              <div style="display: flex; flex-direction: column; gap: 6px"><label for="fn" style="font-size: 13px; font-weight: 500">First Name</label><input id="fn" type="text" value="James" style="height: 44px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 14px; font: inherit; font-size: 14px; background: #F9FAFB"></div>
+              <div style="display: flex; flex-direction: column; gap: 6px"><label for="ln" style="font-size: 13px; font-weight: 500">Last Name</label><input id="ln" type="text" value="Adeniola" style="height: 44px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 14px; font: inherit; font-size: 14px; background: #F9FAFB"></div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="em" style="font-size: 13px; font-weight: 500">Email Address</label><input id="em" type="email" placeholder="Enter your email address" style="height: 44px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 14px; font: inherit; font-size: 14px; background: #F9FAFB"></div>
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <label for="pw" style="font-size: 13px; font-weight: 500">Password</label>
+              <input id="pw" type="password" value="{{pw}}" onChange="{{setPw}}" placeholder="Enter your password" style="height: 44px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 14px; font: inherit; font-size: 14px; background: #F9FAFB">
+              <sc-if value="{{hasPw}}" hint-placeholder-val="{{false}}">
+                <div style="display: flex; align-items: center; gap: 8px; font-size: 11px; color: #475467">Password strength <span style="flex: 1; max-width: 120px; height: 4px; border-radius: 2px; background: #EAECF0; overflow: hidden"><span style="display: block; height: 4px; width: {{sw}}; background: {{sc}}"></span></span><span style="color: {{st}}; font-weight: 600">{{sl}}</span></div>
+                <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; font-size: 12px">
+                  <sc-for list="{{rules}}" as="r" hint-placeholder-count="3"><li style="color: {{r.color}}">{{r.mark}} {{r.label}}</li></sc-for>
+                </ul>
+              </sc-if>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="cpw" style="font-size: 13px; font-weight: 500">Confirm Password</label><input id="cpw" type="password" placeholder="Retype your password" style="height: 44px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 14px; font: inherit; font-size: 14px; background: #F9FAFB"></div>
+            <button type="button" onClick="{{next}}" disabled="{{pwBlocked}}" style="{{continueStyle}}">Continue</button>
+            <p style="margin: 0; font-size: 12px; color: #667085">By continuing, you agree to Lawdemy’s <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
+          </form>
+        </sc-if>
+
+        <sc-if value="{{s1}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; gap: 18px">
+            <div style="display: flex; flex-direction: column; gap: 8px"><h1 style="margin: 0; font-size: 26px; font-weight: 700">Verification Link Sent</h1><p style="margin: 0; font-size: 14px; color: #475467; line-height: 1.55">We’ve sent a verification link to <strong style="color: #101828">james****@gmail.com</strong>. Click the link in your inbox to verify your account.</p></div>
+            <p style="margin: 0; font-size: 13px; color: #475467">Didn’t receive the link? <a href="#" style="font-weight: 600">Resend link</a></p>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+              <button type="button" onClick="{{back}}" style="height: 44px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Back</button>
+              <button type="button" onClick="{{next}}" style="height: 44px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Open Email App</button>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{s2}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
+            <div style="width: 64px; height: 64px; border-radius: 50%; background: #17B26A; display: flex; align-items: center; justify-content: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg></div>
+            <h1 style="margin: 0; font-size: 24px; font-weight: 700">Email Verified Successfully!</h1>
+            <p style="margin: 0; font-size: 14px; color: #475467">Your account is active. Let’s set up your instructor profile.</p>
+            <button type="button" onClick="{{next}}" style="align-self: stretch; height: 44px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Continue</button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{s3}}" hint-placeholder-val="{{false}}">
+          <form style="display: flex; flex-direction: column; gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 6px"><h1 style="margin: 0; font-size: 26px; font-weight: 700">Tell Us About Your Legal Background</h1><p style="margin: 0; font-size: 14px; color: #475467">This helps learners understand your expertise and builds trust.</p></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="role" style="font-size: 13px; font-weight: 500">Professional Title</label>
+              <select id="role" value="{{role}}" onChange="{{setRole}}" style="height: 44px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 14px; background: #F9FAFB">
+                <option value="">Select your current professional title</option><option>Legal Practitioner</option><option>Senior Advocate</option><option>Law Lecturer / Academic</option><option>In-house Counsel</option><option>Legal Consultant</option><option>Judge / Magistrate</option><option>Other</option>
+              </select></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="yrs" style="font-size: 13px; font-weight: 500">Years of Experience</label><input id="yrs" type="number" min="0" value="{{yrs}}" onChange="{{setYrs}}" placeholder="e.g. 8" style="height: 44px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 14px; font: inherit; font-size: 14px; background: #F9FAFB"></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="jur" style="font-size: 13px; font-weight: 500">Jurisdiction</label>
+              <select id="jur" style="height: 44px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 14px; background: #F9FAFB"><option>Select where you’re authorised to practise law</option><option>Nigeria</option><option>Ghana</option><option>Kenya</option><option>South Africa</option><option>Canada</option></select></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="pa" style="font-size: 13px; font-weight: 500">Practice Area</label>
+              <select id="pa" style="height: 44px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 14px; background: #F9FAFB"><option>Select your area of specialisation</option><option>Banking, Finance &amp; Capital Markets</option><option>Commercial, Corporate &amp; M&amp;A</option><option>Litigation and Dispute Resolution</option><option>Employment and Labour</option><option>Telecommunication, Media and Technology</option></select></div>
+            <button type="button" onClick="{{next}}" disabled="{{bgBlocked}}" style="{{bgStyle}}">Continue</button>
+          </form>
+        </sc-if>
+
+        <sc-if value="{{s4}}" hint-placeholder-val="{{false}}">
+          <form style="display: flex; flex-direction: column; gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 6px"><h1 style="margin: 0; font-size: 26px; font-weight: 700">Set Up Your Instructor Profile</h1><p style="margin: 0; font-size: 14px; color: #475467">Add a photo and short bio so learners know who’s teaching them.</p></div>
+            <button type="button" onClick="{{togglePhoto}}" aria-label="Upload profile photo" style="align-self: center; width: 72px; height: 72px; border-radius: 50%; border: 1.5px dashed #0B0B7E; background: {{photoBg}}; color: #F5E6D3; font: inherit; font-size: 10px; display: flex; align-items: center; justify-content: center; cursor: pointer">
+              <sc-if value="{{noPhoto}}" hint-placeholder-val="{{true}}"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0B0B7E" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></sc-if>
+              <sc-if value="{{hasPhoto}}" hint-placeholder-val="{{false}}">[Photo]</sc-if>
+            </button>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="bio" style="font-size: 13px; font-weight: 500">Professional Bio</label><textarea id="bio" rows="4" maxlength="500" value="{{bio}}" onChange="{{setBio}}" placeholder="Tell learners about your experience, specialisation and teaching style." style="border: 1px solid #D0D5DD; border-radius: 8px; padding: 10px 12px; font: inherit; font-size: 14px; background: #F9FAFB; resize: vertical"></textarea><span style="align-self: flex-end; font-size: 11px; color: #667085">{{bioCount}}/500</span></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="li" style="font-size: 13px; font-weight: 500">Add your website, portfolio or LinkedIn so learners can learn more about you (Optional)</label>
+              <div style="display: flex; height: 44px; border: 1px solid #D0D5DD; border-radius: 8px; overflow: hidden; background: #F9FAFB"><span style="display: flex; align-items: center; padding: 0 12px; border-right: 1px solid #D0D5DD; font-size: 13px; color: #475467; background: #ffffff">https://</span><input id="li" type="text" placeholder="linkedin.com/in/your-name" style="flex: 1; min-width: 0; border: 0; outline: none; padding: 0 12px; font: inherit; font-size: 14px; background: transparent"></div></div>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+              <button type="button" onClick="{{back}}" style="height: 44px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Back</button>
+              <button type="button" onClick="{{next}}" disabled="{{bioBlocked}}" style="{{bioStyle}}">Finish</button>
+            </div>
+          </form>
+        </sc-if>
+
+        <sc-if value="{{s5}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center">
+            <div style="width: 64px; height: 64px; border-radius: 50%; background: #17B26A; display: flex; align-items: center; justify-content: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg></div>
+            <h1 style="margin: 0; font-size: 24px; font-weight: 700">You’re all set!</h1>
+            <p style="margin: 0; font-size: 14px; color: #475467; line-height: 1.55">Your instructor account is ready. Head to your dashboard to create your first course.</p>
+            <label style="display: flex; gap: 10px; text-align: left; font-size: 13px; color: #344054"><input type="checkbox" checked style="accent-color: #0B0B7E; margin: 2px 0 0">I’d like to receive tips and updates for instructors. (Optional)</label>
+            <a href="Inst-Dashboard-FirstTime.dc.html" style="align-self: stretch; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: #0B0B7E; color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none">Proceed to Dashboard</a>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1024}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { step: 0, pw: '', role: '', yrs: '', bio: '', photo: false };
+  }
+  renderVals() {
+    const s = this.state;
+    const rules = [
+      { label: '1 Special character', ok: /[^A-Za-z0-9]/.test(s.pw) },
+      { label: '1 Lowercase Letter', ok: /[a-z]/.test(s.pw) },
+      { label: 'Minimum of 8 characters', ok: s.pw.length >= 8 }
+    ];
+    const passed = rules.filter((r) => r.ok).length;
+    const str = [['8%', '#D92D20', '#B42318', 'Weak'], ['33%', '#D92D20', '#B42318', 'Weak'], ['66%', '#F79009', '#B54708', 'Fair'], ['100%', '#17B26A', '#067647', 'Excellent']][passed];
+    const btn = (ok) => 'height: 44px; border: 0; border-radius: 8px; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; background: ' + (ok ? '#0B0B7E' : '#9D9DD0');
+    const filled = [0, 1, 2, 3].map((i) => (i <= Math.min(Math.floor(s.step * 0.8), 3) ? '#F26B1D' : '#E4E7EC'));
+    const bgOk = s.role !== '' && s.yrs !== '';
+    const bioOk = s.bio.trim().length > 0;
+    return {
+      s0: s.step === 0, s1: s.step === 1, s2: s.step === 2, s3: s.step === 3, s4: s.step === 4, s5: s.step === 5,
+      dashes: filled,
+      stepLabel: 'Step ' + Math.min(s.step + 1, 6) + ' of 6',
+      next: () => this.setState({ step: Math.min(s.step + 1, 5) }),
+      back: () => this.setState({ step: Math.max(s.step - 1, 0) }),
+      pw: s.pw, setPw: (e) => this.setState({ pw: e.target.value }),
+      hasPw: s.pw !== '',
+      rules: rules.map((r) => ({ label: r.label, mark: r.ok ? '✓' : '×', color: r.ok ? '#067647' : '#B42318' })),
+      sw: str[0], sc: str[1], st: str[2], sl: str[3],
+      pwBlocked: passed < 3,
+      continueStyle: btn(passed === 3),
+      role: s.role, setRole: (e) => this.setState({ role: e.target.value }),
+      yrs: s.yrs, setYrs: (e) => this.setState({ yrs: e.target.value }),
+      bgBlocked: !bgOk, bgStyle: btn(bgOk),
+      bio: s.bio, setBio: (e) => this.setState({ bio: e.target.value }),
+      bioCount: s.bio.length,
+      bioBlocked: !bioOk, bioStyle: btn(bioOk),
+      togglePhoto: () => this.setState({ photo: !s.photo }),
+      hasPhoto: s.photo, noPhoto: !s.photo,
+      photoBg: s.photo ? '#7A4E3A' : '#F4F4FD'
+    };
+  }
+}
+</script>
+</body>
+</html>

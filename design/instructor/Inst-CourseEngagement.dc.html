@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lawdemy Instructor – Course engagement</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#101828;background:#fff}
+*{box-sizing:border-box}
+a{color:#0B0B7E}a:hover{color:#06065A}
+button:disabled{cursor:not-allowed}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 100vh; background: #ffffff">
+  <aside style="flex: 1 1 240px; background: #F9FAFB; border-right: 1px solid #EAECF0; padding: 20px 14px; display: flex; flex-direction: column; gap: 24px">
+    <div style="display: flex; align-items: center; gap: 8px; padding: 0 8px">
+      <svg width="22" height="26" viewBox="0 0 22 26" aria-hidden="true"><path d="M2 2h6v16h12v6H5a3 3 0 0 1-3-3z" fill="#0B0B7E"></path><circle cx="16" cy="12" r="4.5" fill="#F26B1D"></circle></svg>
+      <span style="font-weight: 700; font-size: 16px; color: #0B0B7E">Lawdemy</span>
+      <span style="margin-left: 4px; font-size: 10px; font-weight: 600; color: #5B21B6; background: #F1EBFF; border-radius: 4px; padding: 2px 6px">Instructor</span>
+    </div>
+    <nav aria-label="Main" style="display: flex; flex-direction: column; gap: 2px">
+      <a href="Inst-Dashboard.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>Dashboard</a>
+      <a href="Inst-MyCourses.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; font-weight: 600; color: #101828; background: #EAECF0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h10a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"></path><path d="M8 9h6"></path></svg>My Courses</a>
+      <a href="Inst-Earnings.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18M7 15h3"></path></svg>Earnings</a>
+      <a href="Inst-Community.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"></path><path d="M3 13l9 5 9-5"></path></svg>Community</a>
+    </nav>
+    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 2px">
+      <a href="Inst-Support.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg>Support</a>
+      <a href="Inst-Settings.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"></path></svg>Settings</a>
+      <div style="margin-top: 12px; display: flex; align-items: center; gap: 10px; padding: 10px; border: 1px solid #EAECF0; border-radius: 10px; background: #ffffff">
+        <span style="width: 34px; height: 34px; flex: none; border-radius: 50%; background: #7A4E3A; color: #F5E6D3; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">JA</span>
+        <span style="flex: 1; min-width: 0; display: flex; flex-direction: column"><span style="font-size: 13px; font-weight: 600">James Adeniola</span><span style="font-size: 11px; color: #667085">Instructor</span></span>
+      </div>
+    </div>
+  </aside>
+  <main style="flex: 999 1 560px; min-width: 0; padding: 20px 32px 56px; display: flex; flex-direction: column; gap: 20px; max-width: 1100px">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+      <a href="Inst-MyCourses.dc.html" aria-label="Back to My Courses" style="width: 36px; height: 36px; border: 1px solid #EAECF0; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #344054"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></a>
+      <span style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #475467">Status <span style="display: inline-flex; height: 24px; align-items: center; padding: 0 10px; border-radius: 12px; font-size: 12px; font-weight: 600; background: #DCFAE6; color: #067647">Live</span></span>
+    </div>
+    <h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.01em">Introduction to Law in Africa (For most Non-Lawyers)</h1>
+    <div role="tablist" aria-label="Course sections" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-bottom: 1px solid #EAECF0">
+      <a role="tab" aria-selected="false" href="Inst-CourseDetails.dc.html" style="height: 44px; display: flex; align-items: center; justify-content: center; border-bottom: 2px solid transparent; font-size: 14px; font-weight: 500; color: #667085; text-decoration: none">Overview</a>
+      <a role="tab" aria-selected="false" href="Inst-CourseDetails.dc.html" style="height: 44px; display: flex; align-items: center; justify-content: center; border-bottom: 2px solid transparent; font-size: 14px; font-weight: 500; color: #667085; text-decoration: none">Content</a>
+      <span role="tab" aria-selected="true" style="height: 44px; display: flex; align-items: center; justify-content: center; border-bottom: 2px solid #F26B1D; font-size: 14px; font-weight: 600">Engagement</span>
+    </div>
+
+    <sc-if value="{{empty}}" hint-placeholder-val="{{false}}">
+      <div style="padding: 72px 24px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+        <span aria-hidden="true" style="width: 64px; height: 64px; border-radius: 50%; background: #F1EBFF; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 24 24" fill="#7F56D9"><path d="M20 15A8 8 0 1 1 9 4a7 7 0 0 0 11 11z"></path></svg></span>
+        <strong style="font-size: 16px">No learners enrolled yet</strong>
+        <p style="margin: 0; max-width: 360px; font-size: 13px; color: #475467">Once learners start enrolling, their progress and feedback will appear here.</p>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{hasLearners}}" hint-placeholder-val="{{true}}">
+      <section aria-label="Engagement summary" style="padding: 16px 18px; border: 1px solid #EAECF0; border-radius: 12px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 14px; font-weight: 600">Total Enrolled</span><strong style="font-size: 22px; font-variant-numeric: tabular-nums">{{total}}</strong></div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+          <div style="display: flex; flex-direction: column; gap: 6px"><span style="display: flex; justify-content: space-between; font-size: 12px; color: #475467">Average Quiz Score<strong style="color: #101828">86%</strong></span><div style="height: 8px; border-radius: 4px; background: #EAECF0"><div style="width: 86%; height: 8px; border-radius: 4px; background: #17B26A"></div></div></div>
+          <div style="display: flex; flex-direction: column; gap: 6px"><span style="display: flex; justify-content: space-between; font-size: 12px; color: #475467">Quiz Attempted<strong style="color: #101828">{{attempted}} of {{total}}</strong></span><div style="height: 8px; border-radius: 4px; background: #EAECF0"><div style="width: {{attemptedPct}}; height: 8px; border-radius: 4px; background: #667085"></div></div></div>
+        </div>
+      </section>
+
+      <section style="display: flex; flex-direction: column; gap: 12px">
+        <h2 style="margin: 0; font-size: 20px; font-weight: 600">Learner Activity</h2>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px">
+          <label style="display: flex; align-items: center; gap: 8px; height: 38px; width: 280px; max-width: 100%; padding: 0 12px; border: 1px solid #D0D5DD; border-radius: 8px">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#667085" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+            <input type="search" aria-label="Search learners by name" placeholder="Search learners by name…" value="{{q}}" onChange="{{setQ}}" style="flex: 1; min-width: 0; border: 0; outline: none; background: transparent; font: inherit; font-size: 13px">
+          </label>
+          <div style="position: relative; display: flex; gap: 8px">
+            <button type="button" aria-expanded="{{sortAttr}}" onClick="{{toggleSort}}" style="height: 36px; display: flex; align-items: center; gap: 6px; padding: 0 12px; border: 1px solid #D0D5DD; border-radius: 8px; background: #ffffff; font: inherit; font-size: 13px; font-weight: 500; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4v16M3 16l4 4 4-4M17 20V4M13 8l4-4 4 4"></path></svg>Sort</button>
+            <button type="button" onClick="{{openFilter}}" style="height: 36px; display: flex; align-items: center; gap: 6px; padding: 0 12px; border: 1px solid #D0D5DD; border-radius: 8px; background: #ffffff; font: inherit; font-size: 13px; font-weight: 500; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4 2v-8z"></path></svg>Filter</button>
+            <sc-if value="{{sortOpen}}" hint-placeholder-val="{{false}}">
+              <ul role="listbox" aria-label="Sort learners" style="position: absolute; top: 42px; right: 0; z-index: 5; width: 290px; margin: 0; padding: 6px; list-style: none; border: 1px solid #EAECF0; border-radius: 10px; background: #ffffff; box-shadow: 0 12px 28px rgba(16,24,40,0.14)">
+                <sc-for list="{{sorts}}" as="o" hint-placeholder-count="6">
+                  <li><button type="button" role="option" aria-selected="{{o.sel}}" onClick="{{o.pick}}" style="{{o.style}}">{{o.label}}</button></li>
+                </sc-for>
+              </ul>
+            </sc-if>
+          </div>
+        </div>
+        <sc-if value="{{hasChips}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 12px; color: #475467">
+            <span>Showing {{count}} results for</span>
+            <sc-for list="{{chips}}" as="c" hint-placeholder-count="3">
+              <span style="display: inline-flex; align-items: center; gap: 4px; height: 26px; padding: 0 4px 0 10px; border: 1px solid #D0D5DD; border-radius: 13px; color: #344054">{{c.label}}<button type="button" aria-label="Remove filter {{c.label}}" onClick="{{c.remove}}" style="width: 20px; height: 20px; border: 0; background: transparent; cursor: pointer; color: #667085"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></span>
+            </sc-for>
+            <button type="button" onClick="{{clearFilters}}" style="height: 26px; border: 0; background: transparent; color: #D92D20; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer">Clear all</button>
+          </div>
+        </sc-if>
+        <div style="border: 1px solid #EAECF0; border-radius: 12px; overflow-x: auto">
+          <table style="width: 100%; min-width: 820px; border-collapse: collapse; font-size: 13px">
+            <thead><tr style="background: #F9FAFB; text-align: left; color: #475467; font-size: 12px"><th style="padding: 12px 16px; font-weight: 500">Learner</th><th style="padding: 12px 16px; font-weight: 500">Role</th><th style="padding: 12px 16px; font-weight: 500">Last Active</th><th style="padding: 12px 16px; font-weight: 500">Final Quiz</th><th style="padding: 12px 16px; font-weight: 500; text-align: right">Questions Asked</th><th style="padding: 12px 16px; font-weight: 500">Course Completion</th><th style="padding: 12px 16px"><span style="position: absolute; left: -9999px">Details</span></th></tr></thead>
+            <tbody>
+              <sc-for list="{{rows}}" as="r" hint-placeholder-count="8">
+                <tr style="border-top: 1px solid #EAECF0">
+                  <td style="padding: 10px 16px"><span style="display: flex; align-items: center; gap: 8px"><span style="width: 30px; height: 30px; border-radius: 50%; background: {{r.av}}; color: #ffffff; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{r.initials}}</span>{{r.name}}</span></td>
+                  <td style="padding: 10px 16px; color: #475467">{{r.role}}</td>
+                  <td style="padding: 10px 16px; color: #475467">{{r.last}}</td>
+                  <td style="padding: 10px 16px"><span style="{{r.quizStyle}}">{{r.quiz}}</span></td>
+                  <td style="padding: 10px 16px; text-align: right; font-variant-numeric: tabular-nums">{{r.qa}}</td>
+                  <td style="padding: 10px 16px"><span style="{{r.compStyle}}">{{r.comp}}</span></td>
+                  <td style="padding: 10px 16px"><button type="button" onClick="{{r.open}}" style="height: 30px; padding: 0 10px; border: 0; background: transparent; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">View</button></td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+          <sc-if value="{{noRows}}" hint-placeholder-val="{{false}}"><p style="margin: 0; padding: 28px; text-align: center; font-size: 13px; color: #475467">No learners match your search or filters.</p></sc-if>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 16px; border-top: 1px solid #EAECF0">
+            <button type="button" onClick="{{prev}}" disabled="{{atFirst}}" style="{{prevStyle}}">Previous</button>
+            <span style="font-size: 12px; color: #475467">Page {{page}} of {{pages}}</span>
+            <button type="button" onClick="{{next}}" disabled="{{atLast}}" style="{{nextStyle}}">Next</button>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px">
+      <a href="Inst-CourseDetails.dc.html" style="height: 46px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: #0B0B7E; color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none">Duplicate Course</a>
+      <a href="Inst-CourseDetails.dc.html" style="height: 46px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: #0B0B7E; color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none">Archive Course</a>
+    </div>
+  </main>
+</div>
+
+<sc-if value="{{filterOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; justify-content: flex-end; padding: 16px">
+    <form role="dialog" aria-modal="true" aria-labelledby="fl-t" style="width: 380px; max-width: 100%; align-self: flex-start; background: #ffffff; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+      <h2 id="fl-t" style="margin: 0; font-size: 17px; font-weight: 600">Filter learners</h2>
+      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Role
+        <select value="{{fRole}}" onChange="{{setRole}}" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"><option value="">Please select</option><option>Lawyer</option><option>Non-Lawyer</option></select>
+      </label>
+      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Last Active
+        <select value="{{fLast}}" onChange="{{setLast}}" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"><option value="">Please select</option><option>Today</option><option>Past 7 days</option><option>Past 30 days</option><option>More than 30 days ago</option></select>
+      </label>
+      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Final Quiz Status
+        <select value="{{fQuiz}}" onChange="{{setQuiz}}" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"><option value="">Please select</option><option>Done</option><option>Not Started</option></select>
+      </label>
+      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Questions Asked
+        <select value="{{fQa}}" onChange="{{setQa}}" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"><option value="">Please select</option><option>None</option><option>1 – 3</option><option>4 or more</option></select>
+      </label>
+      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Course Completion
+        <select value="{{fComp}}" onChange="{{setComp}}" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"><option value="">Please select</option><option>Completed</option><option>In Progress</option><option>Not Started</option></select>
+      </label>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 4px">
+        <button type="button" onClick="{{closeFilter}}" style="height: 42px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Cancel</button>
+        <button type="button" onClick="{{applyFilter}}" disabled="{{applyBlocked}}" style="{{applyStyle}}">Apply</button>
+      </div>
+    </form>
+  </div>
+</sc-if>
+
+<sc-if value="{{learnerOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; justify-content: flex-end; padding: 16px">
+    <div role="dialog" aria-modal="true" aria-labelledby="le-t" style="width: 480px; max-width: 100%; background: #ffffff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden">
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 18px 20px; border-bottom: 1px solid #EAECF0">
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 4px"><h2 id="le-t" style="margin: 0; font-size: 18px; font-weight: 600">Learner Engagement</h2><p style="margin: 0; font-size: 12px; color: #475467">Track this learner’s engagement and activity across this course.</p></div>
+        <button type="button" aria-label="Close" onClick="{{closeLearner}}" style="width: 34px; height: 34px; border: 0; background: transparent; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+      <div style="flex: 1; overflow-y: auto; padding: 18px 20px; display: flex; flex-direction: column; gap: 18px">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <span style="width: 44px; height: 44px; border-radius: 50%; background: {{L.av}}; color: #ffffff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{L.initials}}</span>
+          <div style="display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 15px">{{L.name}}</strong><span style="font-size: 12px; color: #475467">Role: {{L.role}} • Jurisdiction: {{L.jur}}</span></div>
+        </div>
+        <section style="display: flex; flex-direction: column; gap: 10px"><h3 style="margin: 0; font-size: 14px; font-weight: 600">Overview</h3>
+          <dl style="margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 10px 16px; font-size: 13px">
+            <dt style="color: #475467">Modules Completed</dt><dd style="margin: 0; font-weight: 500; text-align: right">{{L.mods}}</dd>
+            <dt style="color: #475467">Course Progress</dt><dd style="margin: 0; text-align: right"><span style="{{L.compStyle}}">{{L.comp}}</span></dd>
+            <dt style="color: #475467">Last Active</dt><dd style="margin: 0; font-weight: 500; text-align: right">{{L.last}}</dd>
+            <dt style="color: #475467">Current Module</dt><dd style="margin: 0; font-weight: 500; text-align: right">{{L.cur}}</dd>
+            <dt style="color: #475467">Questions Asked</dt><dd style="margin: 0; display: flex; align-items: center; justify-content: flex-end; gap: 8px; font-weight: 500">{{L.qa}}<sc-if value="{{L.hasQa}}" hint-placeholder-val="{{true}}"><a href="Inst-ReplyQuestion.dc.html" style="height: 26px; display: inline-flex; align-items: center; padding: 0 10px; border: 1px solid #D0D5DD; border-radius: 6px; color: #344054; font-size: 12px; font-weight: 600; text-decoration: none">View</a></sc-if></dd>
+          </dl>
+        </section>
+        <section style="display: flex; flex-direction: column; gap: 10px"><h3 style="margin: 0; font-size: 14px; font-weight: 600">Quiz Attempt</h3>
+          <sc-if value="{{L.attempted}}" hint-placeholder-val="{{true}}">
+            <div style="border: 1px solid #EAECF0; border-radius: 10px; overflow-x: auto">
+              <table style="width: 100%; border-collapse: collapse; font-size: 12px">
+                <thead><tr style="background: #F9FAFB; text-align: left; color: #475467"><th style="padding: 10px 12px; font-weight: 500">Title</th><th style="padding: 10px 12px; font-weight: 500">Score</th><th style="padding: 10px 12px; font-weight: 500">Attempted</th><th style="padding: 10px 12px; font-weight: 500">Status</th></tr></thead>
+                <tbody><tr style="border-top: 1px solid #EAECF0"><td style="padding: 10px 12px">Introduction to Law in Africa – Final Assessment</td><td style="padding: 10px 12px; font-weight: 600">{{L.score}}</td><td style="padding: 10px 12px; color: #475467">{{L.attemptOn}}</td><td style="padding: 10px 12px"><span style="{{L.passStyle}}">{{L.pass}}</span></td></tr></tbody>
+              </table>
+            </div>
+          </sc-if>
+          <sc-if value="{{L.notAttempted}}" hint-placeholder-val="{{false}}">
+            <div style="padding: 20px; border: 1px dashed #D0D5DD; border-radius: 10px; text-align: center; display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 13px">No quiz attempts yet</strong><span style="font-size: 12px; color: #475467">This learner hasn’t attempted the final assessment for this course. Once they do, the results and feedback will appear here.</span></div>
+          </sc-if>
+        </section>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"enrolled":{"editor":"boolean","default":true},"$preview":{"width":1440,"height":1250}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { q: '', sort: 0, sortOpen: false, filters: {}, draft: null, page: 1, learner: null };
+  }
+  renderVals() {
+    const s = this.state;
+    const enrolled = this.props.enrolled !== false;
+    const people = [
+      ['Funke Esekhaye', 'Lawyer', 0, 'Done', 4, 'Completed'], ['Gbenga Fide', 'Non-Lawyer', 2, 'Not Started', 1, 'In Progress'],
+      ['Praise Etim', 'Lawyer', 5, 'Done', 0, 'Completed'], ['Ifeoluwa Jemide', 'Non-Lawyer', 12, 'Not Started', 2, 'In Progress'],
+      ['Usman Fola', 'Lawyer', 1, 'Done', 6, 'Completed'], ['Martha Ibe', 'Non-Lawyer', 40, 'Not Started', 0, 'Not Started'],
+      ['Tolu Bakare', 'Lawyer', 3, 'Not Started', 3, 'In Progress'], ['Hauwa Danjuma', 'Non-Lawyer', 7, 'Done', 1, 'Completed'],
+      ['Jeff Nwankwo', 'Lawyer', 21, 'Not Started', 0, 'In Progress'], ['Ada Okafor', 'Non-Lawyer', 0, 'Done', 2, 'Completed'],
+      ['Chidi Eze', 'Lawyer', 35, 'Not Started', 0, 'Not Started'], ['Zainab Bello', 'Non-Lawyer', 4, 'Not Started', 5, 'In Progress']
+    ].map((p, i) => ({ id: i, name: p[0], role: p[1], days: p[2], quiz: p[3], qa: p[4], comp: p[5] }));
+    const lastLabel = (d) => (d === 0 ? 'Today' : d === 1 ? 'Yesterday' : d + ' days ago');
+    const lastBucket = (d) => (d === 0 ? 'Today' : d <= 7 ? 'Past 7 days' : d <= 30 ? 'Past 30 days' : 'More than 30 days ago');
+    const qaBucket = (n) => (n === 0 ? 'None' : n <= 3 ? '1 – 3' : '4 or more');
+    const fieldDefs = [
+      { key: 'role', label: 'Role', opts: ['Lawyer', 'Non-Lawyer'], test: (p, v) => p.role === v },
+      { key: 'last', label: 'Last Active', opts: ['Today', 'Past 7 days', 'Past 30 days', 'More than 30 days ago'], test: (p, v) => lastBucket(p.days) === v || (v === 'Past 7 days' && p.days <= 7) || (v === 'Past 30 days' && p.days <= 30) },
+      { key: 'quiz', label: 'Final Quiz Status', opts: ['Done', 'Not Started'], test: (p, v) => p.quiz === v },
+      { key: 'qa', label: 'Questions Asked', opts: ['None', '1 – 3', '4 or more'], test: (p, v) => qaBucket(p.qa) === v },
+      { key: 'comp', label: 'Course Completion', opts: ['Completed', 'In Progress', 'Not Started'], test: (p, v) => p.comp === v }
+    ];
+    const compOrder = { Completed: 0, 'In Progress': 1, 'Not Started': 2 };
+    const sorts = [
+      ['Last Active (Newest to Oldest)', (a, b) => a.days - b.days], ['Last Active (Oldest to Newest)', (a, b) => b.days - a.days],
+      ['Course Completion (Completed → Not Started)', (a, b) => compOrder[a.comp] - compOrder[b.comp]],
+      ['Final Quiz (Done → Not Started)', (a, b) => (a.quiz === 'Done' ? 0 : 1) - (b.quiz === 'Done' ? 0 : 1)],
+      ['Most Questions Asked', (a, b) => b.qa - a.qa], ['Fewest Questions Asked', (a, b) => a.qa - b.qa]
+    ];
+    const q = s.q.trim().toLowerCase();
+    const list = people.filter((p) => (!q || p.name.toLowerCase().includes(q)) && fieldDefs.every((f) => !s.filters[f.key] || f.test(p, s.filters[f.key]))).sort(sorts[s.sort][1]);
+    const per = 8, pages = Math.max(1, Math.ceil(list.length / per)), page = Math.min(s.page, pages);
+    const avatars = ['#7A4E3A', '#1D4ED8', '#047857', '#9333EA', '#B45309', '#BE123C'];
+    const pill = (bg, fg) => 'display: inline-flex; height: 22px; align-items: center; padding: 0 8px; border-radius: 11px; font-size: 11px; font-weight: 600; white-space: nowrap; background: ' + bg + '; color: ' + fg;
+    const compStyle = (c) => (c === 'Completed' ? pill('#DCFAE6', '#067647') : c === 'In Progress' ? pill('#EDE9FE', '#5B21B6') : pill('#F2F4F7', '#344054'));
+    const decorate = (p) => ({
+      ...p, initials: p.name.split(' ').map((w) => w[0]).join(''), av: avatars[p.id % avatars.length], last: lastLabel(p.days),
+      quizStyle: p.quiz === 'Done' ? pill('#DCFAE6', '#067647') : pill('#FEF0C7', '#93370D'), compStyle: compStyle(p.comp)
+    });
+    const D = s.draft || {};
+    const anyDraft = Object.keys(D).some((k) => D[k]);
+    const btnSm = (on) => 'height: 34px; padding: 0 12px; border: 1px solid #D0D5DD; border-radius: 8px; background: #ffffff; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; color: ' + (on ? '#344054' : '#98A2B3');
+    const L = s.learner != null ? decorate(people[s.learner]) : null;
+    const chips = fieldDefs.filter((f) => s.filters[f.key]).map((f) => ({ label: s.filters[f.key], remove: () => this.setState({ filters: { ...this.state.filters, [f.key]: '' }, page: 1 }) }));
+    return {
+      empty: !enrolled, hasLearners: enrolled,
+      total: people.length, attempted: people.filter((p) => p.quiz === 'Done').length,
+      attemptedPct: Math.round(people.filter((p) => p.quiz === 'Done').length / people.length * 100) + '%',
+      q: s.q, setQ: (e) => this.setState({ q: e.target.value, page: 1 }),
+      sortOpen: s.sortOpen, sortAttr: s.sortOpen ? 'true' : 'false', toggleSort: () => this.setState({ sortOpen: !s.sortOpen }),
+      sorts: sorts.map((o, i) => ({ label: o[0], sel: i === s.sort ? 'true' : 'false', pick: () => this.setState({ sort: i, sortOpen: false }),
+        style: 'width: 100%; min-height: 36px; padding: 0 10px; border: 0; border-radius: 6px; text-align: left; font: inherit; font-size: 13px; cursor: pointer; ' + (i === s.sort ? 'background: #F2F4F7; font-weight: 600' : 'background: transparent') })),
+      hasChips: chips.length > 0, chips, count: list.length,
+      clearFilters: () => this.setState({ filters: {}, page: 1 }),
+      rows: list.slice((page - 1) * per, page * per).map((p) => ({ ...decorate(p), open: () => this.setState({ learner: p.id }) })),
+      noRows: list.length === 0,
+      page, pages, atFirst: page <= 1, atLast: page >= pages,
+      prevStyle: btnSm(page > 1), nextStyle: btnSm(page < pages),
+      prev: () => this.setState({ page: Math.max(1, page - 1) }), next: () => this.setState({ page: Math.min(pages, page + 1) }),
+      filterOpen: !!s.draft, openFilter: () => this.setState({ draft: { ...s.filters }, sortOpen: false }), closeFilter: () => this.setState({ draft: null }),
+      ...['role', 'last', 'quiz', 'qa', 'comp'].reduce((acc, k) => {
+        const cap = k === 'qa' ? 'Qa' : k.charAt(0).toUpperCase() + k.slice(1);
+        acc['f' + cap] = D[k] || '';
+        acc['set' + cap] = (e) => this.setState({ draft: { ...this.state.draft, [k]: e.target.value } });
+        return acc;
+      }, {}),
+      applyBlocked: !anyDraft,
+      applyStyle: 'height: 42px; border: 0; border-radius: 8px; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; background: ' + (anyDraft ? '#0B0B7E' : '#9D9DD0'),
+      applyFilter: () => this.setState({ filters: { ...s.draft }, draft: null, page: 1 }),
+      learnerOpen: !!L, closeLearner: () => this.setState({ learner: null }),
+      L: L ? {
+        ...L, jur: 'Nigeria', hasQa: L.qa > 0,
+        mods: L.comp === 'Completed' ? '6 of 6' : L.comp === 'In Progress' ? '3 of 6' : '0 of 6',
+        cur: L.comp === 'Completed' ? 'All modules completed' : L.comp === 'In Progress' ? 'Module 4: Customary Law' : 'Module 1: Sources of Law',
+        attempted: L.quiz === 'Done', notAttempted: L.quiz !== 'Done',
+        score: L.id % 3 === 2 ? '48%' : '86%', attemptOn: '24 Jul 2025',
+        pass: L.id % 3 === 2 ? 'Failed' : 'Passed', passStyle: L.id % 3 === 2 ? pill('#FEE4E2', '#B42318') : pill('#DCFAE6', '#067647')
+      } : { name: '', initials: '', av: '#fff', role: '', jur: '', mods: '', comp: '', compStyle: '', last: '', cur: '', qa: 0, hasQa: false, attempted: false, notAttempted: false, score: '', attemptOn: '', pass: '', passStyle: '' }
+    };
+  }
+}
+</script>
+</body>
+</html>

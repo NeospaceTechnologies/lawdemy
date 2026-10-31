@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lawdemy – Cart</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#101828;background:#fff}
+*{box-sizing:border-box}
+a{color:#0B0B7E}a:hover{color:#06065A}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 100vh; background: #ffffff">
+  <aside style="flex: 1 1 240px; background: #F9FAFB; border-right: 1px solid #EAECF0; padding: 20px 14px; display: flex; flex-direction: column; gap: 24px">
+    <div style="display: flex; align-items: center; gap: 8px; padding: 0 8px">
+      <svg width="22" height="26" viewBox="0 0 22 26" aria-hidden="true"><path d="M2 2h6v16h12v6H5a3 3 0 0 1-3-3z" fill="#0B0B7E"></path><circle cx="16" cy="12" r="4.5" fill="#F26B1D"></circle></svg>
+      <span style="font-weight: 700; font-size: 16px; color: #0B0B7E">Lawdemy</span>
+    </div>
+    <nav aria-label="Main" style="display: flex; flex-direction: column; gap: 2px">
+      <a href="Dashboard-Existing.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; color: #344054; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>Dashboard</a>
+      <a href="MyCourses-Existing.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 600; color: #101828; background: #EAECF0; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h10a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"></path><path d="M8 9h6"></path></svg>My Courses</a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; color: #344054; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14L7 22l5-3 5 3-1.5-8"></path></svg>Certifications</a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; color: #344054; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"></path><path d="M3 13l9 5 9-5"></path></svg>Community</a>
+    </nav>
+    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 2px">
+      <a href="#" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; color: #344054; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg>Support</a>
+      <a href="#" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; color: #344054; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"></path></svg>Settings</a>
+      <button type="button" style="margin-top: 12px; display: flex; align-items: center; gap: 10px; padding: 10px; border: 1px solid #EAECF0; border-radius: 10px; background: #ffffff; font: inherit; text-align: left; cursor: pointer">
+        <span style="width: 34px; height: 34px; flex: none; border-radius: 50%; border: 1.5px solid #F26B1D; color: #C4320A; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">DJ</span>
+        <span style="flex: 1; min-width: 0; display: flex; flex-direction: column"><span style="font-size: 13px; font-weight: 600">Daniel John</span><span style="font-size: 11px; color: #667085; overflow: hidden; text-overflow: ellipsis">danieljohn12@gmail.com</span></span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#667085" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+      </button>
+    </div>
+  </aside>
+  <main style="flex: 999 1 560px; min-width: 0; padding: 20px 32px 56px; display: flex; flex-direction: column; gap: 24px">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+      <a href="CourseDetails.dc.html" aria-label="Back" style="width: 36px; height: 36px; border: 1px solid #EAECF0; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #344054"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></a>
+      <div style="display: flex; align-items: center; gap: 4px; flex-wrap: wrap">
+        <label style="display: flex; align-items: center; gap: 8px; height: 40px; width: 280px; max-width: 100%; padding: 0 12px; border: 1px solid #EAECF0; border-radius: 8px; background: #F9FAFB">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#667085" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+          <input type="search" aria-label="Search courses" placeholder="Search courses" style="flex: 1; min-width: 0; border: 0; outline: none; background: transparent; font: inherit; font-size: 14px">
+        </label>
+        <a href="Wishlist.dc.html" aria-label="Wishlist" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: #344054"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-9-9a4.5 4.5 0 0 1 9-3 4.5 4.5 0 0 1 9 3c-2 4.6-9 9-9 9z"></path></svg></a>
+        <a href="Cart.dc.html" aria-label="Cart" aria-current="page" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: #0B0B7E; background: #EEEEFB"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.5 11h11L21 7H6.2"></path><circle cx="9" cy="19.5" r="1.5"></circle><circle cx="17" cy="19.5" r="1.5"></circle></svg></a>
+        <a href="Notifications.dc.html" aria-label="Notifications" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: #344054"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M6 16V11a6 6 0 1 1 12 0v5l2 2H4z"></path><path d="M10 21h4"></path></svg></a>
+      </div>
+    </div>
+
+    <sc-if value="{{toast}}" hint-placeholder-val="{{false}}">
+      <div role="status" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 10px; background: #067647; color: #ffffff">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#ffffff"></circle><path d="M7.5 12l3 3 6-6" fill="none" stroke="#067647" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 14px">{{toastTitle}}</strong><span style="font-size: 12px">{{toastBody}}</span></div>
+        <button type="button" aria-label="Dismiss" onClick="{{dismiss}}" style="width: 32px; height: 32px; border: 0; background: transparent; color: #ffffff; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+    </sc-if>
+
+    <h1 style="margin: 0; font-size: 30px; font-weight: 600; letter-spacing: -0.01em">Your Cart <span style="font-size: 18px; font-weight: 400; color: #475467">({{count}})</span></h1>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
+      <div style="flex: 999 1 420px; min-width: 0; display: flex; flex-direction: column">
+        <sc-if value="{{empty}}" hint-placeholder-val="{{false}}">
+          <div style="padding: 40px 0; display: flex; flex-direction: column; gap: 10px; align-items: flex-start">
+            <h2 style="margin: 0; font-size: 17px; font-weight: 600">Your cart is empty</h2>
+            <a href="Courses-All.dc.html" style="font-size: 13px; font-weight: 600">Browse courses</a>
+          </div>
+        </sc-if>
+        <sc-for list="{{items}}" as="it" hint-placeholder-count="2">
+          <article style="display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid #EAECF0">
+            <div style="width: 76px; height: 76px; flex: none; border-radius: 8px; background: #2B2F36" aria-hidden="true"></div>
+            <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+              <h2 style="margin: 0; font-size: 18px; font-weight: 500; line-height: 1.35">{{it.title}}</h2>
+              <span style="font-size: 13px; color: #475467">By Segun Bello</span>
+              <strong style="font-size: 15px">{{it.priceLabel}}</strong>
+              <span style="font-size: 12px; color: #475467">{{it.meta}}</span>
+              <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px">
+                <button type="button" onClick="{{it.askRemove}}" style="display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 18px; border: 0; border-radius: 8px; background: #D92D20; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"></path></svg>Remove</button>
+                <button type="button" onClick="{{it.toWishlist}}" style="display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 14px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-9-9a4.5 4.5 0 0 1 9-3 4.5 4.5 0 0 1 9 3c-2 4.6-9 9-9 9z"></path></svg>Add to Wishlist</button>
+              </div>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+      <section aria-labelledby="sum-t" style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 12px">
+        <h2 id="sum-t" style="margin: 0; font-size: 22px; font-weight: 600">Summary</h2>
+        <div style="display: flex; justify-content: space-between; font-size: 13px; color: #475467"><span>Item(s) total</span><strong style="color: #101828">{{totalLabel}}</strong></div>
+        <div style="display: flex; justify-content: space-between; font-size: 13px; color: #475467; padding-bottom: 12px; border-bottom: 1px solid #EAECF0"><span>Discount</span><span>N/A</span></div>
+        <div style="display: flex; justify-content: space-between; font-size: 14px"><span><strong>Total</strong> ({{count}} Courses)</span><strong>{{totalLabel}}</strong></div>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 10px">
+          <a href="Courses-All.dc.html" style="height: 48px; display: flex; align-items: center; justify-content: center; border: 1px solid #0B0B7E; border-radius: 8px; color: #0B0B7E; font-size: 14px; font-weight: 600; text-decoration: none">Continue Shopping</a>
+          <a href="Redirect.dc.html" style="height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: #0B0B7E; color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none">Proceed to Pay</a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<sc-if value="{{confirming}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; align-items: center; justify-content: center; padding: 16px">
+    <div role="alertdialog" aria-modal="true" aria-labelledby="rm-t" style="width: 360px; max-width: 100%; background: #ffffff; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center">
+      <span style="width: 44px; height: 44px; border-radius: 10px; border: 1px solid #EAECF0; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l10 18H2z" fill="#FDB022"></path><path d="M12 10v5M12 18h.01" stroke="#7A2E0E" stroke-width="2" stroke-linecap="round"></path></svg></span>
+      <h2 id="rm-t" style="margin: 0; font-size: 18px; font-weight: 600">Remove Course?</h2>
+      <p style="margin: 0; font-size: 13px; color: #475467; line-height: 1.5">Are you sure you want to remove this course? This action cannot be undone.</p>
+      <div style="align-self: stretch; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 6px">
+        <button type="button" onClick="{{cancelRemove}}" style="height: 40px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Cancel</button>
+        <button type="button" onClick="{{confirmRemove}}" style="height: 40px; border: 0; border-radius: 8px; background: #D92D20; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Remove Course</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { removed: [], pending: null, toast: null };
+  }
+  renderVals() {
+    const s = this.state;
+    const all = [
+      { id: 1, title: 'Introduction to Law in Africa (For most Non-Lawyers)', price: 4900, meta: '38 Total hours • 15 Lectures • Beginner' },
+      { id: 2, title: 'Advanced Legal Theory & Jurisprudence', price: 4900, meta: '38 Total hours • 38 Lectures • Beginner' }
+    ];
+    const naira = (n) => '₦' + n.toLocaleString('en-NG', { minimumFractionDigits: 2 });
+    const items = all.filter((x) => !s.removed.includes(x.id)).map((x) => ({
+      ...x,
+      priceLabel: naira(x.price),
+      askRemove: () => this.setState({ pending: x.id }),
+      toWishlist: () => this.setState({ removed: s.removed.concat(x.id), toast: 'wish' })
+    }));
+    const total = items.reduce((a, x) => a + x.price, 0);
+    const toasts = {
+      removed: ['Course removed from cart', 'This course is no longer in your cart.'],
+      wish: ['Moved to wishlist', 'You can find this course in your wishlist.']
+    };
+    return {
+      items,
+      count: items.length,
+      empty: items.length === 0,
+      totalLabel: naira(total),
+      confirming: s.pending !== null,
+      cancelRemove: () => this.setState({ pending: null }),
+      confirmRemove: () => this.setState({ removed: s.removed.concat(s.pending), pending: null, toast: 'removed' }),
+      toast: !!s.toast,
+      toastTitle: s.toast ? toasts[s.toast][0] : '',
+      toastBody: s.toast ? toasts[s.toast][1] : '',
+      dismiss: () => this.setState({ toast: null })
+    };
+  }
+}
+</script>
+</body>
+</html>

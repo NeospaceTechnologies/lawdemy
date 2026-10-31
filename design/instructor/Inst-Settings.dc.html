@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lawdemy Instructor – Settings</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#101828;background:#fff}
+*{box-sizing:border-box}
+a{color:#0B0B7E}a:hover{color:#06065A}
+button:disabled{cursor:not-allowed}
+</style>
+</helmet>
+<sc-if value="{{resetView}}" hint-placeholder-val="{{false}}">
+  <div style="min-height: 100vh; background: radial-gradient(circle at 50% 0%, #EEEBFF 0%, #ffffff 45%); display: flex; flex-direction: column; align-items: center; padding: 32px 16px">
+    <div style="display: flex; align-items: center; gap: 8px"><svg width="22" height="26" viewBox="0 0 22 26" aria-hidden="true"><path d="M2 2h6v16h12v6H5a3 3 0 0 1-3-3z" fill="#0B0B7E"></path><circle cx="16" cy="12" r="4.5" fill="#F26B1D"></circle></svg><span style="font-weight: 700; font-size: 16px; color: #0B0B7E">Lawdemy</span></div>
+    <sc-if value="{{resetForm}}" hint-placeholder-val="{{true}}">
+      <form style="width: 100%; max-width: 420px; margin-top: 64px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 6px"><h1 style="margin: 0; font-size: 26px; font-weight: 700">Set New Password</h1><p style="margin: 0; font-size: 14px; color: #475467">Create a strong password you haven’t used before for this account.</p></div>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Password<input type="password" value="{{rp1}}" onChange="{{setRp1}}" placeholder="Enter your password" style="height: 44px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 14px; background: #F9FAFB"></label>
+        <sc-if value="{{rpTyped}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; gap: 6px; font-size: 12px">
+            <span style="display: flex; align-items: center; gap: 8px; color: #475467">Password strength <span style="flex: 1; max-width: 120px; height: 5px; border-radius: 3px; background: #EAECF0"><span style="display: block; height: 5px; border-radius: 3px; width: {{rpBarW}}; background: {{rpBarC}}"></span></span>{{rpWord}}</span>
+            <sc-for list="{{rpRules}}" as="r" hint-placeholder-count="3"><span style="color: {{r.color}}">{{r.mark}} {{r.label}}</span></sc-for>
+          </div>
+        </sc-if>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500">Confirm Password<input type="password" value="{{rp2}}" onChange="{{setRp2}}" placeholder="Retype your password" aria-invalid="{{rpMismatchAttr}}" style="height: 44px; border: 1px solid {{rp2Border}}; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 14px; background: #F9FAFB"></label>
+        <sc-if value="{{rpMismatch}}" hint-placeholder-val="{{false}}"><span role="status" style="margin-top: -10px; font-size: 12px; color: #D92D20">Passwords don’t match.</span></sc-if>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+          <button type="button" onClick="{{exitReset}}" style="height: 44px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Back</button>
+          <button type="button" onClick="{{saveReset}}" disabled="{{rpBlocked}}" style="{{rpStyle}}">{{rpLabel}}</button>
+        </div>
+      </form>
+    </sc-if>
+    <sc-if value="{{resetDone}}" hint-placeholder-val="{{false}}">
+      <div style="width: 100%; max-width: 420px; margin-top: 96px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center">
+        <svg width="64" height="64" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#17B26A"></circle><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <h1 style="margin: 0; font-size: 22px; font-weight: 700">Password Reset Successful</h1>
+        <p style="margin: 0; font-size: 14px; color: #475467; line-height: 1.5">You can now sign in with your new password. If you didn’t request this change, please contact our support team immediately to secure your account.</p>
+        <a href="Inst-SignIn.dc.html" style="align-self: stretch; margin-top: 8px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: #0B0B7E; color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none">Login</a>
+      </div>
+    </sc-if>
+  </div>
+</sc-if>
+
+<sc-if value="{{mainView}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; flex-wrap: wrap; min-height: 100vh; background: #ffffff">
+  <aside style="flex: 1 1 240px; background: #F9FAFB; border-right: 1px solid #EAECF0; padding: 20px 14px; display: flex; flex-direction: column; gap: 24px">
+    <div style="display: flex; align-items: center; gap: 8px; padding: 0 8px">
+      <svg width="22" height="26" viewBox="0 0 22 26" aria-hidden="true"><path d="M2 2h6v16h12v6H5a3 3 0 0 1-3-3z" fill="#0B0B7E"></path><circle cx="16" cy="12" r="4.5" fill="#F26B1D"></circle></svg>
+      <span style="font-weight: 700; font-size: 16px; color: #0B0B7E">Lawdemy</span>
+      <span style="margin-left: 4px; font-size: 10px; font-weight: 600; color: #5B21B6; background: #F1EBFF; border-radius: 4px; padding: 2px 6px">Instructor</span>
+    </div>
+    <nav aria-label="Main" style="display: flex; flex-direction: column; gap: 2px">
+      <a href="Inst-Dashboard.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>Dashboard</a>
+      <a href="Inst-MyCourses.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h10a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"></path><path d="M8 9h6"></path></svg>My Courses</a>
+      <a href="Inst-Earnings.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18M7 15h3"></path></svg>Earnings</a>
+      <a href="Inst-Community.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"></path><path d="M3 13l9 5 9-5"></path></svg>Community</a>
+    </nav>
+    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 2px">
+      <a href="Inst-Support.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg>Support</a>
+      <a href="Inst-Settings.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; font-weight: 600; color: #101828; background: #EAECF0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"></path></svg>Settings</a>
+      <div style="margin-top: 12px; display: flex; align-items: center; gap: 10px; padding: 10px; border: 1px solid #EAECF0; border-radius: 10px; background: #ffffff">
+        <span style="width: 34px; height: 34px; flex: none; border-radius: 50%; background: #7A4E3A; color: #F5E6D3; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">JA</span>
+        <span style="flex: 1; min-width: 0; display: flex; flex-direction: column"><span style="font-size: 13px; font-weight: 600">James Adeniola</span><span style="font-size: 11px; color: #667085">Instructor</span></span>
+      </div>
+    </div>
+  </aside>
+  <main style="flex: 999 1 560px; min-width: 0; padding: 20px 32px 56px; display: flex; justify-content: center">
+    <div style="width: 100%; max-width: 760px; display: flex; flex-direction: column; gap: 22px">
+      <sc-if value="{{hasToast}}" hint-placeholder-val="{{false}}">
+        <div role="status" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 10px; background: #067647; color: #ffffff">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#ffffff"></circle><path d="M7.5 12l3 3 6-6" fill="none" stroke="#067647" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 14px">{{toastTitle}}</strong><span style="font-size: 12px">{{toastBody}}</span></div>
+          <button type="button" aria-label="Dismiss" onClick="{{dismiss}}" style="width: 32px; height: 32px; border: 0; background: transparent; color: #ffffff; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+        </div>
+      </sc-if>
+      <sc-if value="{{deleted}}" hint-placeholder-val="{{false}}">
+        <div style="padding: 48px 24px; border: 1px solid #EAECF0; border-radius: 12px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px"><strong style="font-size: 17px">Your account has been deleted</strong><p style="margin: 0; font-size: 13px; color: #475467">We’re sorry to see you go. All your data has been permanently removed from Lawdemy.</p><a href="Inst-Onboarding.dc.html" style="margin-top: 6px; height: 40px; display: inline-flex; align-items: center; padding: 0 16px; border-radius: 8px; background: #0B0B7E; color: #ffffff; font-size: 13px; font-weight: 600; text-decoration: none">Back to Lawdemy</a></div>
+      </sc-if>
+      <sc-if value="{{notDeleted}}" hint-placeholder-val="{{true}}">
+      <div style="display: flex; flex-direction: column; gap: 4px"><h1 style="margin: 0; font-size: 30px; font-weight: 700">Settings</h1><p style="margin: 0; font-size: 14px; color: #475467">Customize your profile, verify your credentials, and set up preferences to get the most out of your instructor experience.</p></div>
+      <div role="tablist" aria-label="Settings sections" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-bottom: 1px solid #EAECF0">
+        <button type="button" role="tab" aria-selected="{{accSel}}" onClick="{{toAcc}}" style="{{accTab}}">Account</button>
+        <button type="button" role="tab" aria-selected="{{prefSel}}" onClick="{{toPref}}" style="{{prefTab}}">Notifications and Preferences</button>
+      </div>
+
+      <sc-if value="{{isPref}}" hint-placeholder-val="{{false}}">
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">
+          <sc-for list="{{prefs}}" as="p" hint-placeholder-count="4">
+            <li style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; border-bottom: 1px solid #EAECF0"><span style="display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 14px; font-weight: 600">{{p.label}}</strong><span style="font-size: 12px; color: #475467">{{p.sub}}</span></span><button type="button" role="switch" aria-checked="{{p.attr}}" aria-label="{{p.label}}" onClick="{{p.toggle}}" style="{{p.track}}"><span style="{{p.knob}}"></span></button></li>
+          </sc-for>
+        </ul>
+      </sc-if>
+
+      <sc-if value="{{isAcc}}" hint-placeholder-val="{{true}}">
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span aria-label="Profile photo" style="{{photoStyle}}">{{photoText}}</span>
+          <button type="button" onClick="{{askRemovePhoto}}" disabled="{{noPhoto}}" style="height: 36px; padding: 0 14px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Remove</button>
+          <button type="button" onClick="{{changePhoto}}" style="height: 36px; padding: 0 14px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">{{photoBusyLabel}}</button>
+        </div>
+
+        <section style="display: flex; flex-direction: column; gap: 14px">
+          <h2 style="margin: 0; font-size: 20px; font-weight: 600">General</h2>
+          <sc-for list="{{general}}" as="g" hint-placeholder-count="3">
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px">
+              <label style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">{{g.label}}<input type="text" value="{{g.value}}" readonly style="height: 42px; border: 1px solid #EAECF0; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; font-weight: 400; background: #F2F4F7; color: #344054"></label>
+              <sc-if value="{{g.isLink}}" hint-placeholder-val="{{false}}"><a href="Inst-Support.dc.html" style="height: 40px; min-width: 120px; display: flex; align-items: center; justify-content: center; padding: 0 14px; border-radius: 8px; background: #0B0B7E; color: #ffffff; font-size: 13px; font-weight: 600; text-decoration: none">{{g.action}}</a></sc-if>
+              <sc-if value="{{g.isBtn}}" hint-placeholder-val="{{true}}"><button type="button" onClick="{{g.run}}" style="height: 40px; min-width: 120px; padding: 0 14px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">{{g.action}}</button></sc-if>
+            </div>
+          </sc-for>
+        </section>
+
+        <section style="display: flex; flex-direction: column; gap: 12px; padding-top: 18px; border-top: 1px solid #EAECF0">
+          <div style="display: flex; align-items: center; justify-content: space-between"><h2 style="margin: 0; font-size: 20px; font-weight: 600">Legal Background</h2><button type="button" onClick="{{openLegal}}" style="height: 36px; padding: 0 14px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Edit</button></div>
+          <dl style="margin: 0; display: grid; grid-template-columns: minmax(140px, auto) 1fr; gap: 10px 16px; font-size: 13px">
+            <dt style="color: #475467">Professional Title</dt><dd style="margin: 0; font-weight: 500">{{lgTitle}}</dd>
+            <dt style="color: #475467">Years of Experience</dt><dd style="margin: 0; font-weight: 500">{{lgYears}}</dd>
+            <dt style="color: #475467">Jurisdiction</dt><dd style="margin: 0; font-weight: 500">{{lgJur}}</dd>
+            <dt style="color: #475467">Practice Areas</dt><dd style="margin: 0; font-weight: 500">{{lgAreas}}</dd>
+          </dl>
+        </section>
+
+        <section style="display: flex; flex-direction: column; gap: 12px; padding-top: 18px; border-top: 1px solid #EAECF0">
+          <div style="display: flex; align-items: center; justify-content: space-between"><h2 style="margin: 0; font-size: 20px; font-weight: 600">Profile</h2><button type="button" onClick="{{openProfile}}" style="height: 36px; padding: 0 14px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Edit</button></div>
+          <p style="margin: 0; font-size: 13px; color: #475467; line-height: 1.55">{{bio}}</p>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px">
+            <sc-for list="{{links}}" as="l" hint-placeholder-count="2"><li style="padding: 4px 10px; border: 1px solid #EAECF0; border-radius: 14px; font-size: 12px; color: #344054">{{l.k}}: {{l.v}}</li></sc-for>
+          </ul>
+        </section>
+
+        <section style="display: flex; flex-direction: column; gap: 12px; padding-top: 18px; border-top: 1px solid #EAECF0">
+          <h2 style="margin: 0; font-size: 20px; font-weight: 600">Payout Preference</h2>
+          <sc-if value="{{noBank}}" hint-placeholder-val="{{false}}">
+            <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; border: 1px dashed #D0D5DD; border-radius: 10px"><span style="font-size: 13px; color: #475467">Add a verified bank account to receive your earnings.</span><button type="button" onClick="{{openAddBank}}" style="height: 38px; padding: 0 14px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Add Bank Info</button></div>
+          </sc-if>
+          <sc-if value="{{hasBank}}" hint-placeholder-val="{{true}}">
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px">
+              <label style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Bank Account<input type="text" value="{{bankLabel}}" readonly style="height: 42px; border: 1px solid #EAECF0; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; font-weight: 400; background: #F2F4F7"></label>
+              <button type="button" onClick="{{openEditBank}}" style="height: 40px; min-width: 120px; padding: 0 14px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Edit</button>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px">
+              <label style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Transaction PIN<input type="text" value="••••" readonly style="height: 42px; border: 1px solid #EAECF0; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; font-weight: 400; background: #F2F4F7"></label>
+              <button type="button" onClick="{{openPin}}" style="height: 40px; min-width: 120px; padding: 0 14px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Change</button>
+            </div>
+          </sc-if>
+        </section>
+
+        <section style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 16px; border: 1px solid #FECDCA; border-radius: 12px; background: #FFFBFA">
+          <span style="display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 14px; color: #B42318">Delete Account</strong><span style="font-size: 12px; color: #475467">Permanently delete your account, courses and earnings history.</span></span>
+          <button type="button" onClick="{{openDelete}}" style="height: 38px; padding: 0 14px; border: 0; border-radius: 8px; background: #F04438; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Delete Account</button>
+        </section>
+        <button type="button" onClick="{{askLogout}}" style="align-self: flex-start; height: 38px; padding: 0 14px; border: 1px solid #D0D5DD; border-radius: 8px; background: #ffffff; color: #D92D20; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Log out</button>
+      </sc-if>
+      </sc-if>
+    </div>
+  </main>
+</div>
+</sc-if>
+
+<sc-if value="{{panelOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; justify-content: flex-end; padding: 16px">
+    <form role="dialog" aria-modal="true" aria-labelledby="pn-t" style="width: 460px; max-width: 100%; background: #ffffff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden">
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 16px 20px; border-bottom: 1px solid #EAECF0">
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 4px"><h2 id="pn-t" style="margin: 0; font-size: 18px; font-weight: 600">{{pnTitle}}</h2><p style="margin: 0; font-size: 12px; color: #475467; line-height: 1.5">{{pnSub}}</p></div>
+        <button type="button" aria-label="Close" onClick="{{pnClose}}" style="width: 34px; height: 34px; border: 0; background: transparent; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+      <div style="flex: 1; overflow-y: auto; padding: 18px 20px; display: flex; flex-direction: column; gap: 14px">
+
+        <sc-if value="{{kName}}" hint-placeholder-val="{{false}}">
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">First Name<input type="text" value="{{fFirst}}" onChange="{{setFirst}}" style="height: 42px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"></label>
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Last Name<input type="text" value="{{fLast}}" onChange="{{setLast}}" style="height: 42px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"></label>
+        </sc-if>
+
+        <sc-if value="{{kPw}}" hint-placeholder-val="{{false}}">
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Current Password<input type="password" value="{{pwCur}}" onChange="{{setPwCur}}" placeholder="Enter your current password" style="height: 42px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"></label>
+          <button type="button" onClick="{{forgotPw}}" style="align-self: flex-end; margin-top: -8px; height: 26px; padding: 0; border: 0; background: transparent; color: #0B0B7E; font: inherit; font-size: 12px; font-weight: 600; text-decoration: underline; cursor: pointer">Forgot Password?</button>
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">New Password<input type="password" value="{{pwNew}}" onChange="{{setPwNew}}" placeholder="Enter your new password" style="height: 42px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"></label>
+          <sc-if value="{{pwTyped}}" hint-placeholder-val="{{false}}">
+            <div style="display: flex; flex-direction: column; gap: 6px; font-size: 12px">
+              <span style="display: flex; align-items: center; gap: 8px; color: #475467">Password strength <span style="flex: 1; max-width: 120px; height: 5px; border-radius: 3px; background: #EAECF0"><span style="display: block; height: 5px; border-radius: 3px; width: {{pwBarW}}; background: {{pwBarC}}"></span></span>{{pwWord}}</span>
+              <sc-for list="{{pwRules}}" as="r" hint-placeholder-count="3"><span style="color: {{r.color}}">{{r.mark}} {{r.label}}</span></sc-for>
+            </div>
+          </sc-if>
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Confirm Password<input type="password" value="{{pwConf}}" onChange="{{setPwConf}}" placeholder="Retype your password" style="height: 42px; border: 1px solid {{pwConfBorder}}; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"></label>
+          <sc-if value="{{pwMismatch}}" hint-placeholder-val="{{false}}"><span role="status" style="margin-top: -8px; font-size: 12px; color: #D92D20">Passwords don’t match.</span></sc-if>
+        </sc-if>
+
+        <sc-if value="{{kEmail}}" hint-placeholder-val="{{false}}">
+          <p style="margin: 0; font-size: 13px; color: #475467; line-height: 1.55">We’ve sent a password reset link to <strong style="color: #101828">jamesadeniola@gmail.com</strong>. Follow the instructions in the email to set a new password.</p>
+          <button type="button" onClick="{{resend}}" style="align-self: flex-start; height: 28px; padding: 0; border: 0; background: transparent; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600; text-decoration: underline; cursor: pointer">{{resendLabel}}</button>
+        </sc-if>
+
+        <sc-if value="{{kLegal}}" hint-placeholder-val="{{false}}">
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Professional Title
+            <select value="{{fTitle}}" onChange="{{setFTitle}}" style="height: 42px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"><option>Arbitrator</option><option>Attorney</option><option>Barrister</option><option>Compliance Officer</option><option>Corporate Counsel</option><option>Human Rights Advocate</option><option>Judge (Retired)</option><option>Law Lecturer</option><option>Legal Consultant</option></select>
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Years of Experience<input type="number" min="0" value="{{fYears}}" onChange="{{setFYears}}" style="height: 42px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"></label>
+          <sc-for list="{{multis}}" as="m" hint-placeholder-count="2">
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <span style="font-size: 12px; font-weight: 600">{{m.label}}</span>
+              <button type="button" aria-expanded="{{m.expanded}}" onClick="{{m.toggle}}" style="min-height: 42px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 6px 10px; border: 1px solid {{m.border}}; border-radius: 8px; background: #F9FAFB; font: inherit; text-align: left; cursor: pointer">
+                <sc-for list="{{m.chips}}" as="c" hint-placeholder-count="2"><span style="height: 24px; display: inline-flex; align-items: center; padding: 0 8px; border: 1px solid #D0D5DD; border-radius: 12px; background: #ffffff; font-size: 12px">{{c.v}}</span></sc-for>
+                <sc-if value="{{m.none}}" hint-placeholder-val="{{false}}"><span style="font-size: 13px; color: #98A2B3">Select…</span></sc-if>
+              </button>
+              <sc-if value="{{m.open}}" hint-placeholder-val="{{false}}">
+                <div style="border: 1px solid #EAECF0; border-radius: 8px; box-shadow: 0 8px 20px rgba(16,24,40,0.1)">
+                  <input type="search" value="{{m.q}}" onChange="{{m.setQ}}" placeholder="{{m.ph}}" aria-label="{{m.ph}}" style="width: 100%; height: 38px; border: 0; border-bottom: 1px solid #EAECF0; padding: 0 12px; font: inherit; font-size: 13px; outline: none">
+                  <div style="max-height: 180px; overflow-y: auto; padding: 4px">
+                    <sc-for list="{{m.opts}}" as="o" hint-placeholder-count="5"><label style="display: flex; align-items: center; gap: 8px; min-height: 34px; padding: 0 8px; border-radius: 6px; font-size: 13px; cursor: pointer"><input type="checkbox" checked="{{o.on}}" onChange="{{o.toggle}}" style="accent-color: #0B0B7E; margin: 0">{{o.label}}</label></sc-for>
+                  </div>
+                </div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </sc-if>
+
+        <sc-if value="{{kProfile}}" hint-placeholder-val="{{false}}">
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Professional Bio<textarea rows="6" maxlength="500" value="{{fBio}}" onChange="{{setFBio}}" style="border: 1px solid #D0D5DD; border-radius: 8px; padding: 10px 12px; font: inherit; font-size: 13px; font-weight: 400; line-height: 1.5; background: #F9FAFB; resize: vertical"></textarea><span style="align-self: flex-end; font-weight: 400; color: #667085">{{bioCount}}/500</span></label>
+          <p style="margin: 0; font-size: 12px; color: #475467">Add any public profiles you’d like learners to view. These links will be shown on your instructor profile (Optional).</p>
+          <sc-for list="{{linkFields}}" as="l" hint-placeholder-count="4">
+            <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">{{l.label}}
+              <span style="display: flex; height: 42px; border: 1px solid #D0D5DD; border-radius: 8px; overflow: hidden; background: #F9FAFB"><span style="display: flex; align-items: center; padding: 0 10px; border-right: 1px solid #D0D5DD; background: #ffffff; font-size: 12px; font-weight: 400; color: #475467">https://</span><input type="text" value="{{l.value}}" onChange="{{l.set}}" placeholder="{{l.ph}}" style="flex: 1; min-width: 0; border: 0; outline: none; padding: 0 10px; font: inherit; font-size: 13px; font-weight: 400; background: transparent"></span>
+            </label>
+          </sc-for>
+        </sc-if>
+
+        <sc-if value="{{kBank}}" hint-placeholder-val="{{false}}">
+          <sc-if value="{{isEditBank}}" hint-placeholder-val="{{false}}"><div role="note" style="padding: 10px 12px; border: 1px solid #DDD6FE; border-radius: 8px; background: #F5F3FF; font-size: 12px; color: #3B1D8F; line-height: 1.5"><strong>Please note</strong><br>Changes to your bank information may take up to 24 hours to be reflected and verified.</div></sc-if>
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Bank Account Number<input type="text" inputmode="numeric" maxlength="10" value="{{bAcct}}" onChange="{{setBAcct}}" placeholder="Enter 10-digit account number" style="height: 42px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"></label>
+          <sc-if value="{{bMatching}}" hint-placeholder-val="{{false}}"><span role="status" style="margin-top: -8px; font-size: 12px; color: #475467">Matching banks…</span></sc-if>
+          <sc-if value="{{bHasSuggest}}" hint-placeholder-val="{{false}}"><div style="align-self: flex-start; display: flex; align-items: center; gap: 8px; padding: 6px 6px 6px 12px; border-radius: 20px; background: #F26B1D; color: #ffffff; font-size: 12px; font-weight: 600">Access Bank<button type="button" onClick="{{takeSuggest}}" style="height: 26px; padding: 0 10px; border: 0; border-radius: 13px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 11px; font-weight: 600; cursor: pointer">Select</button></div></sc-if>
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Bank
+            <select value="{{bBank}}" onChange="{{setBBank}}" style="height: 42px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"><option value="">Select bank</option><option>Access Bank</option><option>GTBank Plc</option><option>Kuda Microfinance Bank</option><option>Moniepoint Microfinance Bank</option><option>PalmPay</option></select>
+          </label>
+          <sc-if value="{{bVerifying}}" hint-placeholder-val="{{false}}"><span role="status" style="margin-top: -8px; font-size: 12px; color: #475467">Verifying name…</span></sc-if>
+          <sc-if value="{{bName}}" hint-placeholder-val="{{false}}"><span style="align-self: flex-start; display: inline-flex; align-items: center; height: 30px; padding: 0 12px; border-radius: 15px; background: #F26B1D; color: #ffffff; font-size: 12px; font-weight: 700">JAMES ADENIOLA</span></sc-if>
+        </sc-if>
+
+        <sc-if value="{{kPinFields}}" hint-placeholder-val="{{false}}">
+          <sc-if value="{{isPinUpdate}}" hint-placeholder-val="{{false}}">
+            <div role="note" style="padding: 10px 12px; border: 1px solid #DDD6FE; border-radius: 8px; background: #F5F3FF; font-size: 12px; color: #3B1D8F; line-height: 1.5"><strong>Tip</strong><br>For security reasons, we recommend choosing a PIN different from your account or device password.</div>
+          </sc-if>
+          <sc-for list="{{pinFields}}" as="p" hint-placeholder-count="2">
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <label for="{{p.id}}" style="font-size: 12px; font-weight: 600">{{p.label}}</label>
+              <input id="{{p.id}}" type="{{pinType}}" inputmode="numeric" maxlength="4" autocomplete="off" value="{{p.value}}" onChange="{{p.set}}" aria-invalid="{{p.invalid}}" style="width: 180px; height: 48px; border: 1px solid {{p.border}}; border-radius: 10px; text-align: center; font: inherit; font-size: 22px; letter-spacing: 0.6em; background: #F9FAFB">
+              <sc-if value="{{p.hasErr}}" hint-placeholder-val="{{false}}"><span role="status" style="font-size: 12px; color: #D92D20">{{p.err}}</span></sc-if>
+              <sc-if value="{{p.forgot}}" hint-placeholder-val="{{false}}"><button type="button" onClick="{{forgotPin}}" style="align-self: flex-start; height: 26px; padding: 0; border: 0; background: transparent; color: #0B0B7E; font: inherit; font-size: 12px; font-weight: 600; text-decoration: underline; cursor: pointer">Forgot Pin?</button></sc-if>
+            </div>
+          </sc-for>
+          <button type="button" onClick="{{togglePinShow}}" style="align-self: flex-start; height: 28px; padding: 0; border: 0; background: transparent; color: #475467; font: inherit; font-size: 12px; cursor: pointer">{{pinShowLabel}}</button>
+          <sc-if value="{{isPinUpdate}}" hint-placeholder-val="{{false}}"><span style="font-size: 11px; color: #667085">Demo: your current PIN is 1234.</span></sc-if>
+        </sc-if>
+
+        <sc-if value="{{kPinAuth}}" hint-placeholder-val="{{false}}">
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Enter your account password<input type="password" value="{{paPw}}" onChange="{{setPaPw}}" placeholder="Enter your password" style="height: 42px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"></label>
+          <button type="button" onClick="{{forgotPw}}" style="align-self: flex-end; margin-top: -8px; height: 26px; padding: 0; border: 0; background: transparent; color: #0B0B7E; font: inherit; font-size: 12px; font-weight: 600; text-decoration: underline; cursor: pointer">Forgot Password?</button>
+        </sc-if>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 16px 20px 20px; border-top: 1px solid #EAECF0">
+        <button type="button" onClick="{{pnSecondary}}" style="height: 44px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">{{pnSecondaryLabel}}</button>
+        <button type="button" onClick="{{pnPrimary}}" disabled="{{pnBlocked}}" style="{{pnStyle}}">{{pnLabel}}</button>
+      </div>
+    </form>
+  </div>
+</sc-if>
+
+<sc-if value="{{dialogOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.45); display: flex; align-items: center; justify-content: center; padding: 16px">
+    <div role="alertdialog" aria-modal="true" aria-labelledby="dg-t" style="width: 400px; max-width: 100%; background: #ffffff; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center">
+      <span style="{{dgIconStyle}}"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l10 18H2z" fill="#FDB022"></path><path d="M12 10v5M12 18h.01" stroke="#7A2E0E" stroke-width="2" stroke-linecap="round"></path></svg></span>
+      <h2 id="dg-t" style="margin: 0; font-size: 17px; font-weight: 600">{{dgTitle}}</h2>
+      <p style="margin: 0; font-size: 13px; color: #475467; line-height: 1.5; white-space: pre-line">{{dgBody}}</p>
+      <sc-if value="{{dgIsDelete}}" hint-placeholder-val="{{false}}">
+        <div style="align-self: stretch; padding-top: 12px; border-top: 1px solid #EAECF0; display: flex; flex-direction: column; gap: 8px; text-align: left">
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Tell us why you’re leaving (Optional)
+            <select value="{{delReason}}" onChange="{{setDelReason}}" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"><option value="">Select option</option><option>I no longer need the platform</option><option>I found a better alternative</option><option>I’m not earning enough</option><option>Privacy concerns</option><option>Other</option></select>
+          </label>
+          <sc-if value="{{delOther}}" hint-placeholder-val="{{false}}"><textarea rows="3" value="{{delText}}" onChange="{{setDelText}}" aria-label="Tell us more" placeholder="Enter a description…" style="border: 1px solid #D0D5DD; border-radius: 8px; padding: 10px 12px; font: inherit; font-size: 13px; background: #F9FAFB; resize: vertical"></textarea></sc-if>
+        </div>
+      </sc-if>
+      <div style="align-self: stretch; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 6px">
+        <button type="button" onClick="{{dgNo}}" style="{{dgNoStyle}}">{{dgNoLabel}}</button>
+        <sc-if value="{{dgIsLogout}}" hint-placeholder-val="{{false}}"><a href="Inst-SignIn.dc.html" style="height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: #F04438; color: #ffffff; font-size: 13px; font-weight: 600; text-decoration: none">Log out</a></sc-if>
+        <sc-if value="{{dgNotLogout}}" hint-placeholder-val="{{true}}"><button type="button" onClick="{{dgYes}}" style="{{dgYesStyle}}">{{dgYesLabel}}</button></sc-if>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"payoutSetUp":{"editor":"boolean","default":true},"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tab: 'acc', toast: null, busy: false, view: 'main', deleted: false,
+      first: 'James', last: 'Adeniola', photo: true, photoBusy: false,
+      legal: { title: 'Compliance Officer', years: '10', jur: ['Canada', 'Nigeria'], areas: ['Banking, Finance & Capital Markets', 'Litigation and Dispute Resolution'] },
+      bio: 'James Adeniola is a renowned Senior Advocate of Nigeria with over two decades of experience in corporate law, commercial litigation, and legal education. A passionate mentor and speaker, he has led numerous trainings for young lawyers.',
+      links: { linkedin: 'linkedin.com/in/jamesadeniola', x: '', site: '', other: '' },
+      bank: null, pin: '1234', prefs: { qa: true, enrol: true, payout: true, news: false },
+      panel: null, dialog: null, rp1: '', rp2: '', rpDone: false
+    };
+  }
+  componentWillUnmount() { clearTimeout(this.t); clearTimeout(this.v); }
+  renderVals() {
+    const s = this.state;
+    const bank = s.bank !== null ? s.bank : (this.props.payoutSetUp === false ? false : { name: 'Access Bank', acct: '0123459050' });
+    const P = s.panel, D = s.dialog;
+    const setP = (p) => this.setState({ panel: { ...this.state.panel, ...p } });
+    const later = (fn, ms) => { clearTimeout(this.t); this.t = setTimeout(fn, ms); };
+    const tab = (on) => 'height: 44px; border: 0; border-bottom: 2px solid ' + (on ? '#F26B1D' : 'transparent') + '; background: transparent; font: inherit; font-size: 14px; font-weight: ' + (on ? '600; color: #101828' : '500; color: #667085') + '; cursor: pointer';
+    const btn = (ok, busy) => 'height: 44px; border: 0; border-radius: 8px; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; background: ' + (busy ? '#06065A' : ok ? '#0B0B7E' : '#9D9DD0');
+    const strength = (pw) => {
+      const rules = [['1 Special character', /[^A-Za-z0-9]/.test(pw)], ['1 Lowercase letter', /[a-z]/.test(pw)], ['Minimum of 8 characters', pw.length >= 8]];
+      const n = rules.filter((r) => r[1]).length;
+      return { ok: n === 3, rules: rules.map((r) => ({ label: r[0], mark: r[1] ? '✓' : '✕', color: r[1] ? '#067647' : '#D92D20' })), w: (n / 3 * 100) + '%', c: n === 3 ? '#17B26A' : n === 2 ? '#F79009' : '#F04438', word: n === 3 ? 'Excellent' : n === 2 ? 'Good' : 'Weak' };
+    };
+    const kind = P ? P.kind : null;
+    const pw = kind === 'pw' ? strength(P.nw) : null;
+    const rpS = strength(s.rp1);
+    const pinOk = (v) => /^\d{4}$/.test(v || '');
+    const mm = (a, b) => pinOk(a) && pinOk(b) && a !== b;
+    const JUR = ['Australia', 'Botswana', 'Brazil', 'Canada', 'China', 'Ghana', 'Kenya', 'Nigeria', 'South Africa', 'United Kingdom'];
+    const AREAS = ['Banking, Finance & Capital Markets', 'Energy & Natural Resources', 'Commercial, Corporate & M&A', 'Litigation and Dispute Resolution', 'Intellectual Property', 'Tax', 'Employment & Labour'];
+    const toastMsg = (t, b) => ['Changes Saved', 'Your profile has been updated.'].map((x, i) => (i === 0 ? t || x : b || x));
+    let ok = false, label = 'Save Changes', title = '', sub = '', secondary = ['Cancel', () => this.setState({ panel: null })], run = () => {};
+    const dirty = P && JSON.stringify(P.data) !== P.snap;
+    const finish = (patch, toast) => { setP({ busy: true }); later(() => this.setState({ ...patch, panel: null, toast }), 800); };
+    if (kind === 'name') { title = 'Edit Name'; sub = 'Update the name shown on your profile and certificates.'; ok = dirty && P.data.first.trim() && P.data.last.trim(); run = () => finish({ first: P.data.first.trim(), last: P.data.last.trim() }, toastMsg('Changes Saved', 'Your name has been updated successfully.')); }
+    if (kind === 'pw') { title = 'Change Password'; sub = 'Create a strong password you haven’t used before for this account.'; ok = P.cur && pw.ok && P.nw === P.conf; label = 'Update Password'; run = () => finish({}, ['Password Changed Successfully!', 'Your new password has been saved.']); }
+    if (kind === 'email') { title = 'Check Your Email'; sub = 'We’ve sent a password reset link to your email.'; ok = true; label = 'Open Email'; secondary = ['Back', () => this.setState({ panel: P.back || null })]; run = () => this.setState({ panel: null, view: 'reset', rp1: '', rp2: '', rpDone: false }); }
+    if (kind === 'legal') { title = 'Legal Background'; sub = 'This helps learners understand your qualifications and professional standing.'; ok = dirty && P.data.jur.length > 0 && P.data.areas.length > 0; run = () => finish({ legal: P.data }, toastMsg('Changes Saved', 'Your legal background has been updated.')); }
+    if (kind === 'profile') { title = 'Profile'; sub = 'Update your public-facing info as an instructor.'; ok = dirty && P.data.bio.trim() !== ''; run = () => finish({ bio: P.data.bio.trim(), links: P.data.links }, toastMsg('Changes Saved', 'Your public profile has been updated.')); }
+    const bankOk = !!P && /^\d{10}$/.test(P.acct || '') && P.bankName && P.name && !P.verifying;
+    if (kind === 'addBank' || kind === 'editBank') { title = kind === 'addBank' ? 'Add Bank Account' : 'Edit Bank Details'; sub = kind === 'addBank' ? 'Before you can receive your earnings, please add a verified bank account. Ensure your bank details match the information registered with your BVN.' : 'Update your bank account information below. Please ensure the details match your account name to avoid payment issues.'; ok = bankOk; label = kind === 'addBank' ? 'Continue' : 'Update Bank Details';
+      run = kind === 'addBank' ? () => setP({ kind: 'createPin', p1: '' }) : () => finish({ bank: { name: P.bankName, acct: P.acct } }, ['Bank Details Updated', 'Your payout information has been successfully updated.']); }
+    if (kind === 'createPin') { title = 'Create Transaction Pin'; sub = 'To protect your withdrawals, please create a secure 4-digit PIN. You’ll need it whenever you withdraw or update your payout info.'; ok = pinOk(P.p1); label = 'Save Bank Details'; secondary = ['Back', () => setP({ kind: 'addBank' })];
+      run = () => { setP({ busy: true }); later(() => this.setState({ panel: null, bank: { name: P.bankName, acct: P.acct }, pin: P.p1, dialog: { kind: 'bankSaved' } }), 900); }; }
+    if (kind === 'updatePin') { title = 'Update Transaction Pin'; sub = 'For your security, you’ll need to enter your current PIN before choosing a new one.'; ok = pinOk(P.cur) && pinOk(P.p1) && pinOk(P.p2) && P.p1 === P.p2;
+      run = () => { setP({ busy: true }); later(() => { const c = this.state.panel; if (c.cur !== this.state.pin) this.setState({ panel: { ...c, busy: false, curErr: true, cur: '' } }); else this.setState({ panel: null, pin: c.p1, toast: ['PIN Reset Successfully', 'Your transaction PIN has been updated.'] }); }, 800); }; }
+    if (kind === 'pinAuth') { title = 'Reset Transaction Pin'; sub = 'To keep your earnings secure, we’ll need to verify your identity before allowing a PIN reset.'; ok = !!P.pw; label = 'Verify Identity'; run = () => { setP({ busy: true }); later(() => setP({ busy: false, kind: 'newPin', p1: '', p2: '' }), 800); }; }
+    if (kind === 'newPin') { title = 'Create New Transaction Pin'; sub = 'Now set your new secure 4-digit PIN.'; ok = pinOk(P.p1) && pinOk(P.p2) && P.p1 === P.p2; label = 'Update Transaction PIN'; run = () => finish({ pin: P.p1 }, ['Transaction PIN Updated', 'Your new PIN is now active and ready to use.']); }
+    const busyLabels = { 'Update Password': 'Updating…', 'Save Bank Details': 'Saving Bank Details…', 'Update Bank Details': 'Updating Bank Details…', 'Verify Identity': 'Verifying…', 'Update Transaction PIN': 'Updating…', 'Save Changes': 'Saving…', 'Continue': 'Continue' };
+    const pinStarted = P && (P.cur || P.p1 || P.p2 || P.acct || P.bankName);
+    const closeWithGuard = () => {
+      if (!P) return;
+      if (['addBank', 'createPin'].includes(kind) && pinStarted) this.setState({ dialog: { kind: 'discardBank' } });
+      else if (['updatePin', 'newPin', 'editBank'].includes(kind) && pinStarted) this.setState({ dialog: { kind: 'leave' } });
+      else this.setState({ panel: null });
+    };
+    const multiDefs = [['jur', 'Jurisdiction', JUR, 'Search jurisdiction'], ['areas', 'Practice Areas', AREAS, 'Search practice area']];
+    const dialogs = {
+      removePhoto: { t: 'Are you sure you want to remove your profile picture?', b: 'Removing your profile photo will revert to the default avatar.', no: 'Cancel', yes: 'Remove Photo', danger: true },
+      logout: { t: 'Log out?', b: 'Logging out will end your current session, and you’ll need to sign in again to access your account.', no: 'Cancel', yes: 'Log out', danger: true },
+      delete: { t: 'Delete your Lawdemy Account?', b: 'This action will permanently delete your account and all associated data, including your courses and earnings history.\nOnce deleted, this cannot be undone.', no: 'Cancel', yes: s.busy ? 'Deleting…' : 'Delete Account', danger: true },
+      discardBank: { t: 'Discard Setup?', b: 'You’ve started setting up your bank details. Exiting now means your account information won’t be saved unless you finish this process.', no: 'Discard', yes: 'Continue Setup', swap: true },
+      leave: { t: 'Leave without saving?', b: 'You’ve started making changes, but they haven’t been saved. Are you sure you want to exit?', no: 'Leave Anyway', yes: 'Stay On This Page', swap: true },
+      bankSaved: { t: 'Bank Information saved successfully!', b: 'Your bank information and PIN have been saved successfully. You’re now ready to make secure withdrawals.', single: 'Done' }
+    };
+    const dg = D ? dialogs[D.kind] : null;
+    const outline = 'height: 40px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer';
+    const solid = (bg) => 'height: 40px; border: 0; border-radius: 8px; background: ' + bg + '; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer';
+    const verifyBank = () => { clearTimeout(this.v); setP({ verifying: true, name: false }); this.v = setTimeout(() => setP({ verifying: false, name: true }), 900); };
+    const openPanel = (k, data) => this.setState({ panel: { kind: k, data, snap: JSON.stringify(data) } });
+    return {
+      resetView: s.view === 'reset', mainView: s.view !== 'reset', resetForm: !s.rpDone, resetDone: s.rpDone,
+      rp1: s.rp1, setRp1: (e) => this.setState({ rp1: e.target.value }), rp2: s.rp2, setRp2: (e) => this.setState({ rp2: e.target.value }),
+      rpTyped: s.rp1.length > 0, rpRules: rpS.rules, rpBarW: rpS.w, rpBarC: rpS.c, rpWord: rpS.word,
+      rpMismatch: s.rp2.length > 0 && s.rp1 !== s.rp2, rpMismatchAttr: s.rp2.length > 0 && s.rp1 !== s.rp2 ? 'true' : 'false', rp2Border: s.rp2.length > 0 && s.rp1 !== s.rp2 ? '#F04438' : '#D0D5DD',
+      rpBlocked: !(rpS.ok && s.rp1 === s.rp2) || s.busy, rpStyle: btn(rpS.ok && s.rp1 === s.rp2, s.busy), rpLabel: s.busy ? 'Saving…' : 'Save',
+      exitReset: () => this.setState({ view: 'main' }),
+      saveReset: () => { this.setState({ busy: true }); later(() => this.setState({ busy: false, rpDone: true }), 800); },
+      hasToast: !!s.toast, toastTitle: s.toast ? s.toast[0] : '', toastBody: s.toast ? s.toast[1] : '', dismiss: () => this.setState({ toast: null }),
+      deleted: s.deleted, notDeleted: !s.deleted,
+      accSel: s.tab === 'acc' ? 'true' : 'false', prefSel: s.tab === 'pref' ? 'true' : 'false', accTab: tab(s.tab === 'acc'), prefTab: tab(s.tab === 'pref'),
+      toAcc: () => this.setState({ tab: 'acc' }), toPref: () => this.setState({ tab: 'pref' }), isAcc: s.tab === 'acc', isPref: s.tab === 'pref',
+      prefs: [['qa', 'New learner questions', 'Get notified when a learner asks a question in your course.'], ['enrol', 'New enrolments', 'Get notified when a learner enrols in one of your courses.'], ['payout', 'Payout updates', 'Withdrawals, failed payments and bonus credits.'], ['news', 'Lawdemy news & tips', 'Occasional updates and teaching tips from the Lawdemy team.']].map((p) => {
+        const on = s.prefs[p[0]];
+        return { label: p[1], sub: p[2], attr: on ? 'true' : 'false', toggle: () => this.setState({ prefs: { ...s.prefs, [p[0]]: !on } }), track: 'position: relative; width: 40px; height: 22px; flex: none; border: 0; border-radius: 11px; cursor: pointer; background: ' + (on ? '#0B0B7E' : '#D0D5DD'), knob: 'position: absolute; top: 3px; left: ' + (on ? '21px' : '3px') + '; width: 16px; height: 16px; border-radius: 50%; background: #ffffff' };
+      }),
+      photoStyle: 'width: 72px; height: 72px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; ' + (s.photo ? 'background: #7A4E3A; color: #F5E6D3' : 'background: linear-gradient(135deg, #7F56D9, #F26B1D); color: #ffffff'),
+      photoText: s.photo ? '[Photo]' : (s.first[0] + s.last[0]),
+      noPhoto: !s.photo, askRemovePhoto: () => this.setState({ dialog: { kind: 'removePhoto' } }),
+      photoBusyLabel: s.photoBusy ? 'Uploading…' : 'Change Photo',
+      changePhoto: () => { this.setState({ photoBusy: true }); later(() => this.setState({ photoBusy: false, photo: true, toast: ['Changes Saved', 'Your profile photo has been updated.'] }), 900); },
+      general: [
+        { label: 'Full Name', value: s.first + ' ' + s.last, action: 'Edit', isBtn: true, isLink: false, run: () => openPanel('name', { first: s.first, last: s.last }) },
+        { label: 'Email Address', value: 'jamesadeniola@gmail.com', action: 'Contact Us', isBtn: false, isLink: true, run: () => {} },
+        { label: 'Password', value: '••••••••', action: 'Change', isBtn: true, isLink: false, run: () => this.setState({ panel: { kind: 'pw', cur: '', nw: '', conf: '' } }) }
+      ],
+      lgTitle: s.legal.title, lgYears: s.legal.years + ' years', lgJur: s.legal.jur.join(', '), lgAreas: s.legal.areas.join(', '),
+      openLegal: () => openPanel('legal', { ...s.legal, jur: s.legal.jur.slice(), areas: s.legal.areas.slice() }),
+      bio: s.bio, links: [['LinkedIn', s.links.linkedin], ['X', s.links.x], ['Website', s.links.site], ['Other', s.links.other]].filter((l) => l[1]).map((l) => ({ k: l[0], v: l[1] })),
+      openProfile: () => openPanel('profile', { bio: s.bio, links: { ...s.links } }),
+      noBank: !bank, hasBank: !!bank, bankLabel: bank ? bank.name + ' (******' + bank.acct.slice(-4) + ')' : '',
+      openAddBank: () => this.setState({ panel: { kind: 'addBank', acct: '', bankName: '', name: false } }),
+      openEditBank: () => this.setState({ panel: { kind: 'editBank', acct: '', bankName: '', name: false } }),
+      openPin: () => this.setState({ panel: { kind: 'updatePin', cur: '', p1: '', p2: '' } }),
+      openDelete: () => this.setState({ dialog: { kind: 'delete', reason: '', text: '' } }),
+      askLogout: () => this.setState({ dialog: { kind: 'logout' } }),
+      panelOpen: !!P, pnTitle: title, pnSub: sub, pnClose: closeWithGuard,
+      kName: kind === 'name', kPw: kind === 'pw', kEmail: kind === 'email', kLegal: kind === 'legal', kProfile: kind === 'profile',
+      kBank: kind === 'addBank' || kind === 'editBank', isEditBank: kind === 'editBank',
+      kPinFields: ['createPin', 'updatePin', 'newPin'].includes(kind), isPinUpdate: kind === 'updatePin', kPinAuth: kind === 'pinAuth',
+      fFirst: kind === 'name' ? P.data.first : '', setFirst: (e) => setP({ data: { ...this.state.panel.data, first: e.target.value } }),
+      fLast: kind === 'name' ? P.data.last : '', setLast: (e) => setP({ data: { ...this.state.panel.data, last: e.target.value } }),
+      pwCur: kind === 'pw' ? P.cur : '', setPwCur: (e) => setP({ cur: e.target.value }),
+      pwNew: kind === 'pw' ? P.nw : '', setPwNew: (e) => setP({ nw: e.target.value }),
+      pwConf: kind === 'pw' ? P.conf : '', setPwConf: (e) => setP({ conf: e.target.value }),
+      pwTyped: !!(pw && P.nw), pwRules: pw ? pw.rules : [], pwBarW: pw ? pw.w : '0%', pwBarC: pw ? pw.c : '#EAECF0', pwWord: pw ? pw.word : '',
+      pwMismatch: !!(kind === 'pw' && P.conf && P.conf !== P.nw), pwConfBorder: kind === 'pw' && P.conf && P.conf !== P.nw ? '#F04438' : '#D0D5DD',
+      forgotPw: () => this.setState({ panel: { kind: 'email', back: P, resent: false } }),
+      resend: () => setP({ resent: true }), resendLabel: P && P.resent ? 'Link sent again' : 'Resend Link',
+      fTitle: kind === 'legal' ? P.data.title : '', setFTitle: (e) => setP({ data: { ...this.state.panel.data, title: e.target.value } }),
+      fYears: kind === 'legal' ? P.data.years : '', setFYears: (e) => setP({ data: { ...this.state.panel.data, years: e.target.value } }),
+      multis: kind === 'legal' ? multiDefs.map(([k, lbl, opts, ph]) => {
+        const sel = P.data[k]; const open = P.open === k; const qq = (P.q || '').toLowerCase();
+        return { label: lbl, chips: sel.map((v) => ({ v })), none: sel.length === 0, open, expanded: open ? 'true' : 'false', border: open ? '#0B0B7E' : '#D0D5DD', ph, q: open ? P.q || '' : '',
+          toggle: () => setP({ open: open ? null : k, q: '' }), setQ: (e) => setP({ q: e.target.value }),
+          opts: opts.filter((o) => !qq || o.toLowerCase().includes(qq)).map((o) => ({ label: o, on: sel.includes(o), toggle: () => { const cur = this.state.panel.data[k]; setP({ data: { ...this.state.panel.data, [k]: cur.includes(o) ? cur.filter((x) => x !== o) : cur.concat(o) } }); } })) };
+      }) : [],
+      fBio: kind === 'profile' ? P.data.bio : '', setFBio: (e) => setP({ data: { ...this.state.panel.data, bio: e.target.value.slice(0, 500) } }),
+      bioCount: kind === 'profile' ? P.data.bio.length : 0,
+      linkFields: kind === 'profile' ? [['linkedin', 'LinkedIn', 'linkedin.com/in/yourname'], ['x', 'X (formerly Twitter)', 'x.com/yourname'], ['site', 'Personal Website / Portfolio', 'www.yourwebsite.com'], ['other', 'Other (e.g. Medium, YouTube, Instagram, Facebook)', 'yourprofile.com']].map(([k, lbl, ph]) => ({ label: lbl, ph, value: P.data.links[k], set: (e) => setP({ data: { ...this.state.panel.data, links: { ...this.state.panel.data.links, [k]: e.target.value } } }) })) : [],
+      bAcct: P && P.acct !== undefined ? P.acct : '',
+      setBAcct: (e) => { const v = e.target.value.replace(/\D/g, '').slice(0, 10); clearTimeout(this.v); setP({ acct: v, matching: v.length === 10, suggest: false, name: false }); if (v.length === 10) this.v = setTimeout(() => setP({ matching: false, suggest: true }), 800); },
+      bMatching: !!(P && P.matching), bHasSuggest: !!(P && P.suggest && !P.bankName),
+      takeSuggest: () => { setP({ bankName: 'Access Bank', suggest: false }); verifyBank(); },
+      bBank: P && P.bankName ? P.bankName : '', setBBank: (e) => { const v = e.target.value; setP({ bankName: v }); if (v && /^\d{10}$/.test(this.state.panel.acct || '')) verifyBank(); else setP({ name: false }); },
+      bVerifying: !!(P && P.verifying), bName: !!(P && P.name),
+      pinType: P && P.show ? 'text' : 'password', togglePinShow: () => setP({ show: !P.show }), pinShowLabel: P && P.show ? 'Hide PINs' : 'Show PINs',
+      pinFields: !P ? [] : (kind === 'createPin' ? [['p1', 'Enter a 4-digit PIN']] : kind === 'updatePin' ? [['cur', 'Current Pin'], ['p1', 'New 4-digit PIN'], ['p2', 'Confirm New PIN']] : kind === 'newPin' ? [['p1', 'New 4-digit PIN'], ['p2', 'Confirm New PIN']] : []).map(([k, lbl]) => {
+        const err = k === 'cur' && P.curErr ? 'Incorrect PIN. Please try again.' : k === 'p2' && mm(P.p1, P.p2) ? 'PINs do not match. Please re-enter both fields.' : '';
+        return { id: 'pin-' + k, label: lbl, value: P[k] || '', set: (e) => setP({ [k]: e.target.value.replace(/\D/g, '').slice(0, 4), curErr: k === 'cur' ? false : P.curErr }), hasErr: !!err, err, invalid: err ? 'true' : 'false', border: err ? '#F04438' : '#D0D5DD', forgot: k === 'cur' };
+      }),
+      forgotPin: () => this.setState({ panel: { kind: 'pinAuth', pw: '' } }),
+      paPw: kind === 'pinAuth' ? P.pw : '', setPaPw: (e) => setP({ pw: e.target.value }),
+      pnSecondary: secondary[0] === 'Cancel' ? closeWithGuard : secondary[1], pnSecondaryLabel: secondary[0],
+      pnBlocked: !ok || !!(P && P.busy), pnStyle: btn(ok, P && P.busy), pnLabel: P && P.busy ? (busyLabels[label] || 'Saving…') : label,
+      pnPrimary: () => { if (ok && !P.busy) run(); },
+      dialogOpen: !!dg, dgTitle: dg ? dg.t : '', dgBody: dg ? dg.b : '',
+      dgIconStyle: 'width: 44px; height: 44px; border-radius: 10px; border: 1px solid #EAECF0; display: flex; align-items: center; justify-content: center',
+      dgIsLogout: !!(D && D.kind === 'logout'), dgNotLogout: !(D && D.kind === 'logout'),
+      dgIsDelete: !!(D && D.kind === 'delete'), delReason: D && D.reason ? D.reason : '', setDelReason: (e) => this.setState({ dialog: { ...this.state.dialog, reason: e.target.value } }),
+      delOther: !!(D && D.reason === 'Other'), delText: D && D.text ? D.text : '', setDelText: (e) => this.setState({ dialog: { ...this.state.dialog, text: e.target.value } }),
+      dgNoLabel: dg ? (dg.single ? 'Close' : dg.no) : '', dgYesLabel: dg ? (dg.single || dg.yes) : '',
+      dgNoStyle: dg && dg.swap ? solid('#F04438') : outline,
+      dgYesStyle: dg && dg.danger ? solid(s.busy ? '#B42318' : '#F04438') : solid('#0B0B7E'),
+      dgNo: () => {
+        const k = D.kind;
+        if (k === 'discardBank' || k === 'leave') this.setState({ dialog: null, panel: null });
+        else this.setState({ dialog: null });
+      },
+      dgYes: () => {
+        const k = D.kind;
+        if (k === 'removePhoto') this.setState({ dialog: null, photo: false, toast: ['Changes Saved', 'Your profile photo has been removed.'] });
+        else if (k === 'delete') { this.setState({ busy: true }); later(() => this.setState({ busy: false, dialog: null, deleted: true, toast: ['Your Account Has Been Deleted Successfully!', 'We’re sorry to see you go. All your data has been permanently removed from Lawdemy.'] }), 1000); }
+        else if (k === 'bankSaved') this.setState({ dialog: null });
+        else this.setState({ dialog: null });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

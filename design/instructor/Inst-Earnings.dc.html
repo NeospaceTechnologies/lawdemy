@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lawdemy Instructor – Earnings</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#101828;background:#fff}
+*{box-sizing:border-box}
+a{color:#0B0B7E}a:hover{color:#06065A}
+button:disabled{cursor:not-allowed}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 100vh; background: #ffffff">
+  <aside style="flex: 1 1 240px; background: #F9FAFB; border-right: 1px solid #EAECF0; padding: 20px 14px; display: flex; flex-direction: column; gap: 24px">
+    <div style="display: flex; align-items: center; gap: 8px; padding: 0 8px">
+      <svg width="22" height="26" viewBox="0 0 22 26" aria-hidden="true"><path d="M2 2h6v16h12v6H5a3 3 0 0 1-3-3z" fill="#0B0B7E"></path><circle cx="16" cy="12" r="4.5" fill="#F26B1D"></circle></svg>
+      <span style="font-weight: 700; font-size: 16px; color: #0B0B7E">Lawdemy</span>
+      <span style="margin-left: 4px; font-size: 10px; font-weight: 600; color: #5B21B6; background: #F1EBFF; border-radius: 4px; padding: 2px 6px">Instructor</span>
+    </div>
+    <nav aria-label="Main" style="display: flex; flex-direction: column; gap: 2px">
+      <a href="Inst-Dashboard.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>Dashboard</a>
+      <a href="Inst-MyCourses.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h10a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"></path><path d="M8 9h6"></path></svg>My Courses</a>
+      <a href="Inst-Earnings.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; font-weight: 600; color: #101828; background: #EAECF0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18M7 15h3"></path></svg>Earnings</a>
+      <a href="Inst-Community.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"></path><path d="M3 13l9 5 9-5"></path></svg>Community</a>
+    </nav>
+    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 2px">
+      <a href="Inst-Support.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg>Support</a>
+      <a href="Inst-Settings.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"></path></svg>Settings</a>
+      <div style="margin-top: 12px; display: flex; align-items: center; gap: 10px; padding: 10px; border: 1px solid #EAECF0; border-radius: 10px; background: #ffffff">
+        <span style="width: 34px; height: 34px; flex: none; border-radius: 50%; background: #7A4E3A; color: #F5E6D3; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">JA</span>
+        <span style="flex: 1; min-width: 0; display: flex; flex-direction: column"><span style="font-size: 13px; font-weight: 600">James Adeniola</span><span style="font-size: 11px; color: #667085">Instructor</span></span>
+      </div>
+    </div>
+  </aside>
+  <main style="flex: 999 1 560px; min-width: 0; padding: 20px 32px 56px; display: flex; flex-direction: column; gap: 22px">
+    <sc-if value="{{hasToast}}" hint-placeholder-val="{{false}}">
+      <div role="status" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 10px; background: #067647; color: #ffffff">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#ffffff"></circle><path d="M7.5 12l3 3 6-6" fill="none" stroke="#067647" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 14px">{{toastTitle}}</strong><span style="font-size: 12px">{{toastBody}}</span></div>
+        <button type="button" aria-label="Dismiss" onClick="{{dismiss}}" style="width: 32px; height: 32px; border: 0; background: transparent; color: #ffffff; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+    </sc-if>
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <h1 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.01em">Earnings</h1>
+        <p style="margin: 0; font-size: 14px; color: #475467">Track your earnings, request payouts, and manage your withdrawal settings.</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px">
+        <sc-if value="{{noBank}}" hint-placeholder-val="{{false}}">
+          <button type="button" onClick="{{openAddBank}}" style="height: 44px; display: inline-flex; align-items: center; gap: 8px; padding: 0 18px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Add your Bank Info</button>
+        </sc-if>
+        <sc-if value="{{hasBank}}" hint-placeholder-val="{{true}}">
+          <button type="button" onClick="{{openEditBank}}" style="height: 44px; padding: 0 16px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Edit Bank Details</button>
+          <a href="Inst-Withdraw.dc.html" style="height: 44px; display: inline-flex; align-items: center; padding: 0 18px; border-radius: 8px; background: #0B0B7E; color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none">Withdraw Earnings</a>
+        </sc-if>
+      </div>
+    </div>
+
+    <section aria-label="Earnings summary" style="border: 1px solid #EAECF0; border-radius: 12px; overflow: hidden">
+      <div style="padding: 16px 18px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; align-items: center; justify-content: space-between"><span style="font-size: 14px; font-weight: 600">Total Earnings</span><strong style="font-size: 22px; font-variant-numeric: tabular-nums">{{totalLabel}}</strong></div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px">
+          <sc-for list="{{summary}}" as="b" hint-placeholder-count="3">
+            <div style="display: flex; flex-direction: column; gap: 6px"><span style="display: flex; justify-content: space-between; gap: 8px; font-size: 12px; color: #475467">{{b.label}}<strong style="color: #101828; font-variant-numeric: tabular-nums">{{b.value}}</strong></span><span style="height: 8px; border-radius: 4px; background: {{b.color}}"></span></div>
+          </sc-for>
+        </div>
+      </div>
+      <button type="button" onClick="{{openStatuses}}" style="width: 100%; height: 40px; display: flex; align-items: center; justify-content: space-between; padding: 0 18px; border: 0; background: #7F56D9; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">What do these mean?<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 12px">
+      <h2 style="margin: 0; font-size: 20px; font-weight: 600">Transaction History</h2>
+      <sc-if value="{{noTx}}" hint-placeholder-val="{{false}}">
+        <div style="padding: 56px 24px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+          <span aria-hidden="true" style="width: 64px; height: 64px; border-radius: 50%; background: #F1EBFF"></span>
+          <strong style="font-size: 16px">No Transactions yet</strong>
+          <p style="margin: 0; max-width: 380px; font-size: 13px; color: #475467; line-height: 1.5">Once learners enrol in your paid courses, your earnings and transactions will be displayed here.</p>
+          <a href="Inst-CreateCourse.dc.html" style="margin-top: 6px; height: 40px; display: inline-flex; align-items: center; padding: 0 16px; border-radius: 8px; background: #0B0B7E; color: #ffffff; font-size: 13px; font-weight: 600; text-decoration: none">Create Your First Course</a>
+        </div>
+      </sc-if>
+      <sc-if value="{{hasTx}}" hint-placeholder-val="{{true}}">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px">
+          <label style="display: flex; align-items: center; gap: 8px; height: 38px; width: 320px; max-width: 100%; padding: 0 12px; border: 1px solid #D0D5DD; border-radius: 8px">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#667085" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+            <input type="search" aria-label="Search transactions" placeholder="Search courses, learner or reference ID" value="{{q}}" onChange="{{setQ}}" style="flex: 1; min-width: 0; border: 0; outline: none; background: transparent; font: inherit; font-size: 13px">
+          </label>
+          <div style="position: relative; display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+            <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #475467">From <input type="date" value="{{from}}" onChange="{{setFrom}}" style="height: 36px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 8px; font: inherit; font-size: 13px"></label>
+            <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #475467">To <input type="date" value="{{to}}" onChange="{{setTo}}" style="height: 36px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 8px; font: inherit; font-size: 13px"></label>
+            <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #475467">Sort
+              <select value="{{sort}}" onChange="{{setSort}}" style="height: 36px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 8px; font: inherit; font-size: 13px; background: #ffffff"><option value="new">Newest First</option><option value="old">Oldest First</option><option value="high">Highest Amount</option><option value="az">Course Title (A–Z)</option></select>
+            </label>
+            <button type="button" onClick="{{openFilter}}" style="height: 36px; display: flex; align-items: center; gap: 6px; padding: 0 12px; border: 1px solid #D0D5DD; border-radius: 8px; background: #ffffff; font: inherit; font-size: 13px; font-weight: 500; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4 2v-8z"></path></svg>Filter</button>
+          </div>
+        </div>
+        <sc-if value="{{hasChips}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 12px; color: #475467">
+            <span>Showing {{count}} results for</span>
+            <sc-for list="{{chips}}" as="c" hint-placeholder-count="2"><span style="display: inline-flex; align-items: center; gap: 4px; height: 26px; padding: 0 4px 0 10px; border: 1px solid #D0D5DD; border-radius: 13px; color: #344054">{{c.label}}<button type="button" aria-label="Remove filter {{c.label}}" onClick="{{c.remove}}" style="width: 20px; height: 20px; border: 0; background: transparent; cursor: pointer; color: #667085"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></span></sc-for>
+            <button type="button" onClick="{{clearFilters}}" style="height: 26px; border: 0; background: transparent; color: #D92D20; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer">Clear all</button>
+          </div>
+        </sc-if>
+        <div style="border: 1px solid #EAECF0; border-radius: 12px; overflow-x: auto">
+          <table style="width: 100%; min-width: 900px; border-collapse: collapse; font-size: 13px">
+            <thead><tr style="background: #F9FAFB; text-align: left; color: #475467; font-size: 12px"><th style="padding: 12px 16px; font-weight: 500">ID</th><th style="padding: 12px 16px; font-weight: 500">Course / Description</th><th style="padding: 12px 16px; font-weight: 500">Learner</th><th style="padding: 12px 16px; font-weight: 500; text-align: right">Amount (₦)</th><th style="padding: 12px 16px; font-weight: 500">Type</th><th style="padding: 12px 16px; font-weight: 500">Status</th><th style="padding: 12px 16px; font-weight: 500">Date</th><th style="padding: 12px 16px"><span style="position: absolute; left: -9999px">Details</span></th></tr></thead>
+            <tbody>
+              <sc-for list="{{rows}}" as="r" hint-placeholder-count="8">
+                <tr style="border-top: 1px solid #EAECF0">
+                  <td style="padding: 11px 16px; color: #475467; font-size: 12px; white-space: nowrap">{{r.ref}}</td>
+                  <td style="padding: 11px 16px">{{r.course}}</td>
+                  <td style="padding: 11px 16px; color: #475467">{{r.learner}}</td>
+                  <td style="padding: 11px 16px; text-align: right; font-variant-numeric: tabular-nums; {{r.amtStyle}}">{{r.amountLabel}}</td>
+                  <td style="padding: 11px 16px; color: #475467">{{r.type}}</td>
+                  <td style="padding: 11px 16px"><span style="{{r.badge}}">{{r.status}}</span></td>
+                  <td style="padding: 11px 16px; color: #475467; white-space: nowrap">{{r.dateLabel}}</td>
+                  <td style="padding: 11px 16px"><button type="button" onClick="{{r.open}}" style="height: 30px; padding: 0 8px; border: 0; background: transparent; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">View</button></td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+          <sc-if value="{{noRows}}" hint-placeholder-val="{{false}}">
+            <div style="padding: 36px 24px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center"><strong style="font-size: 15px">No Transactions Found</strong><p style="margin: 0; font-size: 13px; color: #475467">Looks like there’s nothing matching your search or filters.</p><button type="button" onClick="{{clearAll}}" style="margin-top: 4px; height: 36px; padding: 0 14px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Clear search &amp; filters</button></div>
+          </sc-if>
+        </div>
+      </sc-if>
+    </section>
+  </main>
+</div>
+
+<sc-if value="{{statusesOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; justify-content: flex-end; padding: 16px">
+    <div role="dialog" aria-modal="true" aria-labelledby="es-t" style="width: 420px; max-width: 100%; background: #ffffff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden">
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 18px 20px; border-bottom: 1px solid #EAECF0">
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 4px"><h2 id="es-t" style="margin: 0; font-size: 18px; font-weight: 600">Understanding Earnings Statuses</h2><p style="margin: 0; font-size: 12px; color: #475467">Everything you need to know about your earnings, explained simply.</p></div>
+        <button type="button" aria-label="Close" onClick="{{closeStatuses}}" style="width: 34px; height: 34px; border: 0; background: transparent; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+      <div style="flex: 1; overflow-y: auto; padding: 16px 20px; display: flex; flex-direction: column; gap: 10px">
+        <sc-for list="{{faq}}" as="f" hint-placeholder-count="3">
+          <div style="border: 1px solid #EAECF0; border-radius: 10px">
+            <button type="button" aria-expanded="{{f.expanded}}" onClick="{{f.toggle}}" style="width: 100%; min-height: 46px; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 14px; border: 0; background: transparent; font: inherit; font-size: 13px; font-weight: 600; text-align: left; cursor: pointer">{{f.q}}<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#344054" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="{{f.chev}}"><path d="M6 9l6 6 6-6"></path></svg></button>
+            <sc-if value="{{f.open}}" hint-placeholder-val="{{false}}"><p style="margin: 0; padding: 0 14px 14px; font-size: 13px; color: #475467; line-height: 1.55">{{f.a}}</p></sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{filterOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; justify-content: flex-end; padding: 16px">
+    <form role="dialog" aria-modal="true" aria-labelledby="ft-t" style="width: 360px; max-width: 100%; align-self: flex-start; background: #ffffff; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+      <h2 id="ft-t" style="margin: 0; font-size: 17px; font-weight: 600">Filter transactions</h2>
+      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Type
+        <select value="{{fType}}" onChange="{{setFType}}" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"><option value="">Please select</option><option>All</option><option>Enrollment</option><option>Promotional Bonus</option><option>Withdrawal</option></select>
+      </label>
+      <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Status
+        <select value="{{fStatus}}" onChange="{{setFStatus}}" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"><option value="">Please select</option><option>All</option><option>Successful</option><option>Pending</option><option>Failed</option></select>
+      </label>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 4px">
+        <button type="button" onClick="{{closeFilter}}" style="height: 42px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Cancel</button>
+        <button type="button" onClick="{{applyFilter}}" disabled="{{applyBlocked}}" style="{{applyStyle}}">Apply</button>
+      </div>
+    </form>
+  </div>
+</sc-if>
+
+<sc-if value="{{txOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; justify-content: flex-end; padding: 16px">
+    <div role="dialog" aria-modal="true" aria-labelledby="tx-t" style="width: 440px; max-width: 100%; background: #ffffff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden">
+      <div style="display: flex; align-items: center; gap: 10px; padding: 16px 20px; border-bottom: 1px solid #EAECF0">
+        <h2 id="tx-t" style="flex: 1; margin: 0; font-size: 18px; font-weight: 600">{{T.heading}}</h2>
+        <sc-if value="{{T.failed}}" hint-placeholder-val="{{false}}"><button type="button" onClick="{{openEditBank}}" style="height: 32px; padding: 0 10px; border: 1px solid #D0D5DD; border-radius: 6px; background: #ffffff; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer">Edit Bank Info</button></sc-if>
+        <button type="button" aria-label="Close" onClick="{{closeTx}}" style="width: 34px; height: 34px; border: 0; background: transparent; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+      <div style="flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 18px">
+        <sc-if value="{{T.hero}}" hint-placeholder-val="{{true}}">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center">
+            <svg width="44" height="44" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#17B26A"></circle><path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <span style="font-size: 12px; color: #475467">{{T.heroLabel}}</span>
+            <strong style="font-size: 26px; font-variant-numeric: tabular-nums">{{T.amountLabel}}</strong>
+          </div>
+        </sc-if>
+        <dl style="margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 12px 16px; font-size: 13px">
+          <sc-for list="{{T.fields}}" as="f" hint-placeholder-count="6"><dt style="color: #475467">{{f.k}}</dt><dd style="margin: 0; text-align: right; font-weight: 500">{{f.v}}</dd></sc-for>
+          <dt style="color: #475467">Status</dt><dd style="margin: 0; text-align: right"><span style="{{T.badge}}">{{T.status}}</span></dd>
+        </dl>
+        <div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 13px">Notes</strong><span style="font-size: 13px; color: #475467">{{T.notes}}</span></div>
+      </div>
+      <div style="padding: 16px 20px 20px; border-top: 1px solid #EAECF0; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px">
+        <sc-if value="{{T.simple}}" hint-placeholder-val="{{true}}"><button type="button" onClick="{{closeTx}}" style="height: 44px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Close</button></sc-if>
+        <sc-if value="{{T.failed}}" hint-placeholder-val="{{false}}">
+          <button type="button" onClick="{{closeTx}}" style="height: 44px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Cancel</button>
+          <a href="Inst-Withdraw.dc.html" style="height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: #0B0B7E; color: #ffffff; font-size: 14px; font-weight: 600; text-decoration: none">Retry Withdrawal</a>
+        </sc-if>
+        <sc-if value="{{T.receipt}}" hint-placeholder-val="{{false}}">
+          <button type="button" onClick="{{closeTx}}" style="height: 44px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Cancel</button>
+          <button type="button" onClick="{{download}}" style="height: 44px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Download Receipt</button>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{bankOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; justify-content: flex-end; padding: 16px">
+    <form role="dialog" aria-modal="true" aria-labelledby="bk-t" style="width: 440px; max-width: 100%; background: #ffffff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden">
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 16px 20px; border-bottom: 1px solid #EAECF0">
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 4px"><h2 id="bk-t" style="margin: 0; font-size: 18px; font-weight: 600">{{bkHeading}}</h2><p style="margin: 0; font-size: 12px; color: #475467; line-height: 1.5">{{bkSub}}</p></div>
+        <button type="button" aria-label="Close" onClick="{{closeBank}}" style="width: 34px; height: 34px; border: 0; background: transparent; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+      <div style="flex: 1; overflow-y: auto; padding: 18px 20px; display: flex; flex-direction: column; gap: 16px">
+        <sc-if value="{{stAuth}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <label for="bk-pw" style="font-size: 12px; font-weight: 600">Password</label>
+            <div style="display: flex; align-items: center; height: 42px; border: 1px solid #D0D5DD; border-radius: 8px; background: #F9FAFB; padding: 0 4px 0 12px"><input id="bk-pw" type="{{pwType}}" value="{{pw}}" onChange="{{setPw}}" placeholder="Enter your password" style="flex: 1; min-width: 0; border: 0; outline: none; background: transparent; font: inherit; font-size: 13px"><button type="button" onClick="{{togglePw}}" aria-label="{{pwToggleLabel}}" style="height: 34px; padding: 0 8px; border: 0; background: transparent; color: #475467; font: inherit; font-size: 12px; cursor: pointer">{{pwToggleText}}</button></div>
+            <button type="button" onClick="{{forgotPw}}" style="align-self: flex-end; height: 28px; padding: 0; border: 0; background: transparent; color: #0B0B7E; font: inherit; font-size: 12px; font-weight: 600; text-decoration: underline; cursor: pointer">Forgot Password?</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{stEmail}}" hint-placeholder-val="{{false}}">
+          <p style="margin: 0; font-size: 13px; color: #475467; line-height: 1.55">We’ve sent a password reset link to <strong style="color: #101828">jamesadeniola@gmail.com</strong>. Follow the link to create a new password, then come back to update your bank details.</p>
+          <button type="button" onClick="{{resend}}" style="align-self: flex-start; height: 28px; padding: 0; border: 0; background: transparent; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600; text-decoration: underline; cursor: pointer">{{resendLabel}}</button>
+        </sc-if>
+        <sc-if value="{{stForm}}" hint-placeholder-val="{{true}}">
+          <sc-if value="{{isEdit}}" hint-placeholder-val="{{false}}">
+            <div role="note" style="padding: 10px 12px; border: 1px solid #DDD6FE; border-radius: 8px; background: #F5F3FF; font-size: 12px; color: #3B1D8F; line-height: 1.5"><strong>Please note</strong><br>Changes to your bank information may take up to 24 hours to be reflected and verified.</div>
+          </sc-if>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <label for="bk-acct" style="font-size: 12px; font-weight: 600">Bank Account Number</label>
+            <input id="bk-acct" type="text" inputmode="numeric" maxlength="10" value="{{acct}}" onChange="{{setAcct}}" placeholder="Enter 10-digit account number" style="height: 42px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; background: #F9FAFB; font-variant-numeric: tabular-nums">
+            <sc-if value="{{matching}}" hint-placeholder-val="{{false}}"><span role="status" style="font-size: 12px; color: #475467">Matching banks…</span></sc-if>
+            <sc-if value="{{hasSuggest}}" hint-placeholder-val="{{false}}">
+              <div style="display: flex; align-items: center; gap: 8px; padding: 6px 6px 6px 12px; border-radius: 20px; background: #F26B1D; color: #ffffff; font-size: 12px; font-weight: 600; align-self: flex-start">{{suggest}}<button type="button" onClick="{{takeSuggest}}" style="height: 26px; padding: 0 10px; border: 0; border-radius: 13px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 11px; font-weight: 600; cursor: pointer">Select</button></div>
+            </sc-if>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <label for="bk-bank" style="font-size: 12px; font-weight: 600">Bank</label>
+            <select id="bk-bank" value="{{bank}}" onChange="{{setBank}}" style="height: 42px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 13px; background: #F9FAFB"><option value="">Select bank</option><option>Access Bank</option><option>GTBank Plc</option><option>Kuda Microfinance Bank</option><option>Moniepoint Microfinance Bank</option><option>PalmPay</option></select>
+            <sc-if value="{{verifying}}" hint-placeholder-val="{{false}}"><span role="status" style="font-size: 12px; color: #475467">Verifying name…</span></sc-if>
+            <sc-if value="{{hasName}}" hint-placeholder-val="{{false}}"><span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 12px; border-radius: 15px; background: #F26B1D; color: #ffffff; font-size: 12px; font-weight: 700; letter-spacing: 0.02em">JAMES ADENIOLA</span></sc-if>
+          </div>
+        </sc-if>
+        <sc-if value="{{stPin}}" hint-placeholder-val="{{false}}">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding-top: 10px">
+            <label for="bk-pin" style="font-size: 13px; font-weight: 600">Enter a 4-digit PIN</label>
+            <div style="display: flex; align-items: center; gap: 8px">
+              <input id="bk-pin" type="{{pinType}}" inputmode="numeric" maxlength="4" autocomplete="off" value="{{pin}}" onChange="{{setPin}}" style="width: 180px; height: 52px; border: 1px solid #D0D5DD; border-radius: 10px; text-align: center; font: inherit; font-size: 24px; letter-spacing: 0.6em; background: #F9FAFB">
+              <button type="button" onClick="{{togglePin}}" aria-label="{{pinToggleLabel}}" style="height: 36px; padding: 0 8px; border: 0; background: transparent; color: #475467; font: inherit; font-size: 12px; cursor: pointer">{{pinToggleText}}</button>
+            </div>
+            <span style="font-size: 12px; color: #667085">{{pinCount}}/4 digits</span>
+          </div>
+        </sc-if>
+      </div>
+      <div style="padding: 16px 20px 20px; border-top: 1px solid #EAECF0; display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 10px">
+        <sc-if value="{{showBack}}" hint-placeholder-val="{{false}}"><button type="button" onClick="{{bkBack}}" style="height: 44px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Back</button></sc-if>
+        <button type="button" onClick="{{closeBank}}" style="height: 44px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Cancel</button>
+        <button type="button" onClick="{{bkNext}}" disabled="{{bkBlocked}}" style="{{bkStyle}}">{{bkLabel}}</button>
+      </div>
+    </form>
+  </div>
+</sc-if>
+
+<sc-if value="{{savedOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; align-items: center; justify-content: center; padding: 16px">
+    <div role="alertdialog" aria-modal="true" aria-labelledby="sv-t" style="width: 360px; max-width: 100%; background: #ffffff; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center">
+      <span aria-hidden="true" style="width: 48px; height: 48px; border-radius: 12px; background: #F1EBFF; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B21B6" stroke-width="2" stroke-linejoin="round"><path d="M3 10l9-6 9 6M5 10v8M19 10v8M9 10v8M15 10v8M3 20h18"></path></svg></span>
+      <h2 id="sv-t" style="margin: 0; font-size: 17px; font-weight: 600">Bank Information saved successfully</h2>
+      <p style="margin: 0; font-size: 13px; color: #475467; line-height: 1.5">Your bank information and withdrawal PIN have been saved. You’re now ready to receive your earnings.</p>
+      <button type="button" onClick="{{closeSaved}}" style="align-self: stretch; margin-top: 6px; height: 42px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Done</button>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{leaveOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.4); display: flex; align-items: center; justify-content: center; padding: 16px">
+    <div role="alertdialog" aria-modal="true" aria-labelledby="lv-t" style="width: 360px; max-width: 100%; background: #ffffff; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center">
+      <span style="width: 44px; height: 44px; border-radius: 10px; border: 1px solid #EAECF0; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l10 18H2z" fill="#FDB022"></path><path d="M12 10v5M12 18h.01" stroke="#7A2E0E" stroke-width="2" stroke-linecap="round"></path></svg></span>
+      <h2 id="lv-t" style="margin: 0; font-size: 17px; font-weight: 600">Leave without saving?</h2>
+      <p style="margin: 0; font-size: 13px; color: #475467; line-height: 1.5">Your changes haven’t been saved. Are you sure you want to exit this process?</p>
+      <div style="align-self: stretch; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 6px">
+        <button type="button" onClick="{{leave}}" style="height: 40px; border: 0; border-radius: 8px; background: #F04438; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Leave Anyway</button>
+        <button type="button" onClick="{{stay}}" style="height: 40px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Stay On This Page</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"firstTime":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":1200}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { bankAdded: false, q: '', from: '', to: '', sort: 'new', filters: {}, draft: null, tx: null, statuses: false, faqOpen: 0, bk: null, saved: false, leave: false, toast: null };
+  }
+  componentWillUnmount() { clearTimeout(this.t); clearTimeout(this.v); }
+  blankBank(mode) { return { mode, step: mode === 'edit' ? 'auth' : 'form', pw: '', showPw: false, acct: '', matching: false, suggest: '', bank: '', verifying: false, name: false, pin: '', showPin: false, busy: false }; }
+  renderVals() {
+    const s = this.state;
+    const first = !!this.props.firstTime;
+    const hasBank = !first || s.bankAdded;
+    const naira = (n) => '₦' + Number(n).toLocaleString('en-NG');
+    const pill = (bg, fg) => 'display: inline-flex; height: 22px; align-items: center; padding: 0 8px; border-radius: 11px; font-size: 11px; font-weight: 600; white-space: nowrap; background: ' + bg + '; color: ' + fg;
+    const badge = { Successful: pill('#DCFAE6', '#067647'), Pending: pill('#FEF0C7', '#93370D'), Failed: pill('#FEE4E2', '#B42318') };
+    const all = first ? [] : [
+      ['FLW-TXD-23091845', 'Advanced Legal Theory', 'Mary Adeyeji', 25000, 'Enrollment', 'Successful', '2025-06-18'],
+      ['FLW-TXD-23091731', 'Legal Writing Mastery', 'Funke Esekhaye', 22900, 'Enrollment', 'Pending', '2025-06-17'],
+      ['FLW-TXD-23091620', 'Withdrawal to Access Bank', '—', 35000, 'Withdrawal', 'Failed', '2025-06-16'],
+      ['FLW-TXD-23091502', 'Withdrawal to Access Bank', '—', 35000, 'Withdrawal', 'Successful', '2025-06-15'],
+      ['BONUS-TXD-0012', 'First-time instructor reward', '—', 20000, 'Promotional Bonus', 'Successful', '2025-05-15'],
+      ['FLW-TXD-23091388', 'Contract Drafting and Negotiation', 'Usman Fola', 25000, 'Enrollment', 'Successful', '2025-05-12'],
+      ['FLW-TXD-23091240', 'Introduction to Law in Africa', 'Ada Okafor', 15000, 'Enrollment', 'Successful', '2025-05-08'],
+      ['FLW-TXD-23091117', 'Legal Writing Mastery', 'Gbenga Fide', 22900, 'Enrollment', 'Failed', '2025-05-02'],
+      ['FLW-TXD-23090993', 'Introduction to Law in Africa', 'Hauwa Danjuma', 15000, 'Enrollment', 'Successful', '2025-04-27']
+    ].map((r, i) => ({ id: i, ref: r[0], course: r[1], learner: r[2], amount: r[3], type: r[4], status: r[5], date: r[6] }));
+    const fmt = (d) => new Date(d + 'T10:45:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    const q = s.q.trim().toLowerCase();
+    let list = all.filter((t) => (!q || (t.course + ' ' + t.learner + ' ' + t.ref).toLowerCase().includes(q)) && (!s.from || t.date >= s.from) && (!s.to || t.date <= s.to)
+      && (!s.filters.type || s.filters.type === 'All' || t.type === s.filters.type) && (!s.filters.status || s.filters.status === 'All' || t.status === s.filters.status));
+    const sorters = { new: (a, b) => b.date.localeCompare(a.date), old: (a, b) => a.date.localeCompare(b.date), high: (a, b) => b.amount - a.amount, az: (a, b) => a.course.localeCompare(b.course) };
+    list = list.slice().sort(sorters[s.sort]);
+    const chips = ['type', 'status'].filter((k) => s.filters[k] && s.filters[k] !== 'All').map((k) => ({ label: s.filters[k], remove: () => this.setState({ filters: { ...this.state.filters, [k]: '' } }) }));
+    const D = s.draft || {};
+    const anyDraft = !!(D.type || D.status);
+    const tx = s.tx != null ? all[s.tx] : null;
+    let T = { heading: '', hero: false, heroLabel: '', amountLabel: '', fields: [], status: '', badge: '', notes: '', simple: false, failed: false, receipt: false };
+    if (tx) {
+      const isW = tx.type === 'Withdrawal', isB = tx.type === 'Promotional Bonus';
+      const succ = tx.status === 'Successful';
+      const fields = isW ? [['Transaction Type', 'Withdrawal'], ['Amount', naira(tx.amount)], ['Date', fmt(tx.date) + ', 11:28 AM'], ['Reference ID', tx.ref], ['Receiving Bank', 'Access Bank (****4251)']]
+        : isB ? [['Transaction Type', 'Promotional Bonus'], ['Description', tx.course], ['Date', fmt(tx.date) + ', 10:00 AM'], ['Reference ID', tx.ref], ['Receiving Bank', 'Access Bank (****4251)']]
+        : [['Course Title', tx.course], ['Transaction Type', 'Enrollment'], ['Learner', tx.learner], ['Amount', naira(tx.amount)], ['Date', fmt(tx.date) + ', 11:45 AM'], ['Reference ID', tx.ref]];
+      const notes = isW ? (succ ? 'Payment processed to bank account.' : 'Bank rejected transaction. Please verify your account details.')
+        : isB ? 'Credited to Available Earnings immediately.'
+        : succ ? 'Learner enrolled in ' + tx.course + '.' : tx.status === 'Pending' ? 'Awaiting confirmation of learner payment.' : 'The learner’s payment did not go through.';
+      T = {
+        heading: 'Transaction Details', hero: succ, heroLabel: isW ? 'Withdrawal Completed' : isB ? 'Bonus Credited' : 'New Purchase', amountLabel: naira(tx.amount),
+        fields: fields.map((f) => ({ k: f[0], v: f[1] })), status: tx.status, badge: badge[tx.status], notes,
+        failed: isW && !succ, receipt: (isW || isB) && succ, simple: !isW && !isB || (!succ && !isW)
+      };
+    }
+    const B = s.bk;
+    const isEdit = !!(B && B.mode === 'edit');
+    const acctOk = !!(B && /^\d{10}$/.test(B.acct));
+    const formOk = !!(B && acctOk && B.bank && B.name && !B.verifying);
+    const pinOk = !!(B && /^\d{4}$/.test(B.pin));
+    const bkOk = !B ? false : B.step === 'email' ? true : B.step === 'auth' ? B.pw.length > 0 : B.step === 'form' ? formOk : pinOk;
+    const bkDirty = !!(B && (B.acct || B.bank || B.pin || B.pw));
+    const setB = (patch) => this.setState({ bk: { ...this.state.bk, ...patch } });
+    const verify = () => { clearTimeout(this.v); setB({ verifying: true, name: false }); this.v = setTimeout(() => setB({ verifying: false, name: true }), 900); };
+    const faq = [
+      ['What does “Available to Withdraw” mean?', 'This is the amount you can withdraw immediately. It includes cleared earnings from your enrolments.'],
+      ['What does “Pending Earnings” mean?', 'These are funds from course enrolments that are still in the holding period. They’ll move to Available to Withdraw once cleared.'],
+      ['What does “Last Withdrawal” mean?', 'This shows the most recent withdrawal to your bank account, including the date and amount.']
+    ];
+    return {
+      hasToast: !!s.toast, toastTitle: s.toast ? s.toast[0] : '', toastBody: s.toast ? s.toast[1] : '', dismiss: () => this.setState({ toast: null }),
+      noBank: !hasBank, hasBank,
+      totalLabel: first ? '₦0' : '₦580.4K',
+      summary: [
+        { label: 'Available to Withdraw', value: first ? '₦0' : '₦40,000', color: '#17B26A' },
+        { label: 'Pending Earnings', value: first ? '₦0' : '₦24,500', color: '#F79009' },
+        { label: 'Last Withdrawal', value: first ? '₦0' : '₦35,000', color: '#98A2B3' }
+      ],
+      statusesOpen: s.statuses, openStatuses: () => this.setState({ statuses: true }), closeStatuses: () => this.setState({ statuses: false }),
+      faq: faq.map((f, i) => ({ q: f[0], a: f[1], open: s.faqOpen === i, expanded: s.faqOpen === i ? 'true' : 'false', chev: s.faqOpen === i ? 'transform: rotate(180deg)' : '', toggle: () => this.setState({ faqOpen: s.faqOpen === i ? -1 : i }) })),
+      noTx: all.length === 0, hasTx: all.length > 0,
+      q: s.q, setQ: (e) => this.setState({ q: e.target.value }),
+      from: s.from, setFrom: (e) => this.setState({ from: e.target.value }), to: s.to, setTo: (e) => this.setState({ to: e.target.value }),
+      sort: s.sort, setSort: (e) => this.setState({ sort: e.target.value }),
+      hasChips: chips.length > 0, chips, count: list.length, clearFilters: () => this.setState({ filters: {} }),
+      rows: list.map((t) => ({ ...t, amountLabel: (t.type === 'Withdrawal' ? '−' : '+') + Number(t.amount).toLocaleString('en-NG'), amtStyle: t.type === 'Withdrawal' ? 'color: #344054' : 'color: #067647', dateLabel: fmt(t.date), badge: badge[t.status], open: () => this.setState({ tx: t.id }) })),
+      noRows: list.length === 0, clearAll: () => this.setState({ q: '', from: '', to: '', filters: {} }),
+      filterOpen: !!s.draft, openFilter: () => this.setState({ draft: { ...s.filters } }), closeFilter: () => this.setState({ draft: null }),
+      fType: D.type || '', setFType: (e) => this.setState({ draft: { ...this.state.draft, type: e.target.value } }),
+      fStatus: D.status || '', setFStatus: (e) => this.setState({ draft: { ...this.state.draft, status: e.target.value } }),
+      applyBlocked: !anyDraft,
+      applyStyle: 'height: 42px; border: 0; border-radius: 8px; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; background: ' + (anyDraft ? '#0B0B7E' : '#9D9DD0'),
+      applyFilter: () => this.setState({ filters: { ...s.draft }, draft: null }),
+      txOpen: !!tx, T, closeTx: () => this.setState({ tx: null }),
+      download: () => this.setState({ tx: null, toast: ['Receipt downloaded', 'Your transaction receipt has been saved as a PDF.'] }),
+      openAddBank: () => this.setState({ bk: this.blankBank('add') }),
+      openEditBank: () => this.setState({ bk: this.blankBank('edit'), tx: null }),
+      bankOpen: !!B,
+      bkHeading: !B ? '' : B.step === 'email' ? 'Check Your Email' : B.step === 'pin' ? 'Create Transaction Pin' : isEdit ? 'Edit Bank Details' : 'Add Bank Account',
+      bkSub: !B ? '' : B.step === 'email' ? 'Reset your password to continue.' : B.step === 'pin' ? 'To protect your withdrawals, please create a secure 4-digit PIN. You’ll need it whenever you withdraw or update your payout info.'
+        : B.step === 'auth' ? 'For security reasons, you’ll need to confirm your account password before making changes to your bank information.'
+        : isEdit ? 'Update your bank account information below. Please ensure the details match your account name to avoid payment issues.'
+        : 'Before you can receive your earnings, please add a verified bank account. Ensure your bank details match the information registered with your BVN.',
+      stEmail: !!(B && B.step === 'email'),
+      forgotPw: () => setB({ step: 'email', resent: false }),
+      resend: () => setB({ resent: true }), resendLabel: B && B.resent ? 'Link sent again' : 'Resend Link',
+      stAuth: !!(B && B.step === 'auth'), stForm: !!(B && B.step === 'form'), stPin: !!(B && B.step === 'pin'), isEdit,
+      pw: B ? B.pw : '', setPw: (e) => setB({ pw: e.target.value }),
+      pwType: B && B.showPw ? 'text' : 'password', togglePw: () => setB({ showPw: !B.showPw }),
+      pwToggleText: B && B.showPw ? 'Hide' : 'Show', pwToggleLabel: B && B.showPw ? 'Hide password' : 'Show password',
+      acct: B ? B.acct : '',
+      setAcct: (e) => {
+        const v = e.target.value.replace(/\D/g, '').slice(0, 10);
+        clearTimeout(this.t);
+        setB({ acct: v, suggest: '', matching: v.length === 10, name: false });
+        if (v.length === 10) this.t = setTimeout(() => setB({ matching: false, suggest: 'Moniepoint Microfinance Bank' }), 800);
+      },
+      matching: !!(B && B.matching), hasSuggest: !!(B && B.suggest && !B.bank), suggest: B ? B.suggest : '',
+      takeSuggest: () => { setB({ bank: B.suggest, suggest: '' }); verify(); },
+      bank: B ? B.bank : '', setBank: (e) => { const v = e.target.value; setB({ bank: v }); if (v && acctOk) verify(); else setB({ name: false }); },
+      verifying: !!(B && B.verifying), hasName: !!(B && B.name),
+      pin: B ? B.pin : '', setPin: (e) => setB({ pin: e.target.value.replace(/\D/g, '').slice(0, 4) }),
+      pinType: B && B.showPin ? 'text' : 'password', togglePin: () => setB({ showPin: !B.showPin }),
+      pinToggleText: B && B.showPin ? 'Hide' : 'Show', pinToggleLabel: B && B.showPin ? 'Hide PIN' : 'Show PIN',
+      pinCount: B ? B.pin.length : 0,
+      showBack: !!(B && (B.step === 'pin' || B.step === 'email' || (isEdit && B.step === 'form'))),
+      bkBack: () => setB({ step: B.step === 'pin' ? 'form' : 'auth' }),
+      closeBank: () => { if (bkDirty) this.setState({ leave: true }); else this.setState({ bk: null }); },
+      bkBlocked: !bkOk || !!(B && B.busy),
+      bkLabel: !B ? '' : B.step === 'email' ? 'Open Email' : B.busy ? (B.step === 'auth' ? 'Confirming…' : B.step === 'pin' ? 'Saving Bank Details…' : isEdit ? 'Updating Bank Details…' : 'Continue')
+        : B.step === 'auth' ? 'Confirm Identity' : B.step === 'pin' ? 'Save Bank Details' : isEdit ? 'Update Bank Details' : 'Continue',
+      bkStyle: 'height: 44px; border: 0; border-radius: 8px; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; background: ' + (B && B.busy ? '#06065A' : bkOk ? '#0B0B7E' : '#9D9DD0'),
+      bkNext: () => {
+        if (!bkOk) return;
+        if (B.step === 'email') { this.setState({ bk: null, toast: ['Reset link sent', 'Check your inbox for the password reset email.'] }); return; }
+        if (B.step === 'form' && !isEdit) { setB({ step: 'pin' }); return; }
+        setB({ busy: true });
+        clearTimeout(this.t);
+        this.t = setTimeout(() => {
+          const cur = this.state.bk;
+          if (cur.step === 'auth') setB({ busy: false, step: 'form', acct: '' });
+          else if (cur.step === 'pin') this.setState({ bk: null, saved: true });
+          else this.setState({ bk: null, toast: ['Bank Details Updated', 'Your payout information has been successfully updated.'] });
+        }, 900);
+      },
+      savedOpen: s.saved, closeSaved: () => this.setState({ saved: false, bankAdded: true }),
+      leaveOpen: s.leave, leave: () => this.setState({ leave: false, bk: null }), stay: () => this.setState({ leave: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

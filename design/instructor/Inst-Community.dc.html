@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lawdemy Instructor – Community</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:#101828;background:#fff}
+*{box-sizing:border-box}
+a{color:#0B0B7E}a:hover{color:#06065A}
+button:disabled{cursor:not-allowed}
+</style>
+</helmet>
+<div style="display: flex; flex-wrap: wrap; min-height: 100vh; background: #ffffff">
+  <aside style="flex: 1 1 240px; background: #F9FAFB; border-right: 1px solid #EAECF0; padding: 20px 14px; display: flex; flex-direction: column; gap: 24px">
+    <div style="display: flex; align-items: center; gap: 8px; padding: 0 8px">
+      <svg width="22" height="26" viewBox="0 0 22 26" aria-hidden="true"><path d="M2 2h6v16h12v6H5a3 3 0 0 1-3-3z" fill="#0B0B7E"></path><circle cx="16" cy="12" r="4.5" fill="#F26B1D"></circle></svg>
+      <span style="font-weight: 700; font-size: 16px; color: #0B0B7E">Lawdemy</span>
+      <span style="margin-left: 4px; font-size: 10px; font-weight: 600; color: #5B21B6; background: #F1EBFF; border-radius: 4px; padding: 2px 6px">Instructor</span>
+    </div>
+    <nav aria-label="Main" style="display: flex; flex-direction: column; gap: 2px">
+      <a href="Inst-Dashboard.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>Dashboard</a>
+      <a href="Inst-MyCourses.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h10a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"></path><path d="M8 9h6"></path></svg>My Courses</a>
+      <a href="Inst-Earnings.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18M7 15h3"></path></svg>Earnings</a>
+      <a href="Inst-Community.dc.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; font-weight: 600; color: #101828; background: #EAECF0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"></path><path d="M3 13l9 5 9-5"></path></svg>Community</a>
+    </nav>
+    <div style="margin-top: auto; display: flex; flex-direction: column; gap: 2px">
+      <a href="Inst-Support.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg>Support</a>
+      <a href="Inst-Settings.dc.html" style="display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; text-decoration: none; color: #344054"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"></path></svg>Settings</a>
+      <div style="margin-top: 12px; display: flex; align-items: center; gap: 10px; padding: 10px; border: 1px solid #EAECF0; border-radius: 10px; background: #ffffff">
+        <span style="width: 34px; height: 34px; flex: none; border-radius: 50%; background: #7A4E3A; color: #F5E6D3; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">JA</span>
+        <span style="flex: 1; min-width: 0; display: flex; flex-direction: column"><span style="font-size: 13px; font-weight: 600">James Adeniola</span><span style="font-size: 11px; color: #667085">Instructor</span></span>
+      </div>
+    </div>
+  </aside>
+  <main style="flex: 999 1 560px; min-width: 0; padding: 20px 32px 56px; display: flex; flex-direction: column; gap: 20px; max-width: 1100px">
+    <label style="display: flex; align-items: center; gap: 8px; height: 40px; width: 320px; max-width: 100%; padding: 0 12px; border: 1px solid #EAECF0; border-radius: 8px; background: #F9FAFB">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#667085" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+      <input type="search" aria-label="Search posts and questions" placeholder="Search posts, questions" value="{{q}}" onChange="{{setQ}}" style="flex: 1; min-width: 0; border: 0; outline: none; background: transparent; font: inherit; font-size: 14px">
+    </label>
+    <sc-if value="{{hasToast}}" hint-placeholder-val="{{false}}">
+      <div role="status" style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 10px; background: #067647; color: #ffffff">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#ffffff"></circle><path d="M7.5 12l3 3 6-6" fill="none" stroke="#067647" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 14px">{{toastTitle}}</strong><span style="font-size: 12px">{{toastBody}}</span></div>
+        <button type="button" aria-label="Dismiss" onClick="{{dismiss}}" style="width: 32px; height: 32px; border: 0; background: transparent; color: #ffffff; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{listView}}" hint-placeholder-val="{{true}}">
+      <div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 4px; max-width: 560px"><h1 style="margin: 0; font-size: 30px; font-weight: 700">Community</h1><p style="margin: 0; font-size: 14px; color: #475467">Share timely updates like upcoming webinars, new materials, or deadline reminders. Keep your learners informed and engaged.</p></div>
+        <button type="button" onClick="{{openCreate}}" style="height: 44px; display: inline-flex; align-items: center; gap: 8px; padding: 0 18px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"></path></svg>Create Post</button>
+      </div>
+      <div role="tablist" aria-label="Community sections" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-bottom: 1px solid #EAECF0">
+        <button type="button" role="tab" aria-selected="{{dSel}}" onClick="{{toDisc}}" style="{{dTab}}">Discussions</button>
+        <button type="button" role="tab" aria-selected="{{aSel}}" onClick="{{toAnn}}" style="{{aTab}}">Announcements</button>
+      </div>
+
+      <sc-if value="{{isDisc}}" hint-placeholder-val="{{true}}">
+        <sc-if value="{{noPosts}}" hint-placeholder-val="{{false}}">
+          <div style="padding: 56px 24px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center">
+            <span aria-hidden="true" style="width: 64px; height: 64px; border-radius: 50%; background: #F1EBFF"></span>
+            <strong style="font-size: 16px">Let’s kick off a conversation</strong>
+            <p style="margin: 0; max-width: 380px; font-size: 13px; color: #475467; line-height: 1.5">It’s a little quiet here. Start a discussion, post an announcement or ask your learners a question.</p>
+            <button type="button" onClick="{{openCreate}}" style="margin-top: 6px; height: 40px; padding: 0 16px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Start New Post</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{hasPosts}}" hint-placeholder-val="{{true}}">
+          <div style="position: relative; align-self: flex-end">
+            <button type="button" aria-expanded="{{sortAttr}}" onClick="{{toggleSort}}" style="height: 34px; display: flex; align-items: center; gap: 6px; padding: 0 12px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4v16M3 16l4 4 4-4M17 20V4M13 8l4-4 4 4"></path></svg>Sort: {{sortLabel}}</button>
+            <sc-if value="{{sortOpen}}" hint-placeholder-val="{{false}}">
+              <ul role="listbox" aria-label="Sort posts" style="position: absolute; top: 40px; right: 0; z-index: 5; width: 200px; margin: 0; padding: 6px; list-style: none; border: 1px solid #EAECF0; border-radius: 10px; background: #ffffff; box-shadow: 0 12px 28px rgba(16,24,40,0.14)">
+                <sc-for list="{{sorts}}" as="o" hint-placeholder-count="4"><li><button type="button" role="option" aria-selected="{{o.sel}}" onClick="{{o.pick}}" style="{{o.style}}">{{o.label}}</button></li></sc-for>
+              </ul>
+            </sc-if>
+          </div>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">
+            <sc-for list="{{posts}}" as="p" hint-placeholder-count="4">
+              <li style="position: relative; display: flex; gap: 12px; padding: 16px 0; border-bottom: 1px solid #EAECF0">
+                <span style="width: 36px; height: 36px; flex: none; border-radius: 50%; background: {{p.av}}; color: #ffffff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{p.initials}}</span>
+                <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+                  <button type="button" onClick="{{p.open}}" style="padding: 0; border: 0; background: transparent; font: inherit; font-size: 15px; font-weight: 600; text-align: left; color: #101828; cursor: pointer">{{p.title}}</button>
+                  <p style="margin: 0; font-size: 13px; color: #475467; line-height: 1.5">{{p.body}}</p>
+                  <span style="font-size: 11px; color: #667085">{{p.author}} ({{p.role}}) • {{p.ago}}{{p.editedTag}}</span>
+                </div>
+                <div style="display: flex; align-items: flex-start; gap: 4px">
+                  <button type="button" onClick="{{p.toggleUp}}" aria-pressed="{{p.upAttr}}" aria-label="Upvote" style="{{p.upStyle}}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>{{p.up}}</button>
+                  <button type="button" onClick="{{p.open}}" aria-label="Open replies" style="height: 30px; display: flex; align-items: center; gap: 4px; padding: 0 8px; border: 0; border-radius: 6px; background: transparent; color: #475467; font: inherit; font-size: 12px; cursor: pointer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path></svg>{{p.count}}</button>
+                  <sc-if value="{{p.mine}}" hint-placeholder-val="{{false}}"><button type="button" aria-label="Post options" aria-expanded="{{p.menuAttr}}" onClick="{{p.toggleMenu}}" style="width: 30px; height: 30px; border: 0; border-radius: 6px; background: transparent; font-weight: 700; color: #475467; cursor: pointer">⋮</button></sc-if>
+                </div>
+                <sc-if value="{{p.menuOpen}}" hint-placeholder-val="{{false}}">
+                  <div role="menu" style="position: absolute; top: 44px; right: 0; z-index: 4; width: 140px; padding: 4px; border: 1px solid #EAECF0; border-radius: 8px; background: #ffffff; box-shadow: 0 10px 24px rgba(16,24,40,0.14)">
+                    <button type="button" role="menuitem" onClick="{{p.edit}}" style="width: 100%; height: 34px; padding: 0 10px; border: 0; border-radius: 6px; background: transparent; text-align: left; font: inherit; font-size: 13px; cursor: pointer">Edit</button>
+                    <button type="button" role="menuitem" onClick="{{p.askDelete}}" style="width: 100%; height: 34px; padding: 0 10px; border: 0; border-radius: 6px; background: transparent; text-align: left; font: inherit; font-size: 13px; color: #D92D20; cursor: pointer">Delete</button>
+                  </div>
+                </sc-if>
+              </li>
+            </sc-for>
+          </ul>
+          <sc-if value="{{noMatches}}" hint-placeholder-val="{{false}}"><p style="margin: 0; padding: 24px; text-align: center; font-size: 13px; color: #475467">No posts match “{{q}}”.</p></sc-if>
+        </sc-if>
+      </sc-if>
+
+      <sc-if value="{{isAnn}}" hint-placeholder-val="{{false}}">
+        <div style="display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px">
+          <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #475467">Created after <input type="date" value="{{annFrom}}" onChange="{{setAnnFrom}}" style="height: 34px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 8px; font: inherit; font-size: 13px"></label>
+          <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #475467">Status
+            <select value="{{annStatus}}" onChange="{{setAnnStatus}}" style="height: 34px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 8px; font: inherit; font-size: 13px; background: #ffffff"><option>All</option><option>Published</option><option>Expired</option></select>
+          </label>
+        </div>
+        <div style="border: 1px solid #EAECF0; border-radius: 12px; overflow-x: auto">
+          <table style="width: 100%; min-width: 760px; border-collapse: collapse; font-size: 13px">
+            <thead><tr style="background: #F9FAFB; text-align: left; color: #475467; font-size: 12px"><th style="padding: 12px 16px; font-weight: 500">Title</th><th style="padding: 12px 16px; font-weight: 500">Course</th><th style="padding: 12px 16px; font-weight: 500">Created On</th><th style="padding: 12px 16px; font-weight: 500">Status</th></tr></thead>
+            <tbody>
+              <sc-for list="{{anns}}" as="a" hint-placeholder-count="6">
+                <tr style="border-top: 1px solid #EAECF0">
+                  <td style="padding: 12px 16px"><button type="button" onClick="{{a.open}}" style="padding: 0; border: 0; background: transparent; font: inherit; font-weight: 500; text-align: left; color: #101828; text-decoration: underline; text-decoration-color: #D0D5DD; cursor: pointer">{{a.title}}</button></td>
+                  <td style="padding: 12px 16px; color: #475467"><span style="display: flex; align-items: center; gap: 8px"><span aria-hidden="true" style="width: 26px; height: 26px; flex: none; border-radius: 50%; background: #2B2F36"></span>{{a.course}}</span></td>
+                  <td style="padding: 12px 16px; color: #475467; white-space: nowrap">{{a.dateLabel}}</td>
+                  <td style="padding: 12px 16px"><span style="{{a.badge}}">{{a.status}}</span></td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+          <sc-if value="{{noAnns}}" hint-placeholder-val="{{false}}"><p style="margin: 0; padding: 24px; text-align: center; font-size: 13px; color: #475467">No announcements match these filters.</p></sc-if>
+        </div>
+      </sc-if>
+    </sc-if>
+
+    <sc-if value="{{threadView}}" hint-placeholder-val="{{false}}">
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+        <button type="button" onClick="{{closeThread}}" aria-label="Back to discussions" style="width: 36px; height: 36px; border: 1px solid #EAECF0; border-radius: 50%; background: #ffffff; color: #344054; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></button>
+        <button type="button" onClick="{{openReply}}" style="height: 40px; padding: 0 16px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Add Reply</button>
+      </div>
+      <h1 style="margin: 0; font-size: 26px; font-weight: 700">Reply Thread</h1>
+      <article style="display: flex; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid #EAECF0">
+        <span style="width: 36px; height: 36px; flex: none; border-radius: 50%; background: {{T.av}}; color: #ffffff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{T.initials}}</span>
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 16px">{{T.title}}</strong><p style="margin: 0; font-size: 13px; color: #475467; line-height: 1.55">{{T.body}}</p><span style="font-size: 11px; color: #667085">{{T.author}} ({{T.role}}) • {{T.ago}}</span></div>
+        <button type="button" onClick="{{T.toggleUp}}" aria-pressed="{{T.upAttr}}" aria-label="Upvote" style="{{T.upStyle}}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>{{T.up}}</button>
+      </article>
+      <sc-if value="{{noReplies}}" hint-placeholder-val="{{false}}">
+        <div style="padding: 48px 24px; text-align: center; display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 15px">No replies yet</strong><span style="font-size: 13px; color: #475467">Be the first to contribute to this discussion by sharing your thoughts or insights.</span></div>
+      </sc-if>
+      <sc-if value="{{hasReplies}}" hint-placeholder-val="{{true}}">
+        <strong style="font-size: 14px">{{replyCount}}</strong>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 16px">
+          <sc-for list="{{replies}}" as="r" hint-placeholder-count="2">
+            <li style="position: relative; display: flex; gap: 10px">
+              <span style="width: 32px; height: 32px; flex: none; border-radius: 50%; background: {{r.av}}; color: #ffffff; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{r.initials}}</span>
+              <div style="flex: 1; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; font-weight: 600">{{r.author}} <span style="font-weight: 400; color: #667085">({{r.role}})</span></span><p style="margin: 0; font-size: 13px; color: #344054; line-height: 1.5">{{r.text}}</p><span style="font-size: 11px; color: #667085">{{r.ago}}{{r.editedTag}}</span></div>
+              <button type="button" aria-label="Reply options" aria-expanded="{{r.menuAttr}}" onClick="{{r.toggleMenu}}" style="width: 30px; height: 30px; border: 0; border-radius: 6px; background: transparent; font-weight: 700; color: #475467; cursor: pointer">⋮</button>
+              <sc-if value="{{r.menuOpen}}" hint-placeholder-val="{{false}}">
+                <div role="menu" style="position: absolute; top: 32px; right: 0; z-index: 4; width: 150px; padding: 4px; border: 1px solid #EAECF0; border-radius: 8px; background: #ffffff; box-shadow: 0 10px 24px rgba(16,24,40,0.14)">
+                  <sc-if value="{{r.mine}}" hint-placeholder-val="{{false}}">
+                    <button type="button" role="menuitem" onClick="{{r.edit}}" style="width: 100%; height: 34px; padding: 0 10px; border: 0; border-radius: 6px; background: transparent; text-align: left; font: inherit; font-size: 13px; cursor: pointer">Edit</button>
+                    <button type="button" role="menuitem" onClick="{{r.askDelete}}" style="width: 100%; height: 34px; padding: 0 10px; border: 0; border-radius: 6px; background: transparent; text-align: left; font: inherit; font-size: 13px; color: #D92D20; cursor: pointer">Delete</button>
+                  </sc-if>
+                  <sc-if value="{{r.notMine}}" hint-placeholder-val="{{true}}"><button type="button" role="menuitem" onClick="{{r.report}}" style="width: 100%; height: 34px; padding: 0 10px; border: 0; border-radius: 6px; background: transparent; text-align: left; font: inherit; font-size: 13px; cursor: pointer">Report Spam</button></sc-if>
+                </div>
+              </sc-if>
+            </li>
+          </sc-for>
+        </ul>
+      </sc-if>
+    </sc-if>
+  </main>
+</div>
+
+<sc-if value="{{typeOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; justify-content: flex-end; padding: 16px">
+    <div role="dialog" aria-modal="true" aria-labelledby="ty-t" style="width: 440px; max-width: 100%; background: #ffffff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden">
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 16px 20px; border-bottom: 1px solid #EAECF0">
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 4px"><h2 id="ty-t" style="margin: 0; font-size: 18px; font-weight: 600">Create Post</h2><p style="margin: 0; font-size: 12px; color: #475467">What kind of post would you like to create?</p></div>
+        <button type="button" aria-label="Close" onClick="{{closeType}}" style="width: 34px; height: 34px; border: 0; background: transparent; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+      <div role="radiogroup" aria-label="Post type" style="flex: 1; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px">
+        <label style="{{typeDStyle}}"><input type="radio" name="ptype" checked="{{typeD}}" onChange="{{pickD}}" style="accent-color: #0B0B7E; margin: 2px 0 0"><span style="display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 14px">Discussion</strong><span style="font-size: 12px; color: #475467">Engage learners, share knowledge, or start a conversation.</span></span></label>
+        <label style="{{typeAStyle}}"><input type="radio" name="ptype" checked="{{typeA}}" onChange="{{pickA}}" style="accent-color: #0B0B7E; margin: 2px 0 0"><span style="display: flex; flex-direction: column; gap: 6px"><strong style="font-size: 14px">Announcement</strong><span style="font-size: 12px; color: #475467">Share important updates, like new modules, revised assessments or course reminders. Learners enrolled in the selected course will be notified.</span><span style="align-self: flex-start; padding: 4px 8px; border-radius: 6px; background: #F1EBFF; color: #5B21B6; font-size: 11px; font-weight: 600">Up to 4 announcements per course each month</span></span></label>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 16px 20px 20px; border-top: 1px solid #EAECF0">
+        <button type="button" onClick="{{closeType}}" style="height: 44px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Cancel</button>
+        <button type="button" onClick="{{typeNext}}" disabled="{{typeBlocked}}" style="{{typeNextStyle}}">Next</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{formOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; justify-content: flex-end; padding: 16px">
+    <form role="dialog" aria-modal="true" aria-labelledby="pf-t" style="width: 480px; max-width: 100%; background: #ffffff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden">
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 16px 20px; border-bottom: 1px solid #EAECF0">
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 4px"><h2 id="pf-t" style="margin: 0; font-size: 18px; font-weight: 600">{{fHeading}}</h2><p style="margin: 0; font-size: 12px; color: #475467">{{fSub}}</p></div>
+        <button type="button" aria-label="Close" onClick="{{closeForm}}" style="width: 34px; height: 34px; border: 0; background: transparent; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+      <div style="flex: 1; overflow-y: auto; padding: 16px 20px; display: flex; flex-direction: column; gap: 14px">
+        <sc-if value="{{fIsAnn}}" hint-placeholder-val="{{false}}">
+          <div role="note" style="padding: 10px 12px; border: 1px solid #DDD6FE; border-radius: 8px; background: #F5F3FF; font-size: 12px; color: #3B1D8F; line-height: 1.5"><strong>Before you post</strong><br>You can publish up to 4 announcements per course each month, and only about course updates. <button type="button" onClick="{{openGuide}}" style="padding: 0; border: 0; background: transparent; color: #5B21B6; font: inherit; font-weight: 600; text-decoration: underline; cursor: pointer">Read the guidelines</button></div>
+        </sc-if>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Post Title<input type="text" value="{{fTitle}}" onChange="{{setFTitle}}" placeholder="{{fTitlePh}}" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 12px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"></label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Content<textarea rows="6" value="{{fBody}}" onChange="{{setFBody}}" placeholder="Enter a description…" style="border: 1px solid #D0D5DD; border-radius: 8px; padding: 10px 12px; font: inherit; font-size: 13px; font-weight: 400; line-height: 1.5; background: #F9FAFB; resize: vertical"></textarea></label>
+        <sc-if value="{{fHasCourse}}" hint-placeholder-val="{{false}}">
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Course
+            <select value="{{fCourse}}" onChange="{{setFCourse}}" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"><option value="">Select course relating to this post</option><option>Contract Drafting and Negotiation for Corporations</option><option>Legal Writing Mastery</option><option>Introduction to Law in Africa (For most Non-Lawyers)</option><option>Legal Frameworks for Startups and Business Formation</option></select>
+            <span style="font-weight: 400; color: #667085">Only learners enrolled in this course will be notified.</span>
+          </label>
+        </sc-if>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 12px; font-weight: 600">Attach File (Optional)</span>
+          <button type="button" onClick="{{startUpload}}" disabled="{{upBusy}}" style="padding: 16px 12px; border: 1px dashed #D0D5DD; border-radius: 10px; background: #F9FAFB; font: inherit; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer"><span style="font-size: 12px; font-weight: 600; color: #0B0B7E; text-decoration: underline">Click to upload</span><span style="font-size: 11px; color: #667085">JPEG, PNG, PDF (Max file 5MB)</span></button>
+          <sc-if value="{{hasFile}}" hint-placeholder-val="{{false}}">
+            <div style="padding: 10px 12px; border: 1px solid #EAECF0; border-radius: 10px; display: flex; flex-direction: column; gap: 8px">
+              <div style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="width: 26px; height: 26px; border-radius: 6px; background: #FDEAD7"></span>
+                <span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><button type="button" onClick="{{previewFile}}" disabled="{{upBusy}}" style="padding: 0; border: 0; background: transparent; font: inherit; font-size: 12px; font-weight: 500; text-align: left; color: #0B0B7E; cursor: pointer">IMG_3056.jpg</button><span style="font-size: 11px; color: #667085">{{upMeta}}</span></span>
+                <button type="button" aria-label="Remove file" onClick="{{removeFile}}" style="width: 28px; height: 28px; border: 0; background: transparent; color: #D92D20; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"></path></svg></button></div>
+              <div role="progressbar" aria-valuenow="{{upPct}}" aria-valuemin="0" aria-valuemax="100" style="height: 6px; border-radius: 3px; background: #EAECF0"><div style="height: 6px; border-radius: 3px; background: #0B0B7E; width: {{upWidth}}"></div></div>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 16px 20px 20px; border-top: 1px solid #EAECF0">
+        <button type="button" onClick="{{formBack}}" style="height: 44px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">{{fBackLabel}}</button>
+        <button type="button" onClick="{{submitForm}}" disabled="{{fBlocked}}" style="{{fStyle}}">{{fLabel}}</button>
+      </div>
+    </form>
+  </div>
+</sc-if>
+
+<sc-if value="{{guideOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.4); display: flex; justify-content: flex-end; padding: 16px">
+    <div role="dialog" aria-modal="true" aria-labelledby="gd-t" style="width: 420px; max-width: 100%; background: #ffffff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden">
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 16px 20px; border-bottom: 1px solid #EAECF0">
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 4px"><h2 id="gd-t" style="margin: 0; font-size: 18px; font-weight: 600">Announcement Guidelines</h2><p style="margin: 0; font-size: 12px; color: #475467">Keep learners informed about official course-related updates. Please follow these rules.</p></div>
+        <button type="button" aria-label="Close" onClick="{{closeGuide}}" style="width: 34px; height: 34px; border: 0; background: transparent; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+      <div style="flex: 1; overflow-y: auto; padding: 16px 20px; font-size: 13px; color: #344054; line-height: 1.6">
+        <p style="margin: 0 0 10px"><strong>Monthly Limit:</strong> You can publish up to 4 announcements per course every month.</p>
+        <p style="margin: 0 0 4px"><strong>Post Types Allowed:</strong> Announcements should be used for:</p>
+        <ul style="margin: 0 0 10px; padding-left: 20px"><li>Adding new modules or lessons</li><li>Reordering or renaming course content</li><li>Changes to assessment materials</li><li>Course maintenance or temporary unavailability</li></ul>
+        <p style="margin: 0 0 10px"><strong>Attachments:</strong> You may include JPEG or PNG files (max 5MB) relevant to your update.</p>
+        <p style="margin: 0 0 10px"><strong>Multi-Course Targeting:</strong> One announcement can be sent to multiple published courses.</p>
+        <p style="margin: 0 0 10px"><strong>No External Events/Webinars:</strong> Posts about live sessions or off-platform events are not allowed, to keep learner retention within the platform.</p>
+        <p style="margin: 0 0 4px"><strong>Note</strong></p>
+        <ul style="margin: 0; padding-left: 20px"><li>Learners receive in-app notifications when a new announcement is published for any course they’re enrolled in.</li><li>Announcements are not currently sent via email, to keep communication focused within the platform.</li></ul>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{replyOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; justify-content: flex-end; padding: 16px">
+    <form role="dialog" aria-modal="true" aria-labelledby="rp-t" style="width: 440px; max-width: 100%; background: #ffffff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden">
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid #EAECF0"><h2 id="rp-t" style="margin: 0; font-size: 18px; font-weight: 600">{{rpHeading}}</h2><button type="button" aria-label="Close" onClick="{{closeReply}}" style="width: 34px; height: 34px; border: 0; background: transparent; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div>
+      <div style="flex: 1; padding: 16px 20px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; gap: 10px; padding-bottom: 14px; border-bottom: 1px solid #EAECF0"><span style="width: 30px; height: 30px; flex: none; border-radius: 50%; background: {{T.av}}; color: #ffffff; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center">{{T.initials}}</span><div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 13px">{{T.title}}</strong><span style="font-size: 12px; color: #475467; line-height: 1.5">{{T.body}}</span><span style="font-size: 11px; color: #667085">{{T.author}} ({{T.role}}) • {{T.ago}}</span></div></div>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Add your reply<textarea rows="5" value="{{rpText}}" onChange="{{setRpText}}" placeholder="Enter a description…" style="border: 1px solid #D0D5DD; border-radius: 8px; padding: 10px 12px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB; resize: vertical"></textarea></label>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 16px 20px 20px; border-top: 1px solid #EAECF0">
+        <button type="button" onClick="{{closeReply}}" style="height: 44px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Cancel</button>
+        <button type="button" onClick="{{sendReply}}" disabled="{{rpBlocked}}" style="{{rpStyle}}">{{rpLabel}}</button>
+      </div>
+    </form>
+  </div>
+</sc-if>
+
+<sc-if value="{{reportOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; justify-content: flex-end; padding: 16px">
+    <form role="dialog" aria-modal="true" aria-labelledby="rq-t" style="width: 420px; max-width: 100%; background: #ffffff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden">
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 16px 20px; border-bottom: 1px solid #EAECF0"><div style="flex: 1; display: flex; flex-direction: column; gap: 4px"><h2 id="rq-t" style="margin: 0; font-size: 18px; font-weight: 600">Report this post</h2><p style="margin: 0; font-size: 12px; color: #475467">Help us keep Lawdemy’s community clean. Why are you reporting this post?</p></div><button type="button" aria-label="Close" onClick="{{closeReport}}" style="width: 34px; height: 34px; border: 0; background: transparent; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div>
+      <div style="flex: 1; padding: 16px 20px; display: flex; flex-direction: column; gap: 14px">
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Reason for reporting
+          <select value="{{rqReason}}" onChange="{{setRqReason}}" style="height: 40px; border: 1px solid #D0D5DD; border-radius: 8px; padding: 0 10px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB"><option value="">Select option</option><option>It’s spam or misleading</option><option>Offensive or abusive content</option><option>Off-topic or irrelevant</option><option>Duplicate content</option><option>Other</option></select>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 600">Tell Us More (Optional)<textarea rows="4" value="{{rqText}}" onChange="{{setRqText}}" placeholder="Enter a description…" style="border: 1px solid #D0D5DD; border-radius: 8px; padding: 10px 12px; font: inherit; font-size: 13px; font-weight: 400; background: #F9FAFB; resize: vertical"></textarea></label>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 16px 20px 20px; border-top: 1px solid #EAECF0">
+        <button type="button" onClick="{{closeReport}}" style="height: 44px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Cancel</button>
+        <button type="button" onClick="{{submitReport}}" disabled="{{rqBlocked}}" style="{{rqStyle}}">{{rqLabel}}</button>
+      </div>
+    </form>
+  </div>
+</sc-if>
+
+<sc-if value="{{detailOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; justify-content: flex-end; padding: 16px">
+    <div role="dialog" aria-modal="true" aria-labelledby="ad-t" style="width: 440px; max-width: 100%; background: #ffffff; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden">
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid #EAECF0"><h2 id="ad-t" style="margin: 0; font-size: 18px; font-weight: 600">Announcement Details</h2><button type="button" aria-label="Close" onClick="{{closeDetail}}" style="width: 34px; height: 34px; border: 0; background: transparent; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div>
+      <div style="flex: 1; overflow-y: auto; padding: 18px 20px; display: flex; flex-direction: column; gap: 16px">
+        <dl style="margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 12px 16px; font-size: 13px">
+          <dt style="color: #475467">Title</dt><dd style="margin: 0; text-align: right; font-weight: 500">{{A.title}}</dd>
+          <dt style="color: #475467">Course</dt><dd style="margin: 0; text-align: right; font-weight: 500">{{A.course}}</dd>
+          <dt style="color: #475467">Published On</dt><dd style="margin: 0; text-align: right; font-weight: 500">{{A.dateLabel}}</dd>
+          <dt style="color: #475467">Status</dt><dd style="margin: 0; text-align: right"><span style="{{A.badge}}">{{A.status}}</span></dd>
+        </dl>
+        <div style="display: flex; flex-direction: column; gap: 6px"><strong style="font-size: 13px">Announcement Body</strong><p style="margin: 0; font-size: 13px; color: #475467; line-height: 1.55">{{A.body}}</p></div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 16px 20px 20px; border-top: 1px solid #EAECF0">
+        <sc-if value="{{A.published}}" hint-placeholder-val="{{true}}">
+          <button type="button" onClick="{{askDeleteAnn}}" style="height: 44px; border: 0; border-radius: 8px; background: #F04438; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Delete</button>
+          <button type="button" onClick="{{editAnn}}" style="height: 44px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Edit</button>
+        </sc-if>
+        <sc-if value="{{A.expired}}" hint-placeholder-val="{{false}}">
+          <button type="button" onClick="{{closeDetail}}" style="height: 44px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Cancel</button>
+          <button type="button" onClick="{{askDeleteAnn}}" style="height: 44px; border: 0; border-radius: 8px; background: #F04438; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Delete</button>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{previewOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.4); display: flex; align-items: center; justify-content: center; padding: 16px">
+    <div role="dialog" aria-modal="true" aria-labelledby="pi-t" style="width: 400px; max-width: 100%; background: #ffffff; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+      <div style="display: flex; align-items: center; justify-content: space-between"><h2 id="pi-t" style="margin: 0; font-size: 17px; font-weight: 600">Preview Image</h2><button type="button" aria-label="Close" onClick="{{closePreview}}" style="width: 32px; height: 32px; border: 0; background: transparent; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#101828" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div>
+      <div style="height: 260px; border-radius: 10px; background: linear-gradient(160deg, #E8DCC8, #9C7A4E); display: flex; align-items: flex-end; padding: 12px"><span style="font-size: 12px; color: #3A2A12; background: rgba(255,255,255,0.75); border-radius: 4px; padding: 3px 6px">[Image: IMG_3056.jpg]</span></div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+        <button type="button" onClick="{{removeFile}}" style="height: 42px; border: 0; border-radius: 8px; background: #F04438; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Delete Image</button>
+        <button type="button" onClick="{{replaceFile}}" style="height: 42px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Replace</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{thanksOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.55); display: flex; align-items: center; justify-content: center; padding: 16px">
+    <div role="alertdialog" aria-modal="true" aria-labelledby="th-t" style="width: 360px; max-width: 100%; background: #ffffff; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center">
+      <span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 10px; background: #F1EBFF"></span>
+      <h2 id="th-t" style="margin: 0; font-size: 17px; font-weight: 600">Thanks for reporting!</h2>
+      <p style="margin: 0; font-size: 13px; color: #475467; line-height: 1.5">We’ll review this post shortly. You won’t see updates, but action will be taken if necessary.</p>
+      <button type="button" onClick="{{closeThanks}}" style="align-self: stretch; margin-top: 6px; height: 42px; border: 0; border-radius: 8px; background: #0B0B7E; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Done</button>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{confirmOpen}}" hint-placeholder-val="{{false}}">
+  <div style="position: fixed; inset: 0; background: rgba(16,24,40,0.45); display: flex; align-items: center; justify-content: center; padding: 16px">
+    <div role="alertdialog" aria-modal="true" aria-labelledby="cf-t" style="width: 360px; max-width: 100%; background: #ffffff; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center">
+      <span style="width: 44px; height: 44px; border-radius: 10px; border: 1px solid #EAECF0; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l10 18H2z" fill="#FDB022"></path><path d="M12 10v5M12 18h.01" stroke="#7A2E0E" stroke-width="2" stroke-linecap="round"></path></svg></span>
+      <h2 id="cf-t" style="margin: 0; font-size: 17px; font-weight: 600">{{cfTitle}}</h2>
+      <p style="margin: 0; font-size: 13px; color: #475467; line-height: 1.5">{{cfBody}}</p>
+      <div style="align-self: stretch; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 6px">
+        <button type="button" onClick="{{cfCancel}}" style="height: 40px; border: 1px solid #0B0B7E; border-radius: 8px; background: #ffffff; color: #0B0B7E; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Cancel</button>
+        <button type="button" onClick="{{cfOk}}" style="{{cfOkStyle}}">{{cfOkLabel}}</button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"firstTime":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":1100}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    const R = (id, author, role, text, ago, mine) => ({ id, author, role, text, ago, mine: !!mine, edited: false });
+    this.state = {
+      tab: 'disc', q: '', sort: 'latest', sortOpen: false, view: null, menu: null, toast: null, busy: false,
+      posts: [
+        { id: 1, title: 'Balancing privacy and security in the age of surveillance', body: 'Governments say surveillance protects citizens. But how much is too much? Let’s explore where we draw the line.', author: 'James Bello', role: 'Instructor', ago: '2h ago', t: 5, up: 0, upped: false, replies: [] },
+        { id: 2, title: 'Common mistakes in student contracts', body: 'Here are the top 3 errors I noticed in the last assignment. Sharing them here so we can collectively learn.', author: 'Gabriel Achiwe', role: 'Instructor', ago: '2d ago', t: 3, up: 40, upped: false, replies: [R(1, 'Sonia Mariposa', 'Instructor', 'Hi! I also had a problem with item 2.', '3 weeks ago'), R(2, 'Gabriel Achiwe', 'Instructor', 'Thanks, I’ll add a worked example.', '2 weeks ago')] },
+        { id: 3, title: 'Is remix culture hurting original creators?', body: 'Let’s discuss this from a legal and ethical lens. Also curious how students feel about ownership in this era.', author: 'Peter Paul', role: 'Instructor', ago: '2h ago', t: 4, up: 0, upped: false, replies: [R(3, 'Sonia Mariposa', 'Instructor', 'Hi! I also had a problem with it.', '3 weeks ago'), R(4, 'Gabriel Achiwe', 'Learner', 'I think fair use covers most remixes, but not all.', '3 weeks ago')] }
+      ],
+      nextId: 10, form: null, guide: false, reply: null, report: null, thanks: false, confirm: null, preview: false,
+      anns: [
+        ['New Case Study Uploaded to Module 3', 'Contract Drafting and Negotiation for Corporations', '2025-07-05', 'Published'],
+        ['Lecture Slides for Module 4 Now Available', 'Legal Writing Mastery', '2025-06-26', 'Published'],
+        ['Correction Made to Compliance Checklist', 'Navigating Compliance for Startups', '2025-06-23', 'Expired'],
+        ['Final Module: New Lesson Write-up Uploaded', 'Criminal Law Basics', '2025-06-02', 'Published'],
+        ['Module 1, Lesson 3 Reading List Now Accessible', 'Legal Ethics in Practice', '2025-05-05', 'Expired'],
+        ['Module 6 Release: Blockchain Regulation', 'Blockchain & Smart Contracts', '2025-04-20', 'Published'],
+        ['Supplementary Notes on Case Law Updates', 'Public Speaking for Lawyers', '2025-04-20', 'Expired']
+      ].map((a, i) => ({ id: i + 1, title: a[0], course: a[1], date: a[2], status: a[3], body: 'We’ve updated the compliance checklist in Module 3 to reflect recent NITDA data protection guidelines. Please review the revised document before your next assignment.' })),
+      annFrom: '', annStatus: 'All', detail: null
+    };
+  }
+  componentWillUnmount() { clearTimeout(this.t); clearInterval(this.u); }
+  renderVals() {
+    const s = this.state;
+    const first = !!this.props.firstTime;
+    const ME = 'James Adeniola';
+    const colors = ['#7A4E3A', '#1D4ED8', '#047857', '#9333EA', '#B45309'];
+    const av = (name) => colors[name.length % colors.length];
+    const ini = (name) => name.split(' ').map((w) => w[0]).join('').slice(0, 2);
+    const tab = (on) => 'height: 44px; border: 0; border-bottom: 2px solid ' + (on ? '#F26B1D' : 'transparent') + '; background: transparent; font: inherit; font-size: 14px; font-weight: ' + (on ? '600; color: #101828' : '500; color: #667085') + '; cursor: pointer';
+    const upStyle = (on) => 'height: 30px; display: flex; align-items: center; gap: 4px; padding: 0 8px; border: 0; border-radius: 6px; font: inherit; font-size: 12px; cursor: pointer; background: ' + (on ? '#EEF0FF' : 'transparent') + '; color: ' + (on ? '#0B0B7E' : '#475467');
+    const allPosts = first ? [] : s.posts;
+    const q = s.q.trim().toLowerCase();
+    const sorts = [['latest', 'Latest'], ['upvoted', 'Most Upvoted'], ['instructor', 'Instructors Only'], ['learner', 'Learners Only']];
+    let list = allPosts.filter((p) => !q || (p.title + ' ' + p.body).toLowerCase().includes(q));
+    if (s.sort === 'upvoted') list = list.slice().sort((a, b) => b.up - a.up);
+    else if (s.sort === 'instructor') list = list.filter((p) => p.role === 'Instructor');
+    else if (s.sort === 'learner') list = list.filter((p) => p.role === 'Learner');
+    else list = list.slice().sort((a, b) => b.t - a.t);
+    const updPost = (id, fn) => this.setState({ posts: this.state.posts.map((p) => (p.id === id ? fn({ ...p, replies: p.replies.slice() }) : p)) });
+    const toggleUp = (p) => () => updPost(p.id, (x) => ({ ...x, upped: !x.upped, up: x.up + (x.upped ? -1 : 1) }));
+    const later = (fn, ms) => { clearTimeout(this.t); this.t = setTimeout(fn, ms); };
+    const thread = s.view != null ? s.posts.find((p) => p.id === s.view) : null;
+    const T = thread ? { ...thread, av: av(thread.author), initials: ini(thread.author), upAttr: thread.upped ? 'true' : 'false', upStyle: upStyle(thread.upped), toggleUp: toggleUp(thread) } : { title: '', body: '', author: '', role: '', ago: '', av: '#fff', initials: '', up: 0, upAttr: 'false', upStyle: '', toggleUp: () => {} };
+    const F = s.form;
+    const fIsAnn = !!(F && (F.kind === 'announcement' || F.kind === 'editAnnouncement'));
+    const fEdit = !!(F && F.kind.indexOf('edit') === 0);
+    const fOk = !!(F && F.title.trim() && F.body.trim() && (!fIsAnn || F.course) && !(F.up > 0 && F.up < 100));
+    const fDirty = !!(F && JSON.stringify([F.title, F.body, F.course, F.up]) !== F.snap);
+    const RP = s.reply;
+    const rpOk = !!(RP && RP.text.trim() && RP.text !== RP.orig);
+    const RQ = s.report;
+    const pill = (bg, fg) => 'display: inline-flex; height: 22px; align-items: center; padding: 0 8px; border-radius: 11px; font-size: 11px; font-weight: 600; background: ' + bg + '; color: ' + fg;
+    const annBadge = (st) => (st === 'Published' ? pill('#DCFAE6', '#067647') : pill('#EAECF0', '#475467'));
+    const fmt = (d) => new Date(d + 'T00:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    const anns = s.anns.filter((a) => (s.annStatus === 'All' || a.status === s.annStatus) && (!s.annFrom || a.date >= s.annFrom)).sort((a, b) => b.date.localeCompare(a.date));
+    const det = s.detail != null ? s.anns.find((a) => a.id === s.detail) : null;
+    const A = det ? { ...det, dateLabel: fmt(det.date), badge: annBadge(det.status), published: det.status === 'Published', expired: det.status !== 'Published' } : { title: '', course: '', dateLabel: '', badge: '', status: '', body: '', published: false, expired: false };
+    const openForm = (kind, src) => { const f = { kind, title: src ? src.title : '', body: src ? src.body : '', course: src ? src.course || '' : '', up: 0, srcId: src ? src.id : null }; f.snap = JSON.stringify([f.title, f.body, f.course, f.up]); this.setState({ form: f, menu: null, detail: null, typeSel: null }); };
+    const setF = (p) => this.setState({ form: { ...this.state.form, ...p } });
+    const confirms = {
+      deletePost: { t: 'Delete your post?', b: 'This action cannot be undone. Your post and its replies will be permanently removed.', ok: 'Delete', busy: 'Deleting…' },
+      deleteReply: { t: 'Delete your comment?', b: 'This action cannot be undone. Your comment will be permanently removed from the thread.', ok: 'Delete', busy: 'Deleting…' },
+      deleteAnn: { t: 'Are you sure you want to delete this announcement?', b: 'This will permanently remove the announcement from the course. Learners will no longer be able to see it.', ok: 'Delete', busy: 'Deleting…' },
+      deleteExpired: { t: 'Delete Expired Announcement?', b: 'This announcement has expired and is no longer visible to learners. You can safely delete it to keep your announcement list clean.', ok: 'Delete', busy: 'Deleting…' },
+      discard: { t: fIsAnn ? 'Discard Announcement?' : 'Discard Post?', b: 'You have unsaved changes. If you leave now, your draft will be lost.', ok: 'Discard', busy: 'Discard' }
+    };
+    const cf = s.confirm ? confirms[s.confirm.kind] : null;
+    const fBtn = (ok, busy) => 'height: 44px; border: 0; border-radius: 8px; color: #ffffff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; background: ' + (busy ? '#06065A' : ok ? '#0B0B7E' : '#9D9DD0');
+    return {
+      q: s.q, setQ: (e) => this.setState({ q: e.target.value }),
+      hasToast: !!s.toast, toastTitle: s.toast ? s.toast[0] : '', toastBody: s.toast ? s.toast[1] : '', dismiss: () => this.setState({ toast: null }),
+      listView: !thread, threadView: !!thread,
+      openCreate: () => this.setState({ typeSel: s.tab === 'ann' ? 'announcement' : 'discussion', typeOpenFlag: true }),
+      dSel: s.tab === 'disc' ? 'true' : 'false', aSel: s.tab === 'ann' ? 'true' : 'false', dTab: tab(s.tab === 'disc'), aTab: tab(s.tab === 'ann'),
+      toDisc: () => this.setState({ tab: 'disc' }), toAnn: () => this.setState({ tab: 'ann', sortOpen: false }),
+      isDisc: s.tab === 'disc', isAnn: s.tab === 'ann',
+      noPosts: allPosts.length === 0, hasPosts: allPosts.length > 0, noMatches: allPosts.length > 0 && list.length === 0,
+      sortOpen: s.sortOpen, sortAttr: s.sortOpen ? 'true' : 'false', toggleSort: () => this.setState({ sortOpen: !s.sortOpen }),
+      sortLabel: sorts.find((o) => o[0] === s.sort)[1],
+      sorts: sorts.map((o) => ({ label: o[1], sel: o[0] === s.sort ? 'true' : 'false', pick: () => this.setState({ sort: o[0], sortOpen: false }), style: 'width: 100%; min-height: 36px; padding: 0 10px; border: 0; border-radius: 6px; text-align: left; font: inherit; font-size: 13px; cursor: pointer; ' + (o[0] === s.sort ? 'background: #F2F4F7; font-weight: 600' : 'background: transparent') })),
+      posts: list.map((p) => ({
+        ...p, av: av(p.author), initials: ini(p.author), count: p.replies.length, editedTag: p.edited ? ' • Edited' : '',
+        mine: p.author === ME, upAttr: p.upped ? 'true' : 'false', upStyle: upStyle(p.upped), toggleUp: toggleUp(p),
+        open: () => this.setState({ view: p.id, menu: null }),
+        menuOpen: s.menu === 'p' + p.id, menuAttr: s.menu === 'p' + p.id ? 'true' : 'false',
+        toggleMenu: () => this.setState({ menu: s.menu === 'p' + p.id ? null : 'p' + p.id }),
+        edit: () => openForm('editDiscussion', p),
+        askDelete: () => this.setState({ confirm: { kind: 'deletePost', id: p.id }, menu: null })
+      })),
+      annFrom: s.annFrom, setAnnFrom: (e) => this.setState({ annFrom: e.target.value }),
+      annStatus: s.annStatus, setAnnStatus: (e) => this.setState({ annStatus: e.target.value }),
+      anns: anns.map((a) => ({ ...a, dateLabel: fmt(a.date), badge: annBadge(a.status), open: () => this.setState({ detail: a.id }) })),
+      noAnns: anns.length === 0,
+      detailOpen: !!det, A, closeDetail: () => this.setState({ detail: null }),
+      askDeleteAnn: () => this.setState({ confirm: { kind: det && det.status === 'Published' ? 'deleteAnn' : 'deleteExpired', id: det.id } }),
+      editAnn: () => openForm('editAnnouncement', det),
+      T, closeThread: () => this.setState({ view: null, menu: null }),
+      noReplies: !!thread && thread.replies.length === 0, hasReplies: !!thread && thread.replies.length > 0,
+      replyCount: thread ? thread.replies.length + (thread.replies.length === 1 ? ' Reply' : ' Replies') : '',
+      replies: thread ? thread.replies.map((r) => ({
+        ...r, av: av(r.author), initials: ini(r.author), notMine: !r.mine, editedTag: r.edited ? ' • Edited' : '',
+        menuOpen: s.menu === 'r' + r.id, menuAttr: s.menu === 'r' + r.id ? 'true' : 'false',
+        toggleMenu: () => this.setState({ menu: s.menu === 'r' + r.id ? null : 'r' + r.id }),
+        edit: () => this.setState({ reply: { id: r.id, text: r.text, orig: r.text }, menu: null }),
+        askDelete: () => this.setState({ confirm: { kind: 'deleteReply', id: r.id }, menu: null }),
+        report: () => this.setState({ report: { id: r.id, reason: '', text: '' }, menu: null })
+      })) : [],
+      openReply: () => this.setState({ reply: { id: null, text: '', orig: '' } }),
+      replyOpen: !!RP, rpHeading: RP && RP.id != null ? 'Edit Comment' : 'Write your response',
+      rpText: RP ? RP.text : '', setRpText: (e) => this.setState({ reply: { ...this.state.reply, text: e.target.value } }),
+      closeReply: () => this.setState({ reply: null }),
+      rpBlocked: !rpOk || s.busy, rpStyle: fBtn(rpOk, s.busy), rpLabel: s.busy ? (RP && RP.id != null ? 'Saving…' : 'Sending…') : (RP && RP.id != null ? 'Save' : 'Send'),
+      sendReply: () => {
+        if (!rpOk) return;
+        this.setState({ busy: true });
+        later(() => {
+          const c = this.state.reply; const id = this.state.nextId;
+          updPost(thread.id, (x) => ({ ...x, replies: c.id != null ? x.replies.map((r) => (r.id === c.id ? { ...r, text: c.text.trim(), edited: true } : r)) : [{ id, author: ME, role: 'Instructor', text: c.text.trim(), ago: 'Just now', mine: true, edited: false }].concat(x.replies) }));
+          this.setState({ busy: false, reply: null, nextId: id + 1, toast: c.id != null ? ['Comment updated', 'Your changes have been saved.'] : ['Reply posted', 'Your reply is now visible in this thread.'] });
+        }, 800);
+      },
+      reportOpen: !!RQ, rqReason: RQ ? RQ.reason : '', setRqReason: (e) => this.setState({ report: { ...this.state.report, reason: e.target.value } }),
+      rqText: RQ ? RQ.text : '', setRqText: (e) => this.setState({ report: { ...this.state.report, text: e.target.value } }),
+      closeReport: () => this.setState({ report: null }),
+      rqBlocked: !(RQ && RQ.reason) || s.busy, rqStyle: fBtn(RQ && RQ.reason, s.busy), rqLabel: s.busy ? 'Submitting…' : 'Submit',
+      submitReport: () => { if (!(RQ && RQ.reason)) return; this.setState({ busy: true }); later(() => this.setState({ busy: false, report: null, thanks: true }), 800); },
+      thanksOpen: s.thanks, closeThanks: () => this.setState({ thanks: false }),
+      typeOpen: !!s.typeOpenFlag, closeType: () => this.setState({ typeOpenFlag: false }),
+      typeD: s.typeSel === 'discussion', typeA: s.typeSel === 'announcement',
+      pickD: () => this.setState({ typeSel: 'discussion' }), pickA: () => this.setState({ typeSel: 'announcement' }),
+      typeDStyle: 'display: flex; gap: 10px; padding: 14px; border: 1px solid ' + (s.typeSel === 'discussion' ? '#0B0B7E' : '#EAECF0') + '; border-radius: 10px; cursor: pointer',
+      typeAStyle: 'display: flex; gap: 10px; padding: 14px; border: 1px solid ' + (s.typeSel === 'announcement' ? '#0B0B7E' : '#EAECF0') + '; border-radius: 10px; cursor: pointer',
+      typeBlocked: !s.typeSel, typeNextStyle: fBtn(!!s.typeSel, false),
+      typeNext: () => { if (!s.typeSel) return; const k = s.typeSel; this.setState({ typeOpenFlag: false }); openForm(k, null); },
+      formOpen: !!F, fIsAnn, fHasCourse: fIsAnn || !!(F && F.kind === 'editDiscussion'),
+      fHeading: !F ? '' : F.kind === 'discussion' ? 'Discussion' : F.kind === 'announcement' ? 'Course Announcement' : F.kind === 'editDiscussion' ? 'Edit Discussion' : 'Edit Course Announcement',
+      fSub: !F ? '' : fIsAnn ? (fEdit ? 'Update your announcement details. Learners will be notified of the changes instantly.' : 'Keep your learners updated with important course-related information, deadlines, new materials, or upcoming schedules.') : (fEdit ? 'Refine your post, fix mistakes, or update details with ease.' : 'Engage learners, share knowledge, or start a conversation.'),
+      fTitle: F ? F.title : '', setFTitle: (e) => setF({ title: e.target.value }),
+      fTitlePh: fIsAnn ? 'e.g. Module 3 case study now available' : 'e.g. "Legal Frameworks"',
+      fBody: F ? F.body : '', setFBody: (e) => setF({ body: e.target.value }),
+      fCourse: F ? F.course : '', setFCourse: (e) => setF({ course: e.target.value }),
+      openGuide: () => this.setState({ guide: true }), guideOpen: s.guide, closeGuide: () => this.setState({ guide: false }),
+      startUpload: () => {
+        clearInterval(this.u); setF({ up: 4 });
+        this.u = setInterval(() => { const c = this.state.form; if (!c) { clearInterval(this.u); return; } const up = Math.min(100, c.up + 16); this.setState({ form: { ...c, up } }); if (up >= 100) clearInterval(this.u); }, 220);
+      },
+      hasFile: !!(F && F.up > 0), upBusy: !!(F && F.up > 0 && F.up < 100), upPct: F ? F.up : 0, upWidth: (F ? F.up : 0) + '%',
+      upMeta: F ? (F.up < 100 ? (F.up * 0.041).toFixed(1) + 'MB of 4.1MB • Uploading…' : '4.1MB of 4.1MB • Completed') : '',
+      removeFile: () => { clearInterval(this.u); this.setState({ form: { ...this.state.form, up: 0 }, preview: false }); },
+      previewFile: () => this.setState({ preview: true }), previewOpen: s.preview, closePreview: () => this.setState({ preview: false }),
+      replaceFile: () => { this.setState({ preview: false }); clearInterval(this.u); setF({ up: 4 }); this.u = setInterval(() => { const c = this.state.form; if (!c) { clearInterval(this.u); return; } const up = Math.min(100, c.up + 16); this.setState({ form: { ...c, up } }); if (up >= 100) clearInterval(this.u); }, 220); },
+      fBackLabel: fEdit ? 'Cancel' : 'Back',
+      formBack: () => { if (fDirty) this.setState({ confirm: { kind: 'discard', back: !fEdit } }); else if (fEdit) this.setState({ form: null }); else this.setState({ form: null, typeOpenFlag: true, typeSel: F.kind }); },
+      closeForm: () => { if (fDirty) this.setState({ confirm: { kind: 'discard' } }); else this.setState({ form: null }); },
+      fBlocked: !fOk || (fEdit && !fDirty) || s.busy,
+      fStyle: fBtn(fOk && (!fEdit || fDirty), s.busy),
+      fLabel: s.busy ? 'Publishing…' : fEdit ? 'Update and Publish' : fIsAnn ? 'Publish Announcement' : 'Publish Post',
+      submitForm: () => {
+        if (!fOk || (fEdit && !fDirty)) return;
+        this.setState({ busy: true });
+        later(() => {
+          const c = this.state.form; const id = this.state.nextId;
+          if (c.kind === 'discussion') this.setState({ posts: [{ id, title: c.title.trim(), body: c.body.trim(), author: ME, role: 'Instructor', ago: 'Just now', t: 9 + id, up: 0, upped: false, replies: [] }].concat(this.state.posts), tab: 'disc', sort: 'latest', toast: ['Post Published', 'Your post is now live in the Discussions tab.'] });
+          else if (c.kind === 'editDiscussion') { updPost(c.srcId, (x) => ({ ...x, title: c.title.trim(), body: c.body.trim(), edited: true })); this.setState({ toast: ['Post Published', 'Your changes are now live in the Discussions tab.'] }); }
+          else if (c.kind === 'announcement') this.setState({ anns: [{ id, title: c.title.trim(), course: c.course, date: new Date().toISOString().slice(0, 10), status: 'Published', body: c.body.trim() }].concat(this.state.anns), tab: 'ann', toast: ['Announcement Published', 'Learners enrolled in this course will now see this announcement.'] });
+          else this.setState({ anns: this.state.anns.map((a) => (a.id === c.srcId ? { ...a, title: c.title.trim(), body: c.body.trim(), course: c.course } : a)), toast: ['Announcement Updated', 'Your changes have been published and learners were notified.'] });
+          this.setState({ busy: false, form: null, nextId: id + 1 });
+        }, 900);
+      },
+      confirmOpen: !!cf, cfTitle: cf ? cf.t : '', cfBody: cf ? cf.b : '',
+      cfOkLabel: cf ? (s.busy ? cf.busy : cf.ok) : '',
+      cfOkStyle: 'height: 40px; border: 0; border-radius: 8px; color: #ffffff; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; background: ' + (s.busy ? '#B42318' : '#F04438'),
+      cfCancel: () => this.setState({ confirm: null }),
+      cfOk: () => {
+        const c = s.confirm;
+        if (c.kind === 'discard') { clearInterval(this.u); this.setState({ confirm: null, form: null, typeOpenFlag: !!c.back }); return; }
+        this.setState({ busy: true });
+        later(() => {
+          if (c.kind === 'deletePost') this.setState({ posts: this.state.posts.filter((p) => p.id !== c.id), toast: ['Post Deleted', 'Your discussion post has been removed successfully.'] });
+          else if (c.kind === 'deleteReply') { updPost(thread.id, (x) => ({ ...x, replies: x.replies.filter((r) => r.id !== c.id) })); this.setState({ toast: ['Reply Deleted Successfully', 'Your reply has been removed from this thread.'] }); }
+          else this.setState({ anns: this.state.anns.filter((a) => a.id !== c.id), detail: null, toast: ['Post Deleted', 'The announcement has been removed.'] });
+          this.setState({ busy: false, confirm: null });
+        }, 800);
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
