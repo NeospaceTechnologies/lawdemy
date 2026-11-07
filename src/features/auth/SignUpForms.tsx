@@ -181,7 +181,7 @@ export function AccountInfoForm({ role, back, next }: { role: Role; back: string
   );
 }
 
-const RESEND_S = 60;
+const RESEND_S = 5 * 60;
 
 /**
  * SignUp-EmailSent. The design's timer reads "This link will expire in 09:58",

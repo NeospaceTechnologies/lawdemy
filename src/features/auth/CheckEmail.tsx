@@ -7,7 +7,7 @@ import { useToast } from "@/components/ui/Toast";
 import { api, ApiClientError } from "@/lib/api-client";
 import { RESET_EMAIL_KEY } from "./ResetRequestForm";
 
-const RESEND_COOLDOWN_S = 60;
+const RESEND_COOLDOWN_S = 5 * 60;
 
 function mask(email: string) {
   const [local, domain] = email.split("@");
@@ -60,7 +60,7 @@ export function CheckEmail({ role, basePath }: { role: "learner" | "instructor";
         Didn’t receive the email?{" "}
         {email ? (
           <button type="button" onClick={resend} disabled={cooldown > 0 || busy} className="border-0 bg-transparent p-0 font-semibold text-primary underline disabled:cursor-not-allowed disabled:text-primary-disabled disabled:no-underline">
-            {busy ? "Resending…" : cooldown > 0 ? `Resend link in ${cooldown}s` : "Resend link"}
+            {busy ? "Resending…" : cooldown > 0 ? `Resend link in ${Math.floor(cooldown / 60)}:${String(cooldown % 60).padStart(2, "0")}` : "Resend link"}
           </button>
         ) : (
           <a href={basePath} className="font-semibold underline">Resend link</a>

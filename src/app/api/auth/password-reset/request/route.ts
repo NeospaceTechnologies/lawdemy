@@ -23,7 +23,7 @@ export async function POST(req: Request) {
   const response = ok({ ok: true });
 
   // One email per address per minute; extra requests are silently accepted.
-  if (!rateLimit(`reset-email:${role}:${email}`, 1, 60_000).ok) return response;
+  if (!rateLimit(`reset-email:${role}:${email}`, 1, 5 * 60_000).ok) return response;
 
   const user = await db.user.findUnique({ where: { email_role: { email, role: toDbRole(role) } } });
   if (!user || user.deletedAt || user.status === "DELETED") return response;
