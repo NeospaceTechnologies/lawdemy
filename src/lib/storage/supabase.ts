@@ -16,8 +16,10 @@ function config() {
 function call(path: string, init: RequestInit & { duplex?: "half" } = {}) {
   const { base, key } = config();
   // New secret keys (sb_secret_…) go in apikey only; legacy service_role JWTs also as a bearer token.
-  const auth = key.startsWith("sb_") ? { apikey: key } : { apikey: key, Authorization: `Bearer ${key}` };
-  return fetch(`${base}${path}`, { ...init, headers: { ...auth, ...init.headers } });
+  const headers = new Headers(init.headers);
+  headers.set("apikey", key);
+  if (!key.startsWith("sb_")) headers.set("Authorization", `Bearer ${key}`);
+  return fetch(`${base}${path}`, { ...init, headers });
 }
 
 const objectPath = (key: string) => `${encodeURIComponent(config().bucket)}/${key.split("/").map(encodeURIComponent).join("/")}`;
