@@ -13,6 +13,12 @@ const consoleMailer: Mailer = {
   },
 };
 
+/** EMAIL_FROM as pasted into a hosting dashboard, which keeps surrounding quotes as part of the value. */
+function fromAddress() {
+  const raw = (process.env.EMAIL_FROM ?? "").trim().replace(/^["']+|["']+$/g, "").trim();
+  return raw || "Lawdemy <onboarding@resend.dev>";
+}
+
 // Resend (https://resend.com/docs/api-reference/emails/send-email). EMAIL_FROM must use a domain
 // verified in Resend. A failed send is logged rather than thrown, so the action that triggered it
 // (sign-up, reset request, payout) still completes; users can ask for a new link from the UI.
@@ -23,7 +29,7 @@ const resendMailer: Mailer = {
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ from: process.env.EMAIL_FROM ?? "Lawdemy <onboarding@resend.dev>", to: [to], subject, text, ...(html ? { html } : {}) }),
+      body: JSON.stringify({ from: fromAddress(), to: [to], subject, text, ...(html ? { html } : {}) }),
     });
     if (!res.ok) console.error(`[email] Resend rejected "${subject}" (${res.status}): ${await res.text()}`);
   },
