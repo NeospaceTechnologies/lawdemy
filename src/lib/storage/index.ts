@@ -5,15 +5,25 @@ import path from "node:path";
 import { Readable, Transform } from "node:stream";
 import { pipeline } from "node:stream/promises";
 
-// Storage driver. "local" writes to ./uploads for development. Production swaps
-// in an S3-compatible bucket (signed upload URLs) and the video host (Mux /
-// Cloudflare Stream) for transcoding, HLS and signed playback (PRD 10).
+import { supabaseStorage } from "./supabase";
+
+// Storage driver. "local" writes to ./uploads for development. "supabase" keeps files in a
+// private Supabase Storage bucket: browsers upload straight to it with a signed URL (so files
+// never pass through the 4.5 MB serverless request limit) and read through short-lived
+// signed URLs after /api/media checks access. A video host (Mux / Cloudflare Stream) for
+// transcoding and HLS can replace it later (PRD 10).
 
 export interface Storage {
   /** Streams the body to storage; rejects if more than maxBytes arrive. Returns bytes written. */
   put(key: string, body: ReadableStream<Uint8Array>, maxBytes: number): Promise<number>;
   read(key: string, range?: { start: number; end: number }): Promise<{ stream: ReadableStream<Uint8Array>; size: number } | null>;
   remove(key: string): Promise<void>;
+  /** Direct-upload drivers: a URL the browser PUTs the file to. */
+  createUploadUrl?(key: string): Promise<string>;
+  /** Direct-upload drivers: the stored object's size in bytes, or null when it is missing. */
+  size?(key: string): Promise<number | null>;
+  /** Signed-read drivers: a short-lived URL for the object, optionally as a named download. */
+  signedReadUrl?(key: string, download?: string): Promise<string | null>;
 }
 
 const ROOT = path.resolve(process.cwd(), "uploads");
@@ -62,6 +72,8 @@ export function storage(): Storage {
   switch (process.env.STORAGE_DRIVER ?? "local") {
     case "local":
       return localStorage;
+    case "supabase":
+      return supabaseStorage;
     default:
       throw new Error(`Unknown STORAGE_DRIVER "${process.env.STORAGE_DRIVER}"`);
   }

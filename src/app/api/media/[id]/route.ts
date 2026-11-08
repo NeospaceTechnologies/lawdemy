@@ -32,6 +32,18 @@ export async function GET(req: Request, { params }: Ctx) {
   if (!asset || asset.status !== "READY") return fail(404, "NOT_FOUND", "File not found.");
   if (!(await canView(asset.id, asset.kind, asset.ownerId))) return fail(403, "FORBIDDEN", "You don’t have access to this file.");
 
+  // Signed-read drivers: hand the browser a short-lived URL so bytes (and video range
+  // requests) come straight from storage instead of through this function.
+  const store = storage();
+  if (store.signedReadUrl) {
+    const url = await store.signedReadUrl(asset.storageKey, asset.kind === "FILE" ? asset.fileName : undefined);
+    if (!url) return fail(404, "NOT_FOUND", "File not found.");
+    return new Response(null, {
+      status: 302,
+      headers: { Location: url, "Cache-Control": asset.kind === "IMAGE" ? "public, max-age=1800" : "private, max-age=300" },
+    });
+  }
+
   const size = asset.sizeBytes;
   const range = req.headers.get("range");
   const m = range && /bytes=(\d*)-(\d*)/.exec(range);

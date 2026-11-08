@@ -35,7 +35,7 @@ export async function uploadFile(
   signal: AbortSignal,
 ): Promise<AssetRef> {
   const durationSeconds = kind === "VIDEO" ? await videoDuration(file) : null;
-  const { id, uploadUrl } = await api<{ id: string; uploadUrl: string }>("/api/uploads", {
+  const { id, uploadUrl, completeUrl } = await api<{ id: string; uploadUrl: string; completeUrl?: string }>("/api/uploads", {
     body: { kind, fileName: file.name, mime: mimeOf(file), sizeBytes: file.size, durationSeconds },
     signal,
   });
@@ -47,9 +47,12 @@ export async function uploadFile(
     xhr.upload.onprogress = (e) => onProgress(e.loaded);
     xhr.onload = () => {
       if (xhr.status >= 200 && xhr.status < 300) return resolve();
-      let message = "Upload failed. Please try again.";
+      let message = xhr.status === 413 ? "This file is too large to upload." : "Upload failed. Please try again.";
       try {
-        message = JSON.parse(xhr.responseText).error.message;
+        // Our API returns { error: { message } }; Supabase Storage returns { message }.
+        const body = JSON.parse(xhr.responseText);
+        const m = body?.error?.message ?? (xhr.status === 413 ? null : body?.message);
+        if (typeof m === "string") message = m;
       } catch {}
       reject(new ApiClientError(xhr.status, "UPLOAD_FAILED", message));
     };
@@ -58,6 +61,8 @@ export async function uploadFile(
     signal.addEventListener("abort", () => xhr.abort(), { once: true });
     xhr.send(file);
   });
+  // Direct uploads go straight to storage; the server then checks the file arrived whole.
+  if (completeUrl) await api(completeUrl, { method: "POST", signal });
 
   return { id, fileName: file.name, sizeBytes: file.size };
 }
