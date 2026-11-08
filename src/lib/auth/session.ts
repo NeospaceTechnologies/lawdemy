@@ -1,4 +1,5 @@
 import "server-only";
+import { cache } from "react";
 import { cookies, headers } from "next/headers";
 import type { Role, User } from "@prisma/client";
 import { db } from "@/lib/db";
@@ -37,15 +38,13 @@ export async function createSession(user: Pick<User, "id" | "role">) {
   });
 }
 
-/** The signed-in session and its user (null when signed out, expired, inactive or the wrong role). */
-export async function getCurrentSession(role?: Role) {
-  const token = (await cookies()).get(SESSION_COOKIE)?.value;
-  if (!token) return null;
+// One lookup per render: layouts and pages both ask for the session, so share the result.
+// Outside a server-component render (route handlers) React's cache() does not memoise.
+const loadSession = cache(async (token: string) => {
   const session = await db.session.findUnique({ where: { id: sha256(token) }, include: { user: true } });
   if (!session || session.expiresAt < new Date()) return null;
   const { user } = session;
   if (user.status !== "ACTIVE" || user.deletedAt) return null;
-  if (role && user.role !== role) return null;
 
   if (Date.now() - session.lastSeenAt.getTime() > TOUCH_INTERVAL_MS) {
     await db.session.update({
@@ -53,6 +52,15 @@ export async function getCurrentSession(role?: Role) {
       data: { lastSeenAt: new Date(), expiresAt: new Date(Date.now() + TTL_MS[user.role]) },
     });
   }
+  return session;
+});
+
+/** The signed-in session and its user (null when signed out, expired, inactive or the wrong role). */
+export async function getCurrentSession(role?: Role) {
+  const token = (await cookies()).get(SESSION_COOKIE)?.value;
+  if (!token) return null;
+  const session = await loadSession(token);
+  if (!session || (role && session.user.role !== role)) return null;
   return session;
 }
 

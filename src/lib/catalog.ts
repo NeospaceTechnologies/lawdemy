@@ -1,4 +1,5 @@
 import "server-only";
+import { cache } from "react";
 import type { Prisma } from "@prisma/client";
 import { db } from "@/lib/db";
 import { BUSINESS } from "@/lib/config";
@@ -52,8 +53,8 @@ export function effectivePrice(c: Pick<CardRow, "access" | "priceKobo" | "discou
   return { kobo, fullKobo: c.priceKobo, pct: active ? c.discountPct : null, endsAt: active ? c.discountEndsAt : null };
 }
 
-/** Course ids with the most enrolments in the last 14 days (Trending badge and sort). */
-export async function trendingIds(limit = 10) {
+/** Course ids with the most enrolments in the last 14 days (Trending badge and sort). Shared within one render. */
+export const trendingIds = cache(async (limit: number = 10) => {
   const rows = await db.enrollment.groupBy({
     by: ["courseId"],
     where: { createdAt: { gte: new Date(Date.now() - 14 * 86400_000) } },
@@ -62,7 +63,7 @@ export async function trendingIds(limit = 10) {
     take: limit,
   });
   return rows.map((r) => r.courseId);
-}
+});
 
 export function toCard(c: CardRow, trending: Set<string>): CourseCardData {
   const p = effectivePrice(c);
