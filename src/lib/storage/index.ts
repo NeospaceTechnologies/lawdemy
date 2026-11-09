@@ -69,7 +69,7 @@ const localStorage: Storage = {
 };
 
 export function storage(): Storage {
-  switch (process.env.STORAGE_DRIVER ?? "local") {
+  switch ((process.env.STORAGE_DRIVER ?? "local").trim().replace(/^["']+|["']+$/g, "").toLowerCase()) {
     case "local":
       return localStorage;
     case "supabase":

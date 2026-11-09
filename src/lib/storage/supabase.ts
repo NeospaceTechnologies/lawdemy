@@ -7,10 +7,16 @@ import type { Storage } from "./index";
 const READ_URL_TTL_S = 3600;
 
 function config() {
-  const url = process.env.SUPABASE_URL?.replace(/\/+$/, "");
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const url = clean(process.env.SUPABASE_URL);
+  const key = clean(process.env.SUPABASE_SERVICE_ROLE_KEY);
   if (!url || !key) throw new Error("SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are required when STORAGE_DRIVER=supabase");
-  return { base: `${url}/storage/v1`, key, bucket: process.env.SUPABASE_STORAGE_BUCKET || "lawdemy" };
+  // Only the project origin is used, so a URL copied with a path (…/rest/v1/) still works.
+  return { base: `${new URL(url).origin}/storage/v1`, key, bucket: clean(process.env.SUPABASE_STORAGE_BUCKET) || "lawdemy" };
+}
+
+/** Dashboard-pasted values can carry spaces or surrounding quotes. */
+function clean(v: string | undefined) {
+  return (v ?? "").trim().replace(/^["']+|["']+$/g, "").trim();
 }
 
 function call(path: string, init: RequestInit & { duplex?: "half" } = {}) {

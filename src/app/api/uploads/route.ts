@@ -61,8 +61,14 @@ export async function POST(req: Request) {
   // Direct-upload drivers: the browser sends the bytes straight to storage, then confirms.
   const store = storage();
   if (store.createUploadUrl) {
-    const uploadUrl = await store.createUploadUrl(storageKey);
-    return ok({ id: asset.id, uploadUrl, completeUrl: `/api/uploads/${asset.id}/complete` }, { status: 201 });
+    try {
+      const uploadUrl = await store.createUploadUrl(storageKey);
+      return ok({ id: asset.id, uploadUrl, completeUrl: `/api/uploads/${asset.id}/complete` }, { status: 201 });
+    } catch (err) {
+      console.error("[storage] could not create upload URL:", err instanceof Error ? err.message : err);
+      await db.mediaAsset.update({ where: { id: asset.id }, data: { status: "FAILED" } });
+      return fail(503, "STORAGE_UNAVAILABLE", "File uploads aren’t available right now. Please try again later, or skip the photo for now.");
+    }
   }
   return ok({ id: asset.id, uploadUrl: `/api/uploads/${asset.id}` }, { status: 201 });
 }
