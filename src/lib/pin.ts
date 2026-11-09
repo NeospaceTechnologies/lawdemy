@@ -1,7 +1,7 @@
 import "server-only";
 import { hash, verify } from "@node-rs/argon2";
 import { db } from "@/lib/db";
-import { isWeakPin } from "@/components/ui/PinInput";
+import { isWeakPin } from "@/lib/pin-rules";
 
 // Transaction PIN (PRD 7.1): 4 digits, 3 tries then a 30-minute lock; weak PINs blocked.
 // Hashed separately from the password and never logged or returned (PRD 9).
